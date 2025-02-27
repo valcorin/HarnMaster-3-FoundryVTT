@@ -221,6 +221,130 @@ export async function meleeAttack(attackToken, defendToken, weaponItem=null) {
     if (!weaponItem) {
         weaponItem = dialogResult.weapon;
     }
+
+    let spellMod = 0
+    let noattack = false
+    // Check the attacker for disadvantages
+    let targetActor = attackToken.actor
+    let ae_array = Array.from(targetActor.effects)
+    if (ae_array.length > 0) {
+        ae_array.forEach(ae => {
+            if (ae) {
+                if (!ae.disabled) {
+                    for (let i=0; i < ae.changes.length; i++) {
+                        if ('key' in ae.changes[i]) {
+                            if (ae.changes[i].key == "system.eph.spellcat" && ae.changes[i].value == "AttMod") {
+                                console.log(ae.name + " is active!")
+                                for (let j=0; j < ae.changes.length; j++) {
+                                    if (ae.changes[j].key == "system.eph.spellmodifier") {
+                                        spellMod = parseInt(ae.changes[j].value)
+                                        dialogResult.addlModifier = dialogResult.addlModifier + spellMod
+                                        ChatMessage.create({
+                                            user: game.user._id,
+                                            speaker: speaker,
+                                            content: ae.name + " is active; applying " + spellMod + " to attack."
+                                        }, {});
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // Now check the defender for protections
+    targetActor = defendToken.actor
+    let count_array = 0
+    ae_array = Array.from(targetActor.effects)
+    if (ae_array.length > 0) {
+        await new Promise( (resolve) => {
+            ae_array.forEach(async ae => {
+                if (ae) {
+                    if (!ae.disabled) {
+                        for (let i=0; i < ae.changes.length; i++) {
+                            if ('key' in ae.changes[i]) {
+                                if (ae.changes[i].key == "system.eph.spellcat" && ae.changes[i].value == "DefMod") {
+                                    console.log(ae.name + " is active!")
+                                    for (let j=0; j < ae.changes.length; j++) {
+                                        if (ae.changes[j].key == "system.eph.spellmodifier") {
+                                            spellMod = parseInt(ae.changes[j].value)
+                                            dialogResult.addlModifier = dialogResult.addlModifier + spellMod
+                                            ChatMessage.create({
+                                                user: game.user._id,
+                                                speaker: speaker,
+                                                content: ae.name + " is active; applying " + spellMod + " to attack."
+                                            }, {});
+                                        }
+                                    }
+                                }
+                                if (ae.changes[i].key == "system.eph.spellcat" && ae.changes[i].value == "MissChance") {
+                                    console.log(ae.name + " is active!")
+                                    let miss_chance = 0
+                                    let miss_addmsg = attackToken.name + " misses " + defendToken.name
+                                    for (let j=0; j < ae.changes.length; j++) {
+                                        if (ae.changes[j].key == "system.eph.spellmodifier") {
+                                            miss_chance = parseInt(ae.changes[j].value)
+                                        }
+                                        if (ae.changes[j].key == "system.eph.spellmissed") {
+                                            miss_addmsg = miss_addmsg + " " + ae.changes[j].value
+                                        }
+                                    }
+                                    ChatMessage.create({
+                                        user: game.user._id,
+                                        speaker: speaker,
+                                        content: ae.name + " is active - rolling against " + miss_chance + "..."
+                                    }, {});
+                                    const missRoll = await DiceHM3.rollTest({
+                                        data: {},
+                                        diceSides: 100,
+                                        diceNum: 1,
+                                        modifier: 0,
+                                        target: miss_chance
+                                    });
+                                    console.log(missRoll.rollObj)
+                                    const miss_roll = missRoll.rollObj._total
+                                    if (game.dice3d) {
+                                        const mRoll = missRoll.rollObj;
+                                        mRoll.dice[0].options.colorset = "glitterparty";
+                                        await game.dice3d.showForRoll(mRoll, game.user, true);
+                                    }
+                                    if (missRoll.isSuccess) {
+                                        ChatMessage.create({
+                                            user: game.user._id,
+                                            speaker: speaker,
+                                            content: miss_addmsg
+                                        }, {});
+                                        noattack = true
+                                    } else {
+                                        console.log("Roll was " + miss_roll + " against " + miss_chance)
+                                    }
+                                }
+                            }
+                        }
+                        count_array += 1
+                        if (count_array == ae_array.length) {
+                            resolve()
+                        }
+                    } else {
+                        count_array += 1
+                        if (count_array == ae_array.length) {
+                            resolve()
+                        }
+                    }
+                } else {
+                    count_array += 1
+                    if (count_array == ae_array.length) {
+                        resolve()
+                    }
+                }
+            });
+        });
+    }
+    if (noattack) {
+        return null
+    }
     
     const effAML = dialogResult.weapon.system.attackMasteryLevel + dialogResult.addlModifier;
 

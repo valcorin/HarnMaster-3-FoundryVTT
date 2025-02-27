@@ -354,7 +354,16 @@ export class DiceHM3 {
             // Create the Roll instance
             result = await DiceHM3.injuryDialog(dialogOptions);
         } else {
-            result = DiceHM3._calcInjury('Random', rollData.impact, rollData.aspect,
+            if (typeof rollData.items == "undefined") {
+                console.log("items undefined in rollData - setting from actor.")
+                rollData.items = rollData.actor.items;
+            }
+            let injurylocation = 'Random'
+            if ('bonuslocation' in rollData) {
+                console.log("Using same location: " + rollData.bonuslocation)
+                injurylocation = rollData.bonuslocation
+            }
+            result = DiceHM3._calcInjury(injurylocation, rollData.impact, rollData.aspect,
                 game.settings.get('hm3', 'addInjuryToActorSheet') !== 'disable', rollData.aim, rollData);
         }
 
