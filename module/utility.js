@@ -477,6 +477,7 @@ function toNormTime(seconds) {
 }
 
 export function executeMacroScript(macro, { actor, token, rollResult, rollData, item } = {}) {
+    console.log("Executing " + macro.name)
     let speaker = null;
     if (!actor) {
         if (!token) {
