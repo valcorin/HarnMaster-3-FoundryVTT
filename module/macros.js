@@ -164,6 +164,17 @@ function askMissileMacro(name, slot, img, actorSuffix) {
 
 async function getItemAndActor(itemName, myActor, type) {
   let result = { actor: myActor, item: null, speaker: ChatMessage.getSpeaker() };
+
+  if (!myActor) {
+    result = getActor(result);
+    if (!result) {
+      ui.notifications.warn(`No actor for this action could be determined.`);
+      return null;
+    }
+    myActor = result.actor
+    console.log("myActor set to " + myActor.name)
+  }
+
   if (itemName) {
     result.item = await combat.getItem(itemName, type, myActor);
     myActor = result.item.actor || myActor;
@@ -176,12 +187,6 @@ async function getItemAndActor(itemName, myActor, type) {
       }
       return null;
     }
-  }
-
-  result = getActor(result);
-  if (!result) {
-    ui.notifications.warn(`No actor for this action could be determined.`);
-    return null;
   }
 
   return result;
@@ -218,6 +223,15 @@ export async function skillRoll(itemName, noDialog = false, myActor = null) {
   if (hooksOk) {
     const result = await DiceHM3.d100StdRoll(stdRollData);
     if (result) {
+      if (!actor) {
+        result = getActor(result);
+        if (!result) {
+          ui.notifications.warn(`No actor for this action could be determined.`);
+          return null;
+        }
+        actor = result.actor
+        console.log("Actor set to " + myActor.name)
+      }
       item.runCustomMacro(result);
       callOnHooks("hm3.onSkillRoll", actor, result, stdRollData, item);
     }
@@ -260,6 +274,15 @@ export async function castSpellRoll(itemName, noDialog = false, myActor = null) 
   if (hooksOk) {
     const result = await DiceHM3.d100StdRoll(stdRollData);
     if (result) {
+      if (!actor) {
+        result = getActor(result);
+        if (!result) {
+          ui.notifications.warn(`No actor for this action could be determined.`);
+          return null;
+        }
+        actor = result.actor
+        console.log("Actor set to " + myActor.name)
+      }
       item.runCustomMacro(result);
       callOnHooks("hm3.onSpellRoll", actor, result, stdRollData, item);
     }
@@ -302,6 +325,15 @@ export async function invokeRitualRoll(itemName, noDialog = false, myActor = nul
   if (hooksOk) {
     const result = await DiceHM3.d100StdRoll(stdRollData);
     if (result) {
+      if (!actor) {
+        result = getActor(result);
+        if (!result) {
+          ui.notifications.warn(`No actor for this action could be determined.`);
+          return null;
+        }
+        actor = result.actor
+        console.log("Actor set to " + myActor.name)
+      }
       item.runCustomMacro(result);
       callOnHooks("hm3.onInvocationRoll", actor, result, stdRollData, item);
     }
@@ -343,6 +375,15 @@ export async function usePsionicRoll(itemName, noDialog = false, myActor = null)
   if (hooksOk) {
     const result = await DiceHM3.d100StdRoll(stdRollData);
     if (result) {
+      if (actor) {
+        result = getActor(result);
+        if (!result) {
+          ui.notifications.warn(`No actor for this action could be determined.`);
+          return null;
+        }
+        actor = result.actor
+        console.log("Actor set to " + myActor.name)
+      }
       item.runCustomMacro(result);
       callOnHooks("hm3.onPsionicsRoll", actor, result, stdRollData, item);
     }
@@ -390,6 +431,15 @@ export async function testAbilityD6Roll(ability, noDialog = false, myActor = nul
   if (hooksOk) {
     const result = await DiceHM3.d6Roll(stdRollData);
     if (result) {
+      if (actor) {
+        result = getActor(result);
+        if (!result) {
+          ui.notifications.warn(`No actor for this action could be determined.`);
+          return null;
+        }
+        actor = result.actor
+        console.log("Actor set to " + myActor.name)
+      }
       result.runCustomMacro(result);
       callOnHooks("hm3.onAbilityRollD6", result, result, stdRollData);
     }
@@ -662,6 +712,9 @@ export async function injuryRoll(myActor = null, rollData = {}) {
     ui.notifications.warn(`No actor for this action could be determined.`);
     return null;
   }
+
+  let actor = actorInfo.actor
+  let speaker = actorInfo.speaker
 
   let ae_aspect = '';
   let ae_impact = 0;
@@ -1090,6 +1143,12 @@ export async function weaponAttack(itemName = null, noDialog = false, myToken = 
     weapon = await combat.getItem(itemName, 'weapongear', combatant.actor);
   }
 
+  if (weapon) {
+    console.log("Weapon in use is " + itemName)
+  } else {
+    console.log("Weapon not found: " + itemName)
+  }
+
   const hooksOk = Hooks.call("hm3.preMeleeAttack", combatant, targetToken, weapon);
   if (hooksOk) {
     const result = await combat.meleeAttack(combatant.token, targetToken, weapon);
@@ -1339,6 +1398,7 @@ function getActor({ item, actor, speaker } = {}) {
       result.speaker ||= ChatMessage.getSpeaker({ actor: result.actor });
     } else {
       if (!result.actor) {
+        console.log("Attempting to determine actor...")
         // If actor was null, lets try to figure it out from the Speaker
         result.speaker = ChatMessage.getSpeaker();
         if (result.speaker?.token) {

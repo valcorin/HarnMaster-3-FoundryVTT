@@ -1577,11 +1577,17 @@ export async function getItem(itemName, type, actor) {
         return null;
     }
 
+    console.log("Attempting to get item: " + itemName)
+
     let item = await fromUuid(itemName);
     
     if (!item) {
-        if (!actor || typeof actor !== 'object') {
-            ui.notifications.warn('No actor was selected. You must select an actor.');
+        if (!actor) {
+            ui.notifications.warn('No actor was selected. You must select a valid actor.');
+            return null;
+        }
+        if (typeof actor !== 'object') {
+            ui.notifications.warn('Actor is not an object. You must select a valid actor.');
             return null;
         }
     
@@ -1600,6 +1606,8 @@ export async function getItem(itemName, type, actor) {
         ui.notifications.warn(`The item ${itemName} was not found`);
         return null;
     }
+
+    console.log("Returning item: " + item.name)
 
     return item;
 }
