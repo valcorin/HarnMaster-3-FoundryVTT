@@ -137,7 +137,7 @@ There are separate probability weights for High, Mid, and Low aiming points.  Fo
 If you wish to fork this code and build your own version, that is completely fine.  You will ultimately need to package the system into two files: a ZIP and a MANIFEST.  The following BASH script is an example of how to do this:
 
 ```
-#!/bin/sh
+#!/bin/bash
 
 VERSION=$(jq --raw-output .version $HOME/dev/github/HarnMaster-3-FoundryVTT/system.json)
 BUILDDIR=$(mktemp -d -t hmk-$VERSION-XXXXXX)
