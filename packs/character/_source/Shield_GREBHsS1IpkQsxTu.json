@@ -19,7 +19,7 @@
     "type": "Combat",
     "skillBase": {
       "value": 0,
-      "formula": "@str, @dex, @dex, Ulandus, Lado, Masara",
+      "formula": "@str, @dex, @dex, Ulandus, Aramos, Masara",
       "isFormulaValid": true
     },
     "masteryLevel": 0,
