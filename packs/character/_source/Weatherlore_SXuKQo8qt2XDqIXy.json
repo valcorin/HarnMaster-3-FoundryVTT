@@ -19,7 +19,7 @@
     "type": "Craft",
     "skillBase": {
       "value": 0,
-      "formula": "@int, @eye, @sml, Hirin, Tarael, Masada, Lado",
+      "formula": "@int, @eye, @sml, Hirin, Tarael, Masada, Aramos",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

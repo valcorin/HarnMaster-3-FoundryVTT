@@ -19,7 +19,7 @@
     "type": "Craft",
     "skillBase": {
       "value": 0,
-      "formula": "@dex, @eye, @int, Lado:3, Masara",
+      "formula": "@dex, @eye, @int, Aramos:3, Masara",
       "isFormulaValid": true
     },
     "masteryLevel": 0,
