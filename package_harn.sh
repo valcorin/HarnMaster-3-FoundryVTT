@@ -12,10 +12,11 @@ rm -rf $RELEASEDIR
 mkdir -p $RELEASEDIR
 
 # Copy all releaseable parts of the system
-rsync -avz -f "- _source" -f "- scss" -f "- package.json" -f "- package-lock.json" -f "- lib" -f "- packs" -f "- .git" -f "- nogit" -f "- .DS_Store" -f "- .gitignore" -f "- .vscode/*" -f "- *.code-workspace" $HOME/HarnMaster-3-FoundryVTT-master/* $BUILDDIR
+rsync -avz -f "- _source" -f "- scss" -f "- package.json" -f "- package-lock.json" -f "- lib" -f "- packs" -f "- .git" -f "- nogit" -f "- .DS_Store" -f "- .gitignore" -f "- .vscode/*" -f "- *.code-workspace" HarnMaster-3-FoundryVTT-master/* $BUILDDIR
 
 # Build the packs from source files
-for i in $(jq -r '.packs[] | [.name, .type] | @csv' $HOME/HarnMaster-3-FoundryVTT-master/system.json | sed 's/"//g'); do
+for i in $(jq -r '.packs[] | [.name, .type] | @csv' HarnMaster-3-FoundryVTT-master/system.json | sed 's/"//g');
+do
     SPEC=(${i//,/ })
     PACK=${SPEC[0]}
     TYPE=${SPEC[1]}
