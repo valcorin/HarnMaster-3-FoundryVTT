@@ -38,6 +38,9 @@
           "smell": {
             "base": 0
           },
+          "touch": {
+            "base": 0
+          },
           "voice": {
             "base": 0
           },

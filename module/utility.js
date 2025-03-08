@@ -121,6 +121,11 @@ export function calcSkillBase(item) {
                                 sumBaseAbilities += actorData.abilities.hearing.base;
                                 sumModifiedAbilities += actorData.abilities.hearing.modified;
                                 break;
+
+                            case 'tch':
+                                sumBaseAbilities += actorData.abilities.touch.base;
+                                sumModifiedAbilities += actorData.abilities.touch.modified;
+                                break;
     
                             case 'sml':
                                 sumBaseAbilities += actorData.abilities.smell.base;

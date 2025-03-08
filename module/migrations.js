@@ -170,6 +170,10 @@ export const migrateActorData = function (actor) {
   if (actorData.abilities.hearing.hasOwnProperty('effective')) {
     updateData['system.abilities.hearing.-=effective'] = null
   }
+  
+  if (actorData.abilities.touch.hasOwnProperty('effective')) {
+    updateData['system.abilities.touch.-=effective'] = null
+  }
 
   if (actorData.abilities.smell.hasOwnProperty('effective')) {
     updateData['system.abilities.smell.-=effective'] = null
