@@ -19,7 +19,7 @@
     "type": "Communication",
     "skillBase": {
       "value": 0,
-      "formula": "@voi, @int, @wil, Zhone, Yong, Torka, Yari, Quindor, Feniku, Feniku",
+      "formula": "@voi, @int, @wil, Zhone, Yong, Torka, Yari, Quindor, Feniku",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

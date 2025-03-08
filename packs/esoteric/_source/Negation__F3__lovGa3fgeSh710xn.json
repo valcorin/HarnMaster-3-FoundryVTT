@@ -18,7 +18,7 @@
     },
     "skillBase": {
       "value": 0,
-      "formula": "@aur,@aur,@wil,Anzor",
+      "formula": "@aur,@aur,@wil,Anzor, Shirdun",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

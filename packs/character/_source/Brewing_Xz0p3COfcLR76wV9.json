@@ -19,7 +19,7 @@
     "type": "Craft",
     "skillBase": {
       "value": 0,
-      "formula": "@dex, @sml, @sml, Quindor:3, Feniku:3, Zhone:2, Yong:2, Dorma:2, Shuchi:2",
+      "formula": "@tch, @sml, @sml, Quindor:3, Feniku:3, Zhone:2, Yong:2, Dorma:2, Shuchi:2",
       "isFormulaValid": true
     },
     "masteryLevel": 0,
