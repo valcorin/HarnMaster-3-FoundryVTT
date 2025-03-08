@@ -84,7 +84,7 @@ HM3.stdSkills = {
     "Sling": { "source": "HM3 Skills 19", "skillBase": { "formula": "@dex, @dex, @eye, Gordol, Ying, Torka, Yari, Caelaz, Sanyang" }, "type": "Combat" },
     "Riding": { "source": "HM3 Skills 18", "skillBase": { "formula": "@dex, @agl, @wil, Syrada, Jig-won, Ariala, Boru" }, "type": "Combat" },
     "Initiative": { "source": "HM3 Skills 18", "skillBase": { "formula": "@agl, @wil, @wil" }, "type": "Combat" },
-    "Unarmed": { "source": "HM3 Skills 18", "skillBase": { "formula": "@str, @dex, @agl, Madada:2, Tollan:2, Chuán:2, Syrada:2, Jig-won:2" }, "type": "Combat" },
+    "Unarmed": { "source": "HM3 Skills 18", "skillBase": { "formula": "@str, @dex, @agl, Dorma:2, Shuchi:2, Tollan:2, Chuán:2, Syrada:2, Jig-won:2" }, "type": "Combat" },
     "Polearm": { "source": "HM3 Skills 19", "skillBase": { "formula": "@str, @str, @dex, Aramos, Lengjing, Ariala, Boru" }, "type": "Combat" },
     "Dagger": { "source": "HM3 Skills 19", "skillBase": { "formula": "@dex, @dex, @eye, Aramos:2, Lengjing:2, Caelaz:2, Sanyang:2" }, "type": "Combat" },
     "Blowgun": { "source": "HM3 Skills 19", "skillBase": { "formula": "@sta, @dex, @eye, Gordol:2, Ying:2, Torka, Yari, Caelaz, Sanyang" }, "type": "Combat" },
