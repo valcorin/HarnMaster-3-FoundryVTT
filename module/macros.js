@@ -1519,7 +1519,7 @@ export async function applyEffect(myActor, effectData) {
 
   // *****************************************************************************
   // Now find out if this actor already has an Active Effect for this spell.
-  const ae = targetActor.effects.find(m => m.data.label === spellName);
+  const ae = targetActor.effects.find(m => m.label === spellName);
   if (ae) {
       const result = await ae.delete();
       if (!result) return null;
@@ -1527,10 +1527,8 @@ export async function applyEffect(myActor, effectData) {
   let sTurn = 1
   let sRound = 1
   if (game.combat) {
-      if ('data' in game.combat) {
-          sTurn = game.combat.data.turn
-          sRound = game.combat.data.round
-      }
+        sTurn = game.combat.turn
+        sRound = game.combat.round
   }
   // create a new Active Effect
   const activeEffectData = {

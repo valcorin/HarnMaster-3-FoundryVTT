@@ -1659,4 +1659,3 @@ export const displayChatActionButtons = function(message, html, data) {
         });
     }
 };
-  
