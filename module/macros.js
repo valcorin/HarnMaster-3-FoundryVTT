@@ -907,7 +907,7 @@ export async function shockRoll(noDialog = false, myActor = null) {
     notesData: {},
     speaker: actorInfo.speaker,
     fastforward: noDialog,
-    notes: ''
+    notes: actorInfo.actor.name
   };
   if (actorInfo.actor.isToken) {
     stdRollData.token = actorInfo.actor.token.id;
