@@ -40,7 +40,7 @@ HM3.ITEM_TYPE_LABEL = {
 HM3.sunsigns = ['Ulandus', 'Ulandus-Aralius', 'Aralius', 'Aralius-Feniri', 'Feniri', 'Feniri-Ahnu',
     'Ahnu', 'Ahnu-Angberelius', 'Angberelius', 'Angberelius-Nadai', 'Nadai', 'Nadai-Hirin',
     'Hirin', 'Hirin-Tarael', 'Tarael', 'Tarael-Tai', 'Tai', 'Tai-Skorus', 'Skorus',
-    'Skorus-Masara', 'Masara', 'Masara-Tollan', 'Tollan', 'Tollan-Ulandus'];
+    'Skorus-Masara', 'Masara', 'Masara-Tollan', 'Tollan', 'Tollan-Ulandus', 'Chuán'];
 
 HM3.defaultCharacterSkills = [
     'Climbing', 'Jumping', 'Stealth', 'Throwing', 'Awareness', 'Intrigue', 'Oratory', 'Rhetoric', 'Singing',
