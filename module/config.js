@@ -164,17 +164,26 @@ HM3.stdSkills = {
     "Acrobatics": { "source": "HM3 Skills 8", "skillBase": { "formula": "@str, @agl, @agl, Caelaz:2, Sanyang:2, Gordol, Ying" }, "type": "Physical" },
     "Throwing": { "source": "HM3 Skills 10", "skillBase": { "formula": "@str, @dex, @eye, Gordol:2, Ying:2, Torka, Yari, Caelaz, Sanyang" }, "type": "Physical" },
     "Legerdemain": { "source": "HM3 Skills 9", "skillBase": { "formula": "@dex, @dex, @wil, Quindor:2, Feniku:2, Zhone:2, Yong:2, Torka:2, Yari:2" }, "type": "Physical" },
-    "Peoni": { "source": "HM Religion, Peoni 1", "skillBase": { "formula": "@voi, @int, @dex, Ariala:2, Boru:2, Aramos, Lengjing, Syrada, Jig-won" }, "type": "Ritual" },
+    "Alea": { "source": "HM Religion, Alea 1", "skillBase": { "formula": "@voi, @int, @dex, Ariala:2, Boru:2, Aramos, Lengjing, Syrada, Jig-won" }, "type": "Ritual" },
+    "Alyin": { "source": "HM Religion, Alyin 1", "skillBase": { "formula": "@voi, @int, @dex, Ariala:2, Boru:2, Aramos, Lengjing, Syrada, Jig-won" }, "type": "Ritual" },
     "Korön": { "source": "HM Religion, Korön 1", "skillBase": { "formula": "@voi, @int, @str, Zhone:2, Yong:2, Quindor, Feniku, Syrada, Jig-won" }, "type": "Ritual" },
     "Zhojin": { "source": "HM Religion, Zhojin 1", "skillBase": { "formula": "@voi, @int, @str, Zhone:2, Yong:2, Quindor, Feniku, Syrada, Jig-won" }, "type": "Ritual" },
-    "Ilvir": { "source": "HM Religion, Ilvir 1", "skillBase": { "formula": "@voi, @int, @aur, Quindor, Feniku, Zhone, Yong, Syrada:2, Jig-won:2" }, "type": "Ritual" },
-    "Siem": { "source": "HM Religion, Siem 1", "skillBase": { "formula": "@voi, @int, @aur, Gordol:2, Ying:2, Anzor, Shirdun, Syrada, Jig-won" }, "type": "Ritual" },
-    "Sarajin": { "source": "HM Religion, Sarajin 1", "skillBase": { "formula": "@voi, @int, @wil, Anzor:2, Shirdu:2, Ariala, Boru, Tollan, Chuán" }, "type": "Ritual" },
-    "Morgath": { "source": "HM Religion, Morgath 1", "skillBase": { "formula": "@voi, @int, @aur, Tollan:2, Chuán:2, Izballa, Zosan-shi, Dorma, Shuchi" }, "type": "Ritual" },
-    "Halea": { "source": "HM Religion, Halea 1", "skillBase": { "formula": "@voi, @int, @cml, Torka:2, Yari:2, Gordol, Ying, Dorma, Shuchi" }, "type": "Ritual" },
-    "Naveh": { "source": "HM Religion, Naveh 1", "skillBase": { "formula": "@voi, @int, @wil, Dorma:2, Shuchi:2, Quindor, Feniku, Torka, Yari" }, "type": "Ritual" },
-    "Larani": { "source": "HM Religion, Larani 1", "skillBase": { "formula": "@voi, @int, @wil, Caelaz:2, Sanyang:2, Torka, Yari, Anzor, Shirdun" }, "type": "Ritual" },
-    "Save K'nor": { "source": "HM Religion, Save K'nor 1", "skillBase": { "formula": "@voi, @int, @int, Izballa:2, Zosan-shi:2, Ariala, Boru, Aramos:3, Lengjing:3" }, "type": "Craft" }
+    "Kalos": { "source": "HM Religion, Kalos 1", "skillBase": { "formula": "@voi, @int, @aur, Quindor, Feniku, Zhone, Yong, Syrada:2, Jig-won:2" }, "type": "Ritual" },
+    "Hurong-oni": { "source": "HM Religion, Hurong-oni 1", "skillBase": { "formula": "@voi, @int, @aur, Quindor, Feniku, Zhone, Yong, Syrada:2, Jig-won:2" }, "type": "Ritual" },
+    "Arial": { "source": "HM Religion, Arial 1", "skillBase": { "formula": "@voi, @int, @aur, Gordol:2, Ying:2, Anzor, Syrada, Jig-won" }, "type": "Ritual" },
+    "Aramai": { "source": "HM Religion, Aramai 1", "skillBase": { "formula": "@voi, @int, @aur, Gordol:2, Ying:2, Anzor, Syrada, Jig-won" }, "type": "Ritual" },
+    "Tyvos": { "source": "HM Religion, Tyvos 1", "skillBase": { "formula": "@voi, @int, @wil, Anzor:2, Shirdu:2, Ariala, Boru, Tollan, Chuán" }, "type": "Ritual" },
+    "Mazong": { "source": "HM Religion, Mazong 1", "skillBase": { "formula": "@voi, @int, @wil, Anzor:2, Shirdu:2, Ariala, Boru, Tollan, Chuán" }, "type": "Ritual" },
+    "Zelist": { "source": "HM Religion, Zelist 1", "skillBase": { "formula": "@voi, @int, @aur, Tollan:2, Chuán:2, Izballa, Zosan-shi, Dorma, Shuchi" }, "type": "Ritual" },
+    "Hai'yongi": { "source": "HM Religion, Hai'yongi 1", "skillBase": { "formula": "@voi, @int, @aur, Tollan:2, Chuán:2, Izballa, Zosan-shi, Dorma, Shuchi" }, "type": "Ritual" },
+    "Kalura": { "source": "HM Religion, Kalura 1", "skillBase": { "formula": "@voi, @int, @cml, Torka:2, Yari:2, Gordol, Ying, Dorma, Shuchi" }, "type": "Ritual" },
+    "Mien-jai": { "source": "HM Religion, Mien-jai 1", "skillBase": { "formula": "@voi, @int, @cml, Torka:2, Yari:2, Gordol, Ying, Dorma, Shuchi" }, "type": "Ritual" },
+    "Naventhül": { "source": "HM Religion, Naventhül 1", "skillBase": { "formula": "@voi, @int, @wil, Dorma:2, Shuchi:2, Quindor, Feniku, Torka, Yari" }, "type": "Ritual" },
+    "Navong kui": { "source": "HM Religion, Navong kui 1", "skillBase": { "formula": "@voi, @int, @wil, Dorma:2, Shuchi:2, Quindor, Feniku, Torka, Yari" }, "type": "Ritual" },
+    "Cael": { "source": "HM Religion, Cael 1", "skillBase": { "formula": "@voi, @int, @wil, Caelaz:2, Sanyang:2, Torka, Yari, Anzor, Shirdun" }, "type": "Ritual" },
+    "Kai yi": { "source": "HM Religion, Kai yi 1", "skillBase": { "formula": "@voi, @int, @wil, Caelaz:2, Sanyang:2, Torka, Yari, Anzor, Shirdun" }, "type": "Ritual" },
+    "Shala": { "source": "HM Religion, Shala 1", "skillBase": { "formula": "@voi, @int, @int, Zhone:2, Yong:2, Torka, Yari, Quindor, Feniku" }, "type": "Craft" },
+    "Wanüa": { "source": "HM Religion, Wanüa 1", "skillBase": { "formula": "@voi, @int, @int, Zhone:2, Yong:2, Torka, Yari, Quindor, Feniku" }, "type": "Craft" }
 };
 
 HM3.injuryLevels = ["NA", "M1", "S2", "S3", "G4", "G5", "K4", "K5"];
@@ -239,17 +248,18 @@ HM3.magicIcons = [
 HM3.ritualIcons = [
     ['circle', 'systems/hm3/images/icons/svg/circle.svg'],
     ['korön', 'systems/hm3/images/icons/png/korön.png'],
-    ['halea', 'systems/hm3/images/icons/png/halea.png'],
-    ['ilvir', 'systems/hm3/images/icons/png/ilvir.png'],
-    ['larani', 'systems/hm3/images/icons/png/larani.png'],
-    ['morgath', 'systems/hm3/images/icons/png/morgath.png'],
-    ['naveh', 'systems/hm3/images/icons/png/naveh.png'],
-    ['peoni', 'systems/hm3/images/icons/png/peoni.png'],
-    ['sarajin', 'systems/hm3/images/icons/png/sarajin.png'],
+    ['kalura', 'systems/hm3/images/icons/png/kalura.png'],
+    ['kalos', 'systems/hm3/images/icons/png/kalos.png'],
+    ['cael', 'systems/hm3/images/icons/png/cael.png'],
+    ['zelist', 'systems/hm3/images/icons/png/zelist.png'],
+    ['naventhül', 'systems/hm3/images/icons/png/naventhul.png'],
+    ['alea', 'systems/hm3/images/icons/png/alea.png'],
+    ['tyvos', 'systems/hm3/images/icons/png/tyvos.png'],
     ["save k'nor", 'systems/hm3/images/icons/png/saveknor.png'],
+    ["shala", 'systems/hm3/images/icons/png/shala.png'],
     ['save k’nor', 'systems/hm3/images/icons/png/saveknor.png'],
     ['save knor', 'systems/hm3/images/icons/png/saveknor.png'],
-    ['siem', 'systems/hm3/images/icons/png/siem.png']
+    ['arial', 'systems/hm3/images/icons/png/arial.png']
 ];
 
 HM3.psionicTalentIcons = [

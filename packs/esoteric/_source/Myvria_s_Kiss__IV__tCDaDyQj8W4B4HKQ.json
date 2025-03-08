@@ -2,7 +2,7 @@
   "_id": "tCDaDyQj8W4B4HKQ",
   "name": "Myvria’s Kiss (IV)",
   "type": "invocation",
-  "img": "systems/hm3/images/icons/png/morgath.png",
+  "img": "systems/hm3/images/icons/png/zelist.png",
   "effects": [],
   "folder": "4u6Psw2rEtLt9ZMS",
   "flags": {
@@ -10,13 +10,13 @@
   },
   "system": {
     "notes": "",
-    "description": "<table><tr><td><b>Time:</b> 15−RSI seconds+</td><td><b>Ritual:</b> Chant</td></tr><tr><td><b>Range:</b> Touch victim+</td><td><b>Duration:</b> n/a</td></tr></table><p>Myvria’s offer to become an Amorvrin. This ritual is taught only to Morgathian priests who reach the rank of Khidarmur.</p>",
+    "description": "<table><tr><td><b>Time:</b> 15−RSI seconds+</td><td><b>Ritual:</b> Chant</td></tr><tr><td><b>Range:</b> Touch victim+</td><td><b>Duration:</b> n/a</td></tr></table><p>Myvria’s offer to become an Amorvrin. This ritual is taught only to Zelistian priests who reach the rank of Khidarmur.</p>",
     "source": "",
     "macros": {
       "type": "script",
       "command": ""
     },
-    "diety": "Morgath",
+    "diety": "Zelist",
     "circle": 4,
     "effectiveMasteryLevel": 0
   },

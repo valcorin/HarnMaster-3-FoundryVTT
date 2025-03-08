@@ -1,8 +1,8 @@
 {
   "_id": "uR6I9ND7BHFCVTQ6",
-  "name": "Larani’s Charge (V)",
+  "name": "Cael’s Charge (V)",
   "type": "invocation",
-  "img": "systems/hm3/images/icons/png/larani.png",
+  "img": "systems/hm3/images/icons/png/cael.png",
   "effects": [],
   "folder": "cKpd7e8LEPwE5H2E",
   "flags": {
@@ -10,13 +10,13 @@
   },
   "system": {
     "notes": "",
-    "description": "<table><tr><td><b>Time:</b> 25−RSI seconds+</td><td><b>Ritual:</b> Prayer</td></tr><tr><td><b>Range:</b> RML yards+</td><td><b>Duration:</b> Next Mounted Charge</td></tr></table><p>All Laranians within Range have a +2 impact with a lance or spear for their next mounted charge.</p>",
+    "description": "<table><tr><td><b>Time:</b> 25−RSI seconds+</td><td><b>Ritual:</b> Prayer</td></tr><tr><td><b>Range:</b> RML yards+</td><td><b>Duration:</b> Next Mounted Charge</td></tr></table><p>All Caelans within Range have a +2 impact with a lance or spear for their next mounted charge.</p>",
     "source": "",
     "macros": {
       "type": "script",
       "command": ""
     },
-    "diety": "Larani",
+    "diety": "Cael",
     "circle": 5,
     "effectiveMasteryLevel": 0
   },

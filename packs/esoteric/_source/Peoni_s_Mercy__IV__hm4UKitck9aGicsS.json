@@ -1,8 +1,8 @@
 {
   "_id": "hm4UKitck9aGicsS",
-  "name": "Peoni’s Mercy (IV)",
+  "name": "Alea’s Mercy (IV)",
   "type": "invocation",
-  "img": "systems/hm3/images/icons/png/peoni.png",
+  "img": "systems/hm3/images/icons/png/alea.png",
   "effects": [],
   "folder": "vgrw7aVTemgPWZxh",
   "flags": {
@@ -16,7 +16,7 @@
       "type": "script",
       "command": ""
     },
-    "diety": "Peoni",
+    "diety": "Alea",
     "circle": 4,
     "effectiveMasteryLevel": 0
   },

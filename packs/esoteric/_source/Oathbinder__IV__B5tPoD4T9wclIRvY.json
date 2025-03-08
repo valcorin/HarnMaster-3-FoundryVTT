@@ -2,7 +2,7 @@
   "_id": "B5tPoD4T9wclIRvY",
   "name": "Oathbinder (IV)",
   "type": "invocation",
-  "img": "systems/hm3/images/icons/png/larani.png",
+  "img": "systems/hm3/images/icons/png/cael.png",
   "effects": [],
   "folder": "cKpd7e8LEPwE5H2E",
   "flags": {
@@ -10,13 +10,13 @@
   },
   "system": {
     "notes": "",
-    "description": "<table><tr><td><b>Time:</b> 15−RSI seconds+</td><td><b>Ritual:</b> Prayer</td></tr><tr><td><b>Range:</b> Touch Weapon+</td><td><b>Duration:</b> Indefinite</td></tr></table><p>Causes any sword to assume some of the attributes of Larani’s sword Avarkiel. Bearer of the sword, provided he is a Laranian, will find his Sword EML is +10. A non-Laranian will find the sword unbalanced, drawing a penalty of −20 to Sword EML.</p>",
+    "description": "<table><tr><td><b>Time:</b> 15−RSI seconds+</td><td><b>Ritual:</b> Prayer</td></tr><tr><td><b>Range:</b> Touch Weapon+</td><td><b>Duration:</b> Indefinite</td></tr></table><p>Causes any sword to assume some of the attributes of Cael’s sword Avarkiel. Bearer of the sword, provided he is a Caelan, will find his Sword EML is +10. A non-Caelan will find the sword unbalanced, drawing a penalty of −20 to Sword EML.</p>",
     "source": "",
     "macros": {
       "type": "script",
       "command": ""
     },
-    "diety": "Larani",
+    "diety": "Cael",
     "circle": 4,
     "effectiveMasteryLevel": 0
   },
