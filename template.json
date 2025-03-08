@@ -20,6 +20,9 @@
           "agility": {
             "base": 0
           },
+          "speed": {
+            "base": 0
+          },
           "intelligence": {
             "base": 0
           },

@@ -96,6 +96,11 @@ export function calcSkillBase(item) {
                                 sumBaseAbilities += actorData.abilities.agility.base;
                                 sumModifiedAbilities += actorData.abilities.agility.modified;
                                 break;
+
+                            case 'spd':
+                                sumBaseAbilities += actorData.abilities.speed.base;
+                                sumModifiedAbilities += actorData.abilities.speed.modified;
+                                break;
     
                             case 'int':
                                 sumBaseAbilities += actorData.abilities.intelligence.base;
