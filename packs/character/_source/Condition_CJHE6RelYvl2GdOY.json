@@ -19,7 +19,7 @@
     "type": "Physical",
     "skillBase": {
       "value": 0,
-      "formula": "@str, @sta, @wil, Ulandus, Aramos",
+      "formula": "@str, @sta, @wil, Ulandus, Tollan, Chuán",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

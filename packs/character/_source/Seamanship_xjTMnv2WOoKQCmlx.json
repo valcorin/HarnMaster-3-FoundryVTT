@@ -19,7 +19,7 @@
     "type": "Craft",
     "skillBase": {
       "value": 0,
-      "formula": "@str, @dex, @agl, Aramos:3, Masara, Skorus",
+      "formula": "@str, @dex, @agl, Tollan:3, Chuán:3, Masara, Skorus",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

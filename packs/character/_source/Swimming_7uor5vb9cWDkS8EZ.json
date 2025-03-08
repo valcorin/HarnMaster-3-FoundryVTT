@@ -19,7 +19,7 @@
     "type": "Physical",
     "skillBase": {
       "value": 0,
-      "formula": "@sta, @dex, @agl, Skorus, Masara:3, Aramos:3",
+      "formula": "@sta, @dex, @agl, Skorus, Masara:3, Tollan:3, Chuán:3",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

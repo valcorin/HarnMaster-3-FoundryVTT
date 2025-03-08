@@ -19,7 +19,7 @@
     "type": "Ritual",
     "skillBase": {
       "value": 0,
-      "formula": "@voi, @int, @str, Feniri:2, Aralius, Aramos",
+      "formula": "@voi, @int, @str, Feniri:2, Aralius, Tollan, Chuán",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

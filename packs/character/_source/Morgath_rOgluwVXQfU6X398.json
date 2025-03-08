@@ -19,7 +19,7 @@
     "type": "Ritual",
     "skillBase": {
       "value": 0,
-      "formula": "@voi, @int, @aur, Aramos:2, Ahnu, Masara",
+      "formula": "@voi, @int, @aur, Tollan:2, Chuán:2, Ahnu, Masara",
       "isFormulaValid": true
     },
     "masteryLevel": 0,
