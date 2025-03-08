@@ -39,10 +39,10 @@
       "Groin"
     ],
     "protection": {
-      "blunt": 5,
-      "edged": 9,
+      "blunt": 3,
+      "edged": 5,
       "piercing": 4,
-      "fire": 5
+      "fire": 4
     },
     "size": 6
   },

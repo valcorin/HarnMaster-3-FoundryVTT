@@ -39,9 +39,9 @@
       "Thigh"
     ],
     "protection": {
-      "blunt": 1,
+      "blunt": 0,
       "edged": 1,
-      "piercing": 1,
+      "piercing": 0,
       "fire": 1
     },
     "size": 6

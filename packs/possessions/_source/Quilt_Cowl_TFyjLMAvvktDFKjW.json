@@ -36,9 +36,9 @@
     ],
     "protection": {
       "blunt": 5,
-      "edged": 3,
-      "piercing": 2,
-      "fire": 4
+      "edged": 2,
+      "piercing": 1,
+      "fire": 3
     },
     "size": 6
   },
