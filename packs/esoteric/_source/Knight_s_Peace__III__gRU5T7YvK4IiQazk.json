@@ -2,7 +2,7 @@
   "_id": "gRU5T7YvK4IiQazk",
   "name": "Knight’s Peace (III)",
   "type": "invocation",
-  "img": "systems/hm3/images/icons/png/larani.png",
+  "img": "systems/hm3/images/icons/png/cael.png",
   "effects": [],
   "folder": "cKpd7e8LEPwE5H2E",
   "flags": {
@@ -10,13 +10,13 @@
   },
   "system": {
     "notes": "",
-    "description": "<table><tr><td><b>Time:</b> 25−RSI seconds+</td><td><b>Ritual:</b> Chant</td></tr><tr><td><b>Range:</b> RML yards+</td><td><b>Duration:</b> 10 (MS); 30 (CS) minutes</td></tr></table><p>Creates a spherical zone (radius RML yards) centered on the cleric within which all Laranian adherents are disinclined to fight. Those wishing to fight must roll vs 2× WIL.</p>",
+    "description": "<table><tr><td><b>Time:</b> 25−RSI seconds+</td><td><b>Ritual:</b> Chant</td></tr><tr><td><b>Range:</b> RML yards+</td><td><b>Duration:</b> 10 (MS); 30 (CS) minutes</td></tr></table><p>Creates a spherical zone (radius RML yards) centered on the cleric within which all Caelan adherents are disinclined to fight. Those wishing to fight must roll vs 2× WIL.</p>",
     "source": "",
     "macros": {
       "type": "script",
       "command": ""
     },
-    "diety": "Larani",
+    "diety": "Cael",
     "circle": 3,
     "effectiveMasteryLevel": 0
   },

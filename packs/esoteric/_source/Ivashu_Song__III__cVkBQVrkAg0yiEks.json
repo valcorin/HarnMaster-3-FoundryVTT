@@ -2,7 +2,7 @@
   "_id": "cVkBQVrkAg0yiEks",
   "name": "Ivashu Song (III)",
   "type": "invocation",
-  "img": "systems/hm3/images/icons/png/ilvir.png",
+  "img": "systems/hm3/images/icons/png/kalos.png",
   "effects": [],
   "folder": "olFsheWfuwIH41Tk",
   "flags": {
@@ -10,13 +10,13 @@
   },
   "system": {
     "notes": "",
-    "description": "<table><tr><td><b>Time:</b> 35−RSI seconds+</td><td><b>Ritual:</b> Song</td></tr><tr><td><b>Range:</b> RSI miles+</td><td><b>Duration:</b> N/A</td></tr></table><p>A high-pitched, unearthly song that can be heard by all Ivashu within Range who will respond by moving to the singer. Unless CF is rolled, the Ivashu will be friendly towards Ilvirans, but hostile to all others. 1d6 random Ivashu appear. Species can be generated on Encounter Subtable 15, Campaign 14.</p>",
+    "description": "<table><tr><td><b>Time:</b> 35−RSI seconds+</td><td><b>Ritual:</b> Song</td></tr><tr><td><b>Range:</b> RSI miles+</td><td><b>Duration:</b> N/A</td></tr></table><p>A high-pitched, unearthly song that can be heard by all Ivashu within Range who will respond by moving to the singer. Unless CF is rolled, the Ivashu will be friendly towards Kalosans, but hostile to all others. 1d6 random Ivashu appear. Species can be generated on Encounter Subtable 15, Campaign 14.</p>",
     "source": "",
     "macros": {
       "type": "script",
       "command": ""
     },
-    "diety": "Ilvir",
+    "diety": "Kalos",
     "circle": 3,
     "effectiveMasteryLevel": 0
   },

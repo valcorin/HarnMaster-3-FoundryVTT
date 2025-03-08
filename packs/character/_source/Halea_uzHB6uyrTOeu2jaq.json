@@ -1,8 +1,8 @@
 {
   "_id": "uzHB6uyrTOeu2jaq",
-  "name": "Halea",
+  "name": "Kalura",
   "type": "skill",
-  "img": "systems/hm3/images/icons/png/halea.png",
+  "img": "systems/hm3/images/icons/png/kalura.png",
   "effects": [],
   "folder": "ehEs3IXsjATxYb8d",
   "flags": {
@@ -11,7 +11,7 @@
   "system": {
     "notes": "",
     "description": "",
-    "source": "HM Religion, Halea 1",
+    "source": "HM Religion, Kalura 1",
     "macros": {
       "type": "script",
       "command": ""
