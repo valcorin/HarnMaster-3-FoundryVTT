@@ -901,13 +901,13 @@ export async function shockRoll(noDialog = false, myActor = null) {
   let stdRollData = null;
   stdRollData = {
     type: 'shock',
-    label: `Shock Roll`,
+    label: `${actorInfo.actor.isToken ? actorInfo.actor.token.name : actorInfo.actor.name} Shock Roll`,
     target: actorInfo.actor.system.endurance,
     numdice: actorInfo.actor.system.universalPenalty,
     notesData: {},
     speaker: actorInfo.speaker,
     fastforward: noDialog,
-    notes: actorInfo.actor.name
+    notes: ''
   };
   if (actorInfo.actor.isToken) {
     stdRollData.token = actorInfo.actor.token.id;
