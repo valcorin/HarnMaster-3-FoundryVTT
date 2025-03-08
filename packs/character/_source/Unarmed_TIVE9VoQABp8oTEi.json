@@ -19,7 +19,7 @@
     "type": "Combat",
     "skillBase": {
       "value": 0,
-      "formula": "@str, @dex, @agl, Madada:2, Tollan:2, Chuán:2, Syrada:2, Jig-won:2",
+      "formula": "@str, @dex, @agl, Dorma:2, Shuchi:2, Tollan:2, Chuán:2, Syrada:2, Jig-won:2",
       "isFormulaValid": true
     },
     "masteryLevel": 0,
