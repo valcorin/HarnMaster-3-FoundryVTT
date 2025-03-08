@@ -19,7 +19,7 @@
     "type": "Craft",
     "skillBase": {
       "value": 0,
-      "formula": "@dex, @eye, @sml, Quindor, Feniku, Syrada, Jig-won",
+      "formula": "@dex, @tch, @sml, Quindor, Feniku, Syrada, Jig-won",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

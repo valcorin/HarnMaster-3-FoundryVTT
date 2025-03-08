@@ -19,7 +19,7 @@
     "type": "Ritual",
     "skillBase": {
       "value": 0,
-      "formula": "@voi, @int, @wil, Aramos:2, Lengjing:2, Izballa, Zosan-shi, Anzor",
+      "formula": "@voi, @int, @wil, Caelaz:2, Sanyang:2, Torka, Yari, Anzor, Shirdun",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

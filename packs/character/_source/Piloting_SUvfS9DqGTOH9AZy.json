@@ -19,7 +19,7 @@
     "type": "Craft",
     "skillBase": {
       "value": 0,
-      "formula": "@dex, @eye, @int, Tollan:3, Chuán:3, Dorma, Shuchi",
+      "formula": "@tch, @eye, @int, Tollan:3, Chuán:3, Dorma, Shuchi",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

@@ -19,7 +19,7 @@
     "type": "Craft",
     "skillBase": {
       "value": 0,
-      "formula": "@dex, @dex, @eye, Gordol:2, Ying:2, Torka, Yari, Caelaz, Sanyang",
+      "formula": "@dex, @tch, @tch, Gordol:2, Ying:2, Torka, Yari, Caelaz, Sanyang",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

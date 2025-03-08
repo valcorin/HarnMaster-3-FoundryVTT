@@ -19,7 +19,7 @@
     "type": "Ritual",
     "skillBase": {
       "value": 0,
-      "formula": "@voi, @int, @str, Anzor:2, Ariala, Boru, Tollan, Chuán",
+      "formula": "@voi, @int, @wil, Anzor:2, Shirdu:2, Ariala, Boru, Tollan, Chuán",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

@@ -19,7 +19,7 @@
     "type": "Craft",
     "skillBase": {
       "value": 0,
-      "formula": "@dex, @eye, @wil, Anzor:3, Torka, Yari, Ariala, Boru",
+      "formula": "@tch, @eye, @wil, Anzor:3, Shirdun:3, Torka, Yari, Ariala, Boru",
       "isFormulaValid": true
     },
     "masteryLevel": 0,
