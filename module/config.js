@@ -204,6 +204,7 @@ HM3.activeEffectKey = {
     'system.eph.stamina': 'Stamina',
     'system.eph.dexterity': 'Dexterity',
     'system.eph.agility': 'Agility',
+    'system.eph.speed': 'Speed',
     'system.eph.eyesight': 'Eyesight',
     'system.eph.hearing': 'Hearing',
     'system.eph.touch': 'Touch',

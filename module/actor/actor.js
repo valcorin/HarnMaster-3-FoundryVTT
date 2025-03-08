@@ -251,6 +251,7 @@ export class HarnMasterActor extends Actor {
         actorData.abilities.stamina.effective = 0;
         actorData.abilities.dexterity.effective = 0;
         actorData.abilities.agility.effective = 0;
+        actorData.abilities.speed.effective = 0;
         actorData.abilities.intelligence.effective = 0;
         actorData.abilities.aura.effective = 0;
         actorData.abilities.will.effective = 0;
@@ -265,6 +266,7 @@ export class HarnMasterActor extends Actor {
         actorData.abilities.stamina.modified = 0;
         actorData.abilities.dexterity.modified = 0;
         actorData.abilities.agility.modified = 0;
+        actorData.abilities.speed.modified = 0;
         actorData.abilities.intelligence.modified = 0;
         actorData.abilities.aura.modified = 0;
         actorData.abilities.will.modified = 0;
@@ -316,6 +318,7 @@ export class HarnMasterActor extends Actor {
         eph.stamina = actorData.abilities.stamina.base;
         eph.dexterity = actorData.abilities.dexterity.base;
         eph.agility = actorData.abilities.agility.base;
+        eph.speed = actorData.abilities.speed.base;
         eph.eyesight = actorData.abilities.eyesight.base;
         eph.hearing = actorData.abilities.hearing.base;
         eph.touch = actorData.abilities.touch.base;
@@ -373,6 +376,7 @@ export class HarnMasterActor extends Actor {
         actorData.abilities.stamina.modified = eph.stamina;
         actorData.abilities.dexterity.modified = eph.dexterity;
         actorData.abilities.agility.modified = eph.agility;
+        actorData.abilities.speed.modified = eph.speed;
         actorData.abilities.eyesight.modified = eph.eyesight;
         actorData.abilities.hearing.modified = eph.hearing;
         actorData.abilities.touch.modified = eph.touch;
@@ -627,6 +631,7 @@ export class HarnMasterActor extends Actor {
         actorData.abilities.strength.effective = Math.max(Math.round(eph.strength + Number.EPSILON) - actorData.physicalPenalty, 0);
         actorData.abilities.stamina.effective = Math.max(Math.round(eph.stamina + Number.EPSILON) - actorData.physicalPenalty, 0);
         actorData.abilities.agility.effective = Math.max(Math.round(eph.agility + Number.EPSILON) - actorData.physicalPenalty, 0);
+        actorData.abilities.speed.effective = Math.max(Math.round(eph.speed + Number.EPSILON) - actorData.physicalPenalty, 0);
         actorData.abilities.dexterity.effective = Math.max(Math.round(eph.dexterity + Number.EPSILON) - actorData.physicalPenalty, 0);
 
         // Affected by universal penalty

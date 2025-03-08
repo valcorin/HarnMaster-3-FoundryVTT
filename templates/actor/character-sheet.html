@@ -144,6 +144,24 @@
                             </div>
                         </div>
                     </li>
+                    <li class="ability" data-ability="speed">
+                        <h4 class="ability-name box-title rollable">Speed</h4>
+                        <h3 class="ability-value">{{adata.abilities.speed.effective}}</h3>
+                        <div class="ability-modifiers flexrow">
+                            <div class="item-dice">
+                                <a class="ability-d6-roll" data-ability="speed" title="d6 Speed Roll"><i
+                                        class="fas fa-dice-d6"></i></a>
+                            </div>
+                            <div class="ability-box">
+                                <input class="ability-base" type="number" name="system.abilities.speed.base"
+                                    value="{{adata.abilities.speed.base}}" data-dtype="Number" />
+                            </div>
+                            <div class="item-dice">
+                                <a class="ability-d100-roll" data-ability="speed" title="d100 Speed Roll"><i
+                                        class="fas fa-dice-d20"></i></a>
+                            </div>
+                        </div>
+                    </li>
                     <li class="ability" data-ability="intelligence">
                         <h4 class="ability-name box-title rollable">Intelligence</h4>
                         <h3 class="ability-value">{{adata.abilities.intelligence.effective}}</h3>

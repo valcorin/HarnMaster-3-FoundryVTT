@@ -151,6 +151,10 @@ export const migrateActorData = function (actor) {
     updateData['system.abilities.agility.-=effective'] = null
   }
 
+  if (actorData.abilities.speed.hasOwnProperty('effective')) {
+    updateData['system.abilities.speed.-=effective'] = null
+  }
+
   if (actorData.abilities.intelligence.hasOwnProperty('effective')) {
     updateData['system.abilities.intelligence.-=effective'] = null
   }
