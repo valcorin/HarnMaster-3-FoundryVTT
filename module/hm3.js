@@ -181,7 +181,7 @@ Hooks.once("ready", function () {
             migrations.migrateWorld();
         }
     } else {
-        game.settings.set("hm3", "systemMigrationVersion", game.system.data.version);
+        game.settings.set("hm3", "systemMigrationVersion", game.system.version);
     }
 
     Hooks.on("hotbarDrop", (bar, data, slot) => macros.createHM3Macro(data, slot));
