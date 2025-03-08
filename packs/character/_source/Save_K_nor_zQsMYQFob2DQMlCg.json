@@ -19,7 +19,7 @@
     "type": "Ritual",
     "skillBase": {
       "value": 0,
-      "formula": "@voi, @int, @int, Zhone:2, Yong:2, Torka, Yari, Quindor, Feniku, Feniku",
+      "formula": "@voi, @int, @int, Izballa:2, Zosan-shi:2, Ariala, Boru, Aramos:3, Lengjing:3",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

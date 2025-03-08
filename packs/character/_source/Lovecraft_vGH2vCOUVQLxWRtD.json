@@ -19,7 +19,7 @@
     "type": "Communication",
     "skillBase": {
       "value": 0,
-      "formula": "@cml, @agl, @voi, Dorma, Shuchi, Aramos, Lengjing",
+      "formula": "@cml, @tch, @voi, Dorma, Shuchi, Aramos, Lengjing",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

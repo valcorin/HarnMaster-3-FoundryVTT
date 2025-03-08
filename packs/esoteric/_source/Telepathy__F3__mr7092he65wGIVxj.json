@@ -18,7 +18,7 @@
     },
     "skillBase": {
       "value": 0,
-      "formula": "@aur,@aur,@wil,Torka, Yari,Zhone, Yong,Quindor, Feniku, Feniku",
+      "formula": "@aur,@aur,@wil,Torka, Yari,Zhone, Yong,Quindor, Feniku",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

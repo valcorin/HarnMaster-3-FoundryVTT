@@ -19,7 +19,7 @@
     "type": "Combat",
     "skillBase": {
       "value": 0,
-      "formula": "@agl, @wil, @wil",
+      "formula": "@agl, @spd, @wil, Zhone, Yong, Quindor, Feniku, Syrada, Jig-won",
       "isFormulaValid": true
     },
     "masteryLevel": 0,
