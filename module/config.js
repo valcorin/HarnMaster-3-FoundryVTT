@@ -92,7 +92,7 @@ HM3.stdSkills = {
     "Net": { "source": "HM3 Skills 19", "skillBase": { "formula": "@dex, @dex, @eye, Dorma, Shuchi, Quindor, Feniku, Tollan, Chuán" }, "type": "Combat" },
     "Club": { "source": "HM3 Skills 19", "skillBase": { "formula": "@str, @str, @dex, Syrada, Jig-won, Ariala, Boru" }, "type": "Combat" },
     "Whip": { "source": "HM3 Skills 19", "skillBase": { "formula": "@dex, @dex, @eye, Gordol, Ying, Caelaz, Sanyang" }, "type": "Combat" },
-    "Dodge": { "source": "HM3 Skills 21", "skillBase": { "formula": "@agl, @agl, @agl" }, "type": "Combat" },
+    "Dodge": { "source": "HM3 Skills 21", "skillBase": { "formula": "@agl, @agl, @spd" }, "type": "Combat" },
     "Acting": { "source": "HM3 Skills 11", "skillBase": { "formula": "@agl, @voi, @int, Torka, Yari, Zhone, Yong" }, "type": "Communication" },
     "Intrigue": { "source": "HM3 Skills 11", "skillBase": { "formula": "@int, @aur, @wil, Zhone, Yong, Torka, Yari, Quindor, Feniku, Feniku" }, "type": "Communication" },
     "Awareness": { "source": "HM3 Skills 11", "skillBase": { "formula": "@eye, @hrg, @sml, Gordol:2, Ying:2, Torka:2, Yari:2" }, "type": "Communication" },
