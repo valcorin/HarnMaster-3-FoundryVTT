@@ -19,7 +19,7 @@
     "type": "Craft",
     "skillBase": {
       "value": 0,
-      "formula": "@int, @eye, @sml, Hirin, Tarael, Masada, Tollan, Chuán",
+      "formula": "@int, @eye, @sml, Gordol, Ying, Torka, Yari, Masada, Tollan, Chuán",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

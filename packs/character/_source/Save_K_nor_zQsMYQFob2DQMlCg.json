@@ -19,7 +19,7 @@
     "type": "Ritual",
     "skillBase": {
       "value": 0,
-      "formula": "@voi, @int, @int, Tai:2, Tarael, Skorus",
+      "formula": "@voi, @int, @int, Zhone:2, Yong:2, Torka, Yari, Quindor, Feniku, Feniku",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

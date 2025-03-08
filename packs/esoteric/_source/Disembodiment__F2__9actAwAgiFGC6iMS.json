@@ -18,7 +18,7 @@
     },
     "skillBase": {
       "value": null,
-      "formula": "@aur, @aur, @wil, Hirin:1, Nadai:1",
+      "formula": "@aur, @aur, @wil, Gordol:1, Caelaz:1",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

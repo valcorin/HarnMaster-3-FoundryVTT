@@ -19,7 +19,7 @@
     "type": "Physical",
     "skillBase": {
       "value": 0,
-      "formula": "@sta, @dex, @agl, Skorus, Masara:3, Tollan:3, Chuán:3",
+      "formula": "@sta, @dex, @agl, Quindor, Feniku, Dorma:3, Shuchi:3, Tollan:3, Chuán:3",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

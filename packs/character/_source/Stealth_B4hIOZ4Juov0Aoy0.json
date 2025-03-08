@@ -19,7 +19,7 @@
     "type": "Physical",
     "skillBase": {
       "value": 0,
-      "formula": "@agl, @hrg, @wil, Hirin:2, Tarael:2, Tai:2",
+      "formula": "@agl, @hrg, @wil, Gordol:2, Ying:2, Torka:2, Yari:2, Zhone:2, Yong:2",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

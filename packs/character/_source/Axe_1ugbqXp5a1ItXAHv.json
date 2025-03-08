@@ -19,7 +19,7 @@
     "type": "Combat",
     "skillBase": {
       "value": 0,
-      "formula": "@str, @str, @dex, Ahnu, Feniri, Angberelius",
+      "formula": "@str, @str, @dex, Izballa, Zosan-shi, Anzor, Aramos, Lengjing",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

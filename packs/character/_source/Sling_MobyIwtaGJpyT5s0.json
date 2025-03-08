@@ -19,7 +19,7 @@
     "type": "Combat",
     "skillBase": {
       "value": 0,
-      "formula": "@dex, @dex, @eye, Hirin, Tarael, Nadai",
+      "formula": "@dex, @dex, @eye, Gordol, Ying, Torka, Yari, Caelaz, Sanyang",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

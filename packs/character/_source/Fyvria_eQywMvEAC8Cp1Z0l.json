@@ -19,7 +19,7 @@
     "type": "Magic",
     "skillBase": {
       "value": 0,
-      "formula": "@aur, @aur, @sml, Ulandus:3, Aralius:2, Feneri:1, Angberelius:-1, Nadai:-2, Hirin:-3, Tarael:-2, Tai:-1, Masara, Tollan:2, Chuán:2",
+      "formula": "@aur, @aur, @sml, Syrada:3, Jig-won:3, Ariala:2, Boru:2, Anzor:1, Aramos:-1, Lengjing:-1, Caelaz:-2, Sanyang:-2, Gordol:-3, Ying:-3, Torka:-2, Yari:-2, Zhone:-1, Yong:-1, Dorma, Shuchi, Tollan:2, Chuán:2",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

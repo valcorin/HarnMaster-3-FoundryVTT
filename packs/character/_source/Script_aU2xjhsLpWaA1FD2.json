@@ -19,7 +19,7 @@
     "type": "Communication",
     "skillBase": {
       "value": 0,
-      "formula": "@dex, @eye, @int, Tarael, Tai",
+      "formula": "@dex, @eye, @int, Torka, Yari, Zhone, Yong",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

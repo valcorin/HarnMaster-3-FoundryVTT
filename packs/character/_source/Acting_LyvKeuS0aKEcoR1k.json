@@ -19,7 +19,7 @@
     "type": "Communication",
     "skillBase": {
       "value": 0,
-      "formula": "@agl, @voi, @int, Tarael, Tai",
+      "formula": "@agl, @voi, @int, Torka, Yari, Zhone, Yong",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

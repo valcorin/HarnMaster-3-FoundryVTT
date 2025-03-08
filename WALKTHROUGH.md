@@ -44,14 +44,14 @@ The format of the formula is:
 
 For example, the following is a valid formula:
 ```
-@str, @dex, @agl, Ulandus:2, Aralius, 3
+@str, @dex, @agl, Syrada:2, Jig-won:2, Ariala, Boru, 3
 ```
 
 This formula indicates:
 
 * Take average of Strength, Dexterity, and Agility
-* If character has "Ulandus" sunsign, add 2
-* If character has "Aralius" sunsign, add 1
+* If character has "Syrada, Jig-won" sunsign, add 2
+* If character has "Ariala, Boru" sunsign, add 1
 * Add 3
 
 Valid ability identifiers are: `@str`, `@sta`, `@dex`, `@agl`, `@int`, `@aur`, `@wil`, `@eye`, `@hrg`, `@sml`, `@voi`, `@cml`, and `@mor`.

@@ -19,7 +19,7 @@
     "type": "Combat",
     "skillBase": {
       "value": 0,
-      "formula": "@str, @str, @dex, Angberelius, Aralius",
+      "formula": "@str, @str, @dex, Aramos, Lengjing, Ariala, Boru",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

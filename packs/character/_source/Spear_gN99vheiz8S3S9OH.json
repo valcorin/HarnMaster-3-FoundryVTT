@@ -19,7 +19,7 @@
     "type": "Combat",
     "skillBase": {
       "value": 0,
-      "formula": "@str, @str, @dex, Aralius, Feniri, Ulandus",
+      "formula": "@str, @str, @dex, Ariala, Boru, Anzor, Syrada, Jig-won",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

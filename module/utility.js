@@ -7,12 +7,12 @@ import { HM3 } from './config.js';
  * 
  * A valid SB formula looks like this:
  * 
- *   "@str, @int, @sta, hirin:2, ahnu, 5"
+ *   "@str, @int, @sta, gordol:2, ying:2, izballa, zosan-shi, 5"
  * 
  * meaning
  *   average STR, INT, and STA
- *   add 2 if sunsign hirin (modifier after colon ":")
- *   add 1 if sunsign ahnu (1 since no modifier specified)
+ *   add 2 if sunsign gordol (modifier after colon ":")
+ *   add 1 if sunsign izballa (1 since no modifier specified)
  *   add 5 to result
  * 
  * A valid formula must have exactly 3 abilities, everything else is optional.

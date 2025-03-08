@@ -19,7 +19,7 @@
     "type": "Craft",
     "skillBase": {
       "value": 0,
-      "formula": "@dex, @eye, @wil, Feniri",
+      "formula": "@dex, @eye, @wil, Anzor",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

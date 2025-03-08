@@ -19,7 +19,7 @@
     "type": "Craft",
     "skillBase": {
       "value": 0,
-      "formula": "@int, @aur, @aur, Tai:2, Skorus",
+      "formula": "@int, @aur, @aur, Zhone:2, Yong:2, Quindor, Feniku, Feniku",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

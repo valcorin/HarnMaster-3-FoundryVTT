@@ -19,7 +19,7 @@
     "type": "Physical",
     "skillBase": {
       "value": 0,
-      "formula": "@str, @dex, @eye, Hirin:2, Tarael, Nadai",
+      "formula": "@str, @dex, @eye, Gordol:2, Ying:2, Torka, Yari, Caelaz, Sanyang",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

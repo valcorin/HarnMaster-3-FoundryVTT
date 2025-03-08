@@ -19,7 +19,7 @@
     "type": "Communication",
     "skillBase": {
       "value": 0,
-      "formula": "@hrg, @voi, @voi, Masara",
+      "formula": "@hrg, @voi, @voi, Dorma, Shuchi",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

@@ -19,7 +19,7 @@
     "type": "Combat",
     "skillBase": {
       "value": 0,
-      "formula": "@dex, @dex, @eye, Masara, Skorus, Tollan, Chuán",
+      "formula": "@dex, @dex, @eye, Dorma, Shuchi, Quindor, Feniku, Tollan, Chuán",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

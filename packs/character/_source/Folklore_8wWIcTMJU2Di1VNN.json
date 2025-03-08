@@ -19,7 +19,7 @@
     "type": "Craft",
     "skillBase": {
       "value": 0,
-      "formula": "@voi, @int, @int, Tai:2",
+      "formula": "@voi, @int, @int, Zhone:2, Yong:2",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

@@ -19,7 +19,7 @@
     "type": "Communication",
     "skillBase": {
       "value": 0,
-      "formula": "@cml, @voi, @int, Tarael",
+      "formula": "@cml, @voi, @int, Torka, Yari",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

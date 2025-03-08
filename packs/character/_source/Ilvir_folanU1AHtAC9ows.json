@@ -19,7 +19,7 @@
     "type": "Ritual",
     "skillBase": {
       "value": 0,
-      "formula": "@voi, @int, @aur, Skorus:2, Tai, Ulandus",
+      "formula": "@voi, @int, @aur, Quindor:2, Feniku:2, Zhone, Yong, Syrada, Jig-won",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

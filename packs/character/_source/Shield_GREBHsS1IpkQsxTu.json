@@ -19,7 +19,7 @@
     "type": "Combat",
     "skillBase": {
       "value": 0,
-      "formula": "@str, @dex, @dex, Ulandus, Tollan, Chuán, Masara",
+      "formula": "@str, @dex, @dex, Syrada, Jig-won, Tollan, Chuán, Dorma, Shuchi",
       "isFormulaValid": true
     },
     "masteryLevel": 0,
