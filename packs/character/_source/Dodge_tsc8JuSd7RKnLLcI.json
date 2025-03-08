@@ -19,7 +19,7 @@
     "type": "Combat",
     "skillBase": {
       "value": 0,
-      "formula": "@agl, @agl, @agl",
+      "formula": "@agl, @agl, @spd",
       "isFormulaValid": true
     },
     "masteryLevel": 0,
