@@ -165,7 +165,8 @@ HM3.stdSkills = {
     "Throwing": { "source": "HM3 Skills 10", "skillBase": { "formula": "@str, @dex, @eye, Gordol:2, Ying:2, Torka, Yari, Caelaz, Sanyang" }, "type": "Physical" },
     "Legerdemain": { "source": "HM3 Skills 9", "skillBase": { "formula": "@dex, @dex, @wil, Quindor:2, Feniku:2, Zhone:2, Yong:2, Torka:2, Yari:2" }, "type": "Physical" },
     "Peoni": { "source": "HM Religion, Peoni 1", "skillBase": { "formula": "@voi, @int, @dex, Ariala:2, Boru:2, Aramos, Lengjing, Syrada, Jig-won" }, "type": "Ritual" },
-    "Agrik": { "source": "HM Religion, Agrik 1", "skillBase": { "formula": "@voi, @int, @str, Zhone:2, Yong:2, Quindor, Feniku, Syrada, Jig-won" }, "type": "Ritual" },
+    "Korön": { "source": "HM Religion, Korön 1", "skillBase": { "formula": "@voi, @int, @str, Zhone:2, Yong:2, Quindor, Feniku, Syrada, Jig-won" }, "type": "Ritual" },
+    "Zhojin": { "source": "HM Religion, Zhojin 1", "skillBase": { "formula": "@voi, @int, @str, Zhone:2, Yong:2, Quindor, Feniku, Syrada, Jig-won" }, "type": "Ritual" },
     "Ilvir": { "source": "HM Religion, Ilvir 1", "skillBase": { "formula": "@voi, @int, @aur, Quindor, Feniku, Zhone, Yong, Syrada:2, Jig-won:2" }, "type": "Ritual" },
     "Siem": { "source": "HM Religion, Siem 1", "skillBase": { "formula": "@voi, @int, @aur, Gordol:2, Ying:2, Anzor, Syrada, Jig-won" }, "type": "Ritual" },
     "Sarajin": { "source": "HM Religion, Sarajin 1", "skillBase": { "formula": "@voi, @int, @wil, Anzor:2, Shirdu:2, Ariala, Boru, Tollan, Chuán" }, "type": "Ritual" },
@@ -237,7 +238,7 @@ HM3.magicIcons = [
 
 HM3.ritualIcons = [
     ['circle', 'systems/hm3/images/icons/svg/circle.svg'],
-    ['agrik', 'systems/hm3/images/icons/png/agrik.png'],
+    ['korön', 'systems/hm3/images/icons/png/korön.png'],
     ['halea', 'systems/hm3/images/icons/png/halea.png'],
     ['ilvir', 'systems/hm3/images/icons/png/ilvir.png'],
     ['larani', 'systems/hm3/images/icons/png/larani.png'],
