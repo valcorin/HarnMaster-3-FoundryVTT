@@ -19,7 +19,7 @@
     "type": "Ritual",
     "skillBase": {
       "value": 0,
-      "formula": "@voi, @int, @wil, Masara:2, Skorus, Tarael",
+      "formula": "@voi, @int, @wil, Dorma:2, Shuchi:2, Quindor, Feniku, Torka, Yari",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

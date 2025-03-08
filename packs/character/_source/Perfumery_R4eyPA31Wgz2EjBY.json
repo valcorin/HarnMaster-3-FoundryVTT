@@ -19,7 +19,7 @@
     "type": "Craft",
     "skillBase": {
       "value": 0,
-      "formula": "@sml, @sml, @int, Hirin, Skorus, Tarael",
+      "formula": "@sml, @sml, @int, Gordol, Ying, Quindor, Feniku, Torka, Yari",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

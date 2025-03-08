@@ -19,7 +19,7 @@
     "type": "Ritual",
     "skillBase": {
       "value": 0,
-      "formula": "@voi, @int, @aur, Tollan:2, Chuán:2, Ahnu, Masara",
+      "formula": "@voi, @int, @aur, Tollan:2, Chuán:2, Izballa, Zosan-shi, Dorma, Shuchi",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

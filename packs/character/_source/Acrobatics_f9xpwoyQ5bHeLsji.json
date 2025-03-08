@@ -19,7 +19,7 @@
     "type": "Physical",
     "skillBase": {
       "value": 0,
-      "formula": "@str, @agl, @agl, Nadai:2, Hirin",
+      "formula": "@str, @agl, @agl, Caelaz:2, Sanyang:2, Gordol, Ying",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

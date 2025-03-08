@@ -19,7 +19,7 @@
     "type": "Craft",
     "skillBase": {
       "value": 0,
-      "formula": "@str, @sta, @wil, Ulandus:2, Aralius:2",
+      "formula": "@str, @sta, @wil, Syrada:2, Jig-won:2, Ariala:2, Boru:2",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

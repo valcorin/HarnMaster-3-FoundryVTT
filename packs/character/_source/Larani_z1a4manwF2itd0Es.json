@@ -19,7 +19,7 @@
     "type": "Ritual",
     "skillBase": {
       "value": 0,
-      "formula": "@voi, @int, @wil, Angberelius:2, Ahnu, Feniri",
+      "formula": "@voi, @int, @wil, Aramos:2, Lengjing:2, Izballa, Zosan-shi, Anzor",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

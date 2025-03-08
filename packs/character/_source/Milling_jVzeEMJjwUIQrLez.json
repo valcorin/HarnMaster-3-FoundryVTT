@@ -19,7 +19,7 @@
     "type": "Craft",
     "skillBase": {
       "value": 0,
-      "formula": "@str, @dex, @sml, Ulandus",
+      "formula": "@str, @dex, @sml, Syrada, Jig-won",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

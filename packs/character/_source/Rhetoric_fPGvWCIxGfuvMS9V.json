@@ -19,7 +19,7 @@
     "type": "Communication",
     "skillBase": {
       "value": 0,
-      "formula": "@voi, @int, @wil, Tai, Tarael, Skorus",
+      "formula": "@voi, @int, @wil, Zhone, Yong, Torka, Yari, Quindor, Feniku, Feniku",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

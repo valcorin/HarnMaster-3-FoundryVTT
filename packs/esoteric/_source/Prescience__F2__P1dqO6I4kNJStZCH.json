@@ -18,7 +18,7 @@
     },
     "skillBase": {
       "value": 0,
-      "formula": "@aur,@aur,@wil,Tai,Tarael",
+      "formula": "@aur,@aur,@wil,Zhone, Yong,Torka, Yari",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

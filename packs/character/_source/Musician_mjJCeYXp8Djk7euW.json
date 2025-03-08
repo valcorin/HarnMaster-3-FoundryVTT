@@ -19,7 +19,7 @@
     "type": "Communication",
     "skillBase": {
       "value": 0,
-      "formula": "@dex, @hrg, @hrg, Masara, Angberelius",
+      "formula": "@dex, @hrg, @hrg, Dorma, Shuchi, Aramos, Lengjing",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

@@ -19,7 +19,7 @@
     "type": "Ritual",
     "skillBase": {
       "value": 0,
-      "formula": "@voi, @int, @cml, Tarael:2, Hirin, Masara",
+      "formula": "@voi, @int, @cml, Torka:2, Yari:2, Gordol, Ying, Dorma, Shuchi",
       "isFormulaValid": true
     },
     "masteryLevel": 0,
