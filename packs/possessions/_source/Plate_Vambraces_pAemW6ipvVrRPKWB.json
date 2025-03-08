@@ -34,11 +34,10 @@
       "Forearm"
     ],
     "protection": {
-      "blunt": 6,
-      "edged": 10,
-      "piercing": 6,
-      "fire": 2
-    },
+      "blunt": 5,
+      "edged": 8,
+      "piercing": 7,
+      "fire": 5    },
     "size": 6
   },
   "_stats": {

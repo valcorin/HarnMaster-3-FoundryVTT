@@ -36,9 +36,9 @@
       "Abdomen"
     ],
     "protection": {
-      "blunt": 3,
-      "edged": 6,
-      "piercing": 4,
+      "blunt": 2,
+      "edged": 5,
+      "piercing": 2,
       "fire": 3
     },
     "size": 6
