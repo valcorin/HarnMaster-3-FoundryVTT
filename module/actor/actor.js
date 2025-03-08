@@ -256,6 +256,7 @@ export class HarnMasterActor extends Actor {
         actorData.abilities.will.effective = 0;
         actorData.abilities.eyesight.effective = 0;
         actorData.abilities.hearing.effective = 0;
+        actorData.abilities.touch.effective = 0;
         actorData.abilities.smell.effective = 0;
         actorData.abilities.voice.effective = 0;
         actorData.abilities.comeliness.effective = 0;
@@ -269,6 +270,7 @@ export class HarnMasterActor extends Actor {
         actorData.abilities.will.modified = 0;
         actorData.abilities.eyesight.modified = 0;
         actorData.abilities.hearing.modified = 0;
+        actorData.abilities.touch.modified = 0;
         actorData.abilities.smell.modified = 0;
         actorData.abilities.voice.modified = 0;
         actorData.abilities.comeliness.modified = 0;
@@ -316,6 +318,7 @@ export class HarnMasterActor extends Actor {
         eph.agility = actorData.abilities.agility.base;
         eph.eyesight = actorData.abilities.eyesight.base;
         eph.hearing = actorData.abilities.hearing.base;
+        eph.touch = actorData.abilities.touch.base;
         eph.smell = actorData.abilities.smell.base;
         eph.voice = actorData.abilities.voice.base;
         eph.intelligence = actorData.abilities.intelligence.base;
@@ -372,6 +375,7 @@ export class HarnMasterActor extends Actor {
         actorData.abilities.agility.modified = eph.agility;
         actorData.abilities.eyesight.modified = eph.eyesight;
         actorData.abilities.hearing.modified = eph.hearing;
+        actorData.abilities.touch.modified = eph.touch;
         actorData.abilities.smell.modified = eph.smell;
         actorData.abilities.voice.modified = eph.voice;
         actorData.abilities.intelligence.modified = eph.intelligence;
@@ -631,6 +635,7 @@ export class HarnMasterActor extends Actor {
         actorData.abilities.will.effective = Math.max(Math.round(eph.will + Number.EPSILON) - actorData.universalPenalty, 0);
         actorData.abilities.eyesight.effective = Math.max(Math.round(eph.eyesight + Number.EPSILON) - actorData.universalPenalty, 0);
         actorData.abilities.hearing.effective = Math.max(Math.round(eph.hearing + Number.EPSILON) - actorData.universalPenalty, 0);
+        actorData.abilities.touch.effective = Math.max(Math.round(eph.touch + Number.EPSILON) - actorData.universalPenalty, 0);
         actorData.abilities.smell.effective = Math.max(Math.round(eph.smell + Number.EPSILON) - actorData.universalPenalty, 0);
         actorData.abilities.voice.effective = Math.max(Math.round(eph.voice + Number.EPSILON) - actorData.universalPenalty, 0);
 

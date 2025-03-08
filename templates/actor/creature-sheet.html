@@ -233,6 +233,24 @@
                             </div>
                         </div>
                     </li>
+                    <li class="ability" data-ability="touch">
+                        <h4 class="ability-name box-title rollable">Touch</h4>
+                        <h3 class="ability-value">{{adata.abilities.touch.effective}}</h3>
+                        <div class="ability-modifiers flexrow">
+                            <div class="item-dice">
+                                <a class="ability-d6-roll" data-ability="touch" title="d6 Touch Roll"><i
+                                        class="fas fa-dice-d6"></i></a>
+                            </div>
+                            <div class="ability-box">
+                                <input class="ability-base" type="number" name="system.abilities.touch.base"
+                                    value="{{adata.abilities.touch.base}}" data-dtype="Number" />
+                            </div>
+                            <div class="item-dice">
+                                <a class="ability-d100-roll" data-ability="touch" title="d100 Touch Roll"><i
+                                        class="fas fa-dice-d20"></i></a>
+                            </div>
+                        </div>
+                    </li>
                     <li class="ability" data-ability="smell">
                         <h4 class="ability-name box-title rollable">Smell</h4>
                         <h3 class="ability-value">{{adata.abilities.smell.effective}}</h3>
