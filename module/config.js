@@ -157,7 +157,7 @@ HM3.stdSkills = {
     "Climbing": { "source": "HM3 Skills 8", "skillBase": { "formula": "@str, @dex, @agl, Syrada:2, Jig-won:2, Ariala:2, Boru:2" }, "type": "Physical" },
     "Swimming": { "source": "HM3 Skills 9", "skillBase": { "formula": "@sta, @dex, @agl, Quindor, Feniku, Dorma:3, Shuchi:3, Tollan:3, Chuán:3" }, "type": "Physical" },
     "Skiing": { "source": "HM3 Skills 9", "skillBase": { "formula": "@str, @dex, @agl, Dorma:2, Shuchi:2, Quindor, Feniku, Tollan, Chuán" }, "type": "Physical" },
-    "Stealth": { "source": "HM3 Skills 9", "skillBase": { "formula": "@agl, @hrg, @wil, Gordol:2, Ying:2, Torka:2, Yari:2, Zhone:2, Yong:2" }, "type": "Physical" },
+    "Stealth": { "source": "HM3 Skills 9", "skillBase": { "formula": "@agl, @tch, @wil, Gordol:2, Ying:2, Torka:2, Yari:2, Zhone:2, Yong:2" }, "type": "Physical" },
     "Jumping": { "source": "HM3 Skills 9", "skillBase": { "formula": "@str, @agl, @agl, Caelaz:2, Sanyang:2, Gordol:2, Ying:2" }, "type": "Physical" },
     "Condition": { "source": "HM3 Skills 9", "skillBase": { "formula": "@str, @sta, @wil, Syrada, Jig-won, Tollan, Chuán" }, "type": "Physical" },
     "Dancing": { "source": "HM3 Skills 9", "skillBase": { "formula": "@Dex, @agl, @agl, Torka:2, Yari:2, Gordol, Ying, Zhone, Yong" }, "type": "Physical" },
