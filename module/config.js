@@ -183,7 +183,30 @@ HM3.stdSkills = {
     "Cael": { "source": "HM Religion, Cael 1", "skillBase": { "formula": "@voi, @int, @wil, Caelaz:2, Sanyang:2, Torka, Yari, Anzor, Shirdun" }, "type": "Ritual" },
     "Kai yi": { "source": "HM Religion, Kai yi 1", "skillBase": { "formula": "@voi, @int, @wil, Caelaz:2, Sanyang:2, Torka, Yari, Anzor, Shirdun" }, "type": "Ritual" },
     "Shala": { "source": "HM Religion, Shala 1", "skillBase": { "formula": "@voi, @int, @int, Zhone:2, Yong:2, Torka, Yari, Quindor, Feniku" }, "type": "Craft" },
-    "Wanüa": { "source": "HM Religion, Wanüa 1", "skillBase": { "formula": "@voi, @int, @int, Zhone:2, Yong:2, Torka, Yari, Quindor, Feniku" }, "type": "Craft" }
+    "Wanüa": { "source": "HM Religion, Wanüa 1", "skillBase": { "formula": "@voi, @int, @int, Zhone:2, Yong:2, Torka, Yari, Quindor, Feniku" }, "type": "Craft" },
+    "Agara": { "source": "HM Religion, Agara 1", "skillBase": { "formula": "@voi, @int, @wil, Quindor:2, Feniku:2, Gordol, Ying, Anzor, Shirdun" }, "type": "Craft" },
+    "Quontai": { "source": "HM Religion, Quontai 1", "skillBase": { "formula": "@voi, @int, @wil, Quindor:2, Feniku:2, Gordol, Ying, Anzor, Shirdun" }, "type": "Craft" },
+    "Brindar": { "source": "HM Religion, Brindar 1", "skillBase": { "formula": "@voi, @int, @cml, Torka:2, Yari:2, Gordol:3, Ying:3, Dorma, Shuchi, Zhone:2, Yong:2" }, "type": "Craft" },
+    "Byan'gon": { "source": "HM Religion, Byan'gon 1", "skillBase": { "formula": "@voi, @int, @cml, Torka:2, Yari:2, Gordol:3, Ying:3, Dorma, Shuchi, Zhone:2, Yong:2" }, "type": "Craft" },
+    "Drina": { "source": "HM Religion, Drina 1", "skillBase": { "formula": "@voi, @int, @wil Caelaz, Sanyang, Torka:3, Yari:3, Anzor:2, Shirdun:2" }, "type": "Craft" },
+    "Izira": { "source": "HM Religion, Izira 1", "skillBase": { "formula": "@voi, @int, @wil Caelaz, Sanyang, Torka:3, Yari:3, Anzor:2, Shirdun:2" }, "type": "Craft" },
+    "Gheas": { "source": "HM Religion, Gheas 1", "skillBase": { "formula": "@voi, @int, @str, Torka:3, Yari:3, Zhone:2, Yong:2, Dorma, Shuchi" }, "type": "Craft" },
+    "Quaynagu": { "source": "HM Religion, Quaynagu 1", "skillBase": { "formula": "@voi, @int, @str, Torka:3, Yari:3, Zhone:2, Yong:2, Dorma, Shuchi" }, "type": "Craft" },
+    "Kasira": { "source": "HM Religion, Kasira 1", "skillBase": { "formula": "@voi, @int, @aur, Ariala, Boru, Zhone, Yong, Syrada:2, Jig-won:2" }, "type": "Craft" },
+    "Kaya kwen": { "source": "HM Religion, Kaya kwen 1", "skillBase": { "formula": "@voi, @int, @aur, Ariala, Boru, Zhone, Yong, Syrada:2, Jig-won:2" }, "type": "Craft" },
+    "Liska": { "source": "HM Religion, Liska 1", "skillBase": { "formula": "@voi, @int, @int, Torka:2, Yari:2, Quindor, Feniku, Dorma:3, Shuchi:3" }, "type": "Craft" },
+    "Okami": { "source": "HM Religion, Okami 1", "skillBase": { "formula": "@voi, @int, @int, Torka:2, Yari:2, Quindor, Feniku, Dorma:3, Shuchi:3" }, "type": "Craft" },
+    "Mara": { "source": "HM Religion, Mara 1", "skillBase": { "formula": "@voi, @int, @dex, Ariala:2, Boru:2, Aramos, Lengjing, Syrada, Jig-won" }, "type": "Craft" },
+    "Inarima": { "source": "HM Religion, Inarima 1", "skillBase": { "formula": "@voi, @int, @dex, Ariala:2, Boru:2, Aramos, Lengjing, Syrada, Jig-won" }, "type": "Craft" },
+    "Tanar": { "source": "HM Religion, Tanar 1", "skillBase": { "formula": "@voi, @int, @str Zhone:3, Yong:3, Torka, Yari, Anzor:2, Shirdun:2" }, "type": "Craft" },
+    "Minachi": { "source": "HM Religion, Minachi 1", "skillBase": { "formula": "@voi, @int, @str Zhone:3, Yong:3, Torka, Yari, Anzor:2, Shirdun:2" }, "type": "Craft" },
+    "Vandor": { "source": "HM Religion, Vandor 1", "skillBase": { "formula": "@voi, @int, @int, Izballa:2, Zosan-shi:2, Ariala, Boru, Aramos, Lengjing" }, "type": "Craft" },
+    "Mikoto-sai": { "source": "HM Religion, Mikoto-sai 1", "skillBase": { "formula": "@voi, @int, @int, Izballa:2, Zosan-shi:2, Ariala, Boru, Aramos, Lengjing" }, "type": "Craft" },
+    "Xydona": { "source": "HM Religion, Xydona 1", "skillBase": { "formula": "@voi, @int, @wil, Quindor, Feniku, Gordol:2, Ying:2, Anzor, Shirdun" }, "type": "Craft" },
+    "Raijin-no": { "source": "HM Religion, Raijin-no 1", "skillBase": { "formula": "@voi, @int, @wil, Quindor, Feniku, Gordol:2, Ying:2, Anzor, Shirdun" }, "type": "Craft" },
+    "Xydonus": { "source": "HM Religion, Xydonus 1", "skillBase": { "formula": "@voi, @int, @aur, Gordol, Ying, Anzor, Shirdun, Syrada:2, Jig-won:2" }, "type": "Craft" },
+    "Garasu": { "source": "HM Religion, Garasu 1", "skillBase": { "formula": "@voi, @int, @aur, Gordol, Ying, Anzor, Shirdun, Syrada:2, Jig-won:2" }, "type": "Craft" }
+
 };
 
 HM3.injuryLevels = ["NA", "M1", "S2", "S3", "G4", "G5", "K4", "K5"];
@@ -257,6 +280,16 @@ HM3.ritualIcons = [
     ['tyvos', 'systems/hm3/images/icons/png/tyvos.png'],
     ["shala", 'systems/hm3/images/icons/png/shala.png'],
     ['arial', 'systems/hm3/images/icons/png/arial.png'],
+    ['zhojin', 'systems/hm3/images/icons/png/korön.png'],
+    ['mien-jai', 'systems/hm3/images/icons/png/kalura.png'],
+    ['hurong-oni', 'systems/hm3/images/icons/png/kalos.png'],
+    ['kai yi', 'systems/hm3/images/icons/png/cael.png'],
+    ["hai'yongi", 'systems/hm3/images/icons/png/zelist.png'],
+    ['navong kui', 'systems/hm3/images/icons/png/naventhul.png'],
+    ['alyin', 'systems/hm3/images/icons/png/alea.png'],
+    ['mazong', 'systems/hm3/images/icons/png/tyvos.png'],
+    ['wanüa', 'systems/hm3/images/icons/png/shala.png'],
+    ['aramai', 'systems/hm3/images/icons/png/arial.png'],
     ["save k'nor", 'systems/hm3/images/icons/png/saveknor.png'],
     ['save k’nor', 'systems/hm3/images/icons/png/saveknor.png'],
     ['save knor', 'systems/hm3/images/icons/png/saveknor.png']
