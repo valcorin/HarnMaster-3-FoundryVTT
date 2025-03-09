@@ -1,8 +1,8 @@
 {
-  "_id": "zQsMYQFob2DQMlCg",
-  "name": "Shala",
+  "_id": "LC49oQ9oJRuhhn0l",
+  "name": "Kasira",
   "type": "skill",
-  "img": "systems/hm3/images/icons/png/shala.png",
+  "img": "systems/hm3/images/icons/png/koron.png",
   "effects": [],
   "folder": "ehEs3IXsjATxYb8d",
   "flags": {
@@ -11,7 +11,7 @@
   "system": {
     "notes": "",
     "description": "",
-    "source": "HM Religion, Shala 1",
+    "source": "HM Religion, Kasira 1",
     "macros": {
       "type": "script",
       "command": ""
@@ -19,7 +19,7 @@
     "type": "Ritual",
     "skillBase": {
       "value": 0,
-      "formula": "@voi, @int, @int, Izballa:2, Zosan-shi:2, Ariala, Boru, Aramos:3, Lengjing:3",
+      "formula": "@voi, @int, @aur, Ariala, Boru, Zhone, Yong, Syrada:2, Jig-won:2",
       "isFormulaValid": true
     },
     "masteryLevel": 0,
@@ -42,5 +42,5 @@
     "default": 0,
     "gaRXj6PUpj4nuJ7Y": 3
   },
-  "_key": "!items!zQsMYQFob2DQMlCg"
+  "_key": "!items!LC49oQ9oJRuhhn0l"
 }
