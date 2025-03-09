@@ -259,21 +259,21 @@ HM3.defaultContainerIconName = 'sack';
 
 HM3.magicIcons = [
     ['pentacle', 'systems/hm3/images/icons/svg/pentacle.svg'],
-    ['vularu', 'systems/hm3/images/icons/svg/vularu.svg'],
-    ['yalva', 'systems/hm3/images/icons/svg/yalva.svg'],
-    ['tykizu', 'systems/hm3/images/icons/svg/tykizu.svg'],
-    ['toraz', 'systems/hm3/images/icons/svg/toraz.svg'],
-    ['avikor', 'systems/hm3/images/icons/svg/avikor.svg'],
-    ["Xavar’na", 'systems/hm3/images/icons/svg/xavarna.svg'],
-    ["xavar'na", 'systems/hm3/images/icons/svg/xavarna.svg'],
-    ["xavarna", 'systems/hm3/images/icons/svg/xavarna.svg'],
-    ['kaze', 'systems/hm3/images/icons/svg/vularu.svg'],
-    ['hono', 'systems/hm3/images/icons/svg/yalva.svg'],
-    ['kinzoku', 'systems/hm3/images/icons/svg/tykizu.svg'],
-    ['tinjei', 'systems/hm3/images/icons/svg/toraz.svg'],
-    ['shui', 'systems/hm3/images/icons/svg/avikor.svg'],
-    ['tuano', 'systems/hm3/images/icons/svg/xavarna.svg'],
-    ['neutral', 'systems/hm3/images/icons/svg/neutral.svg']
+    ['vularu', 'systems/hm3/images/icons/png/vularu.png'],
+    ['yalva', 'systems/hm3/images/icons/png/yalva.png'],
+    ['tykizu', 'systems/hm3/images/icons/png/tykizu.png'],
+    ['toraz', 'systems/hm3/images/icons/png/toraz.png'],
+    ['avikor', 'systems/hm3/images/icons/png/avikor.png'],
+    ["Xavar’na", 'systems/hm3/images/icons/png/xavarna.png'],
+    ["xavar'na", 'systems/hm3/images/icons/png/xavarna.png'],
+    ["xavarna", 'systems/hm3/images/icons/png/xavarna.png'],
+    ['kaze', 'systems/hm3/images/icons/png/vularu.png'],
+    ['hono', 'systems/hm3/images/icons/png/yalva.png'],
+    ['kinzoku', 'systems/hm3/images/icons/png/tykizu.png'],
+    ['tinjei', 'systems/hm3/images/icons/png/toraz.png'],
+    ['shui', 'systems/hm3/images/icons/png/avikor.png'],
+    ['tuano', 'systems/hm3/images/icons/png/xavarna.png'],
+    ['neutral', 'systems/hm3/images/icons/png/neutral.png']
 ];
 
 HM3.ritualIcons = [
