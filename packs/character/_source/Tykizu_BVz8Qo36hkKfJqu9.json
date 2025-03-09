@@ -1,8 +1,8 @@
 {
-  "_id": "2nYzH6D4b194HDQu",
-  "name": "Peleahn",
+  "_id": "BVz8Qo36hkKfJqu9",
+  "name": "Tykizu",
   "type": "skill",
-  "img": "systems/hm3/images/icons/svg/fire.svg",
+  "img": "systems/hm3/images/icons/svg/tykizu.svg",
   "effects": [],
   "folder": "zQdlAO8iJ9sy3s9l",
   "flags": {
@@ -19,7 +19,7 @@
     "type": "Magic",
     "skillBase": {
       "value": 0,
-      "formula": "@aur, @aur, @agl, Syrada:-1, Jig-won:-1, Anzor, Shirdun, Izballa:2,Zosan-shi:2, Aramos:3, Lengjing:3, Caelaz:2, Sanyang:2, Gordol, Ying, Zhone:-1, Yong:-1, Quindor:-2, Feniku:-2, Dorma:-3, Shuchi:-3, Tollan:-2, Chuán:-2",
+      "formula": "@aur, @aur, @str, Syrada, Jig-won, Ariala:2, Boru:2, Anzor:3, Shirdun:3, Izballa:2,Zosan-shi:2, Aramos:1, Gordol:-1, Ying:-1, Torka:-2, Yari:-2, Zhone:-3, Quindor:-2, Feniku:-2, Dorma:-1, Shuchi:-1",
       "isFormulaValid": true
     },
     "masteryLevel": 0,
@@ -42,5 +42,5 @@
     "default": 0,
     "gaRXj6PUpj4nuJ7Y": 3
   },
-  "_key": "!items!2nYzH6D4b194HDQu"
+  "_key": "!items!BVz8Qo36hkKfJqu9"
 }

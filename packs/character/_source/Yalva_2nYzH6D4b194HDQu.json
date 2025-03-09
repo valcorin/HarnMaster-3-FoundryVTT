@@ -1,8 +1,8 @@
 {
-  "_id": "0IaD2MB5SlRuNV4y",
-  "name": "Lyahvi",
+  "_id": "2nYzH6D4b194HDQu",
+  "name": "Yalva",
   "type": "skill",
-  "img": "systems/hm3/images/icons/svg/wind.svg",
+  "img": "systems/hm3/images/icons/svg/yalva.svg",
   "effects": [],
   "folder": "zQdlAO8iJ9sy3s9l",
   "flags": {
@@ -11,7 +11,7 @@
   "system": {
     "notes": "",
     "description": "",
-    "source": "HM Magic, Shek-Pvar 6",
+    "source": "HM Magic, Shek-pvar 6",
     "macros": {
       "type": "script",
       "command": ""
@@ -19,7 +19,7 @@
     "type": "Magic",
     "skillBase": {
       "value": 0,
-      "formula": "@aur, @aur, @eye, Syrada:-3, Jig-won:-3, Ariala:-2, Boru:-2,Anzor:-1, Shirdun:-1, Aramos, Lengjing, Caelaz:2, Sanyang:2, Gordol:3, Ying:3, Torka:2, Yari:2, Zhone, Yong,Dorma:-1, Shuchi:-1, Tollan:-2, Chuán:-2",
+      "formula": "@aur, @aur, @agl, Syrada:-1, Jig-won:-1, Anzor, Shirdun, Izballa:2,Zosan-shi:2, Aramos:3, Lengjing:3, Caelaz:2, Sanyang:2, Gordol, Ying, Zhone:-1, Yong:-1, Quindor:-2, Feniku:-2, Dorma:-3, Shuchi:-3, Tollan:-2, Chuán:-2",
       "isFormulaValid": true
     },
     "masteryLevel": 0,
@@ -42,5 +42,5 @@
     "default": 0,
     "gaRXj6PUpj4nuJ7Y": 3
   },
-  "_key": "!items!0IaD2MB5SlRuNV4y"
+  "_key": "!items!2nYzH6D4b194HDQu"
 }
