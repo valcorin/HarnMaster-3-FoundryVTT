@@ -144,7 +144,7 @@
     },
     "invocation": {
       "templates": ["base"],
-      "diety": "",
+      "deity": "",
       "circle": 1,
       "effectiveMasteryLevel": 0
     },
