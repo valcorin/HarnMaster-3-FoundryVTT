@@ -37,14 +37,14 @@ HM3.ITEM_TYPE_LABEL = {
     incantation: { singular: 'Ritual Incantation', plural: 'Ritual Incantations' },
 };
 
-HM3.sunsigns = ['Syrada', 'Syrada-Ariala', 'Ariala', 'Ariala-Anzor', 'Anzor', 'Anzor-Izballa',
-    'Izballa', 'Izballa-Aramos', 'Aramos', 'Aramos-Caelaz', 'Caelaz', 'Caelaz-Gordol',
-    'Gordol', 'Gordol-Torka', 'Torka', 'Torka-Zhone', 'Zhone', 'Zhone-Quindor', 'Quindor',
-    'Quindor-Dorma', 'Dorma', 'Dorma-Tollan', 'Tollan', 'Tollan-Syrada',
-    'Jig-won', 'Jig-won-Boru', 'Boru', 'Boru-Shirdun', 'Shirdun', 'Shirdun-Zosan-shi',
-    'Zosan-shi', 'Zosan-shi-Lengjing', 'Lengjing', 'Lengjing-Sanyang', 'Sanyang', 'Sanyang-Ying',
-    'Ying', 'Ying-Yari', 'Yari', 'Yari-Yong', 'Yong', 'Yong-Feniku', 'Feniku',
-    'Feniku-Shuchi', 'Shuchi', 'Shuchi-Chuán', 'Chuán', 'Chuán-Jig-won',];
+HM3.sunsigns = ['Tollan', 'Tollan-Dorma', 'Dorma', 'Dorma-Ariala', 'Ariala', 'Ariala-Caelaz',
+    'Caelaz', 'Caelaz-Torka', 'Torka', 'Torka-Anzor', 'Anzor', 'Anzor-Quindor',
+    'Quindor', 'Quindor-Zhone', 'Zhone', 'Zhone-Syrada', 'Syrada', 'Syrada-Izballa', 'Izballa',
+    'Izballa-Gordol', 'Gordol', 'Gordol-Aramos', 'Aramos', 'Aramos-Tollan',
+    'Chuán', 'Chuán-Shushi', 'Shushi', 'Shushi-Boru', 'Boru', 'Boru-Sanyang',
+    'Sanyang', 'Sanyang-Yari', 'Yari', 'Yari-Shirdun', 'Shirdun', 
+    'Shirdun-Feniku', 'Feniku', 'Feniku-Yong', 'Yong', 'Yong-Jig-won', 'Jig-won', 'Jig-won-Zosan-shi',
+    'Zosan-shi', 'Zosan-shi-Ying', 'Ying', 'Ying-Lengjing', 'Lengjing', 'Lengjing-Chuán',];
 
 HM3.defaultCharacterSkills = [
     'Climbing', 'Jumping', 'Stealth', 'Throwing', 'Awareness', 'Intrigue', 'Oratory', 'Rhetoric', 'Singing',
