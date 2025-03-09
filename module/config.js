@@ -147,13 +147,13 @@ HM3.stdSkills = {
     "Seamanship": { "source": "HM3 Skills 17", "skillBase": { "formula": "@str, @dex, @agl, Tollan:3, Chuán:3, Dorma, Shuchi, Quindor, Feniku" }, "type": "Craft" },
     "Glassworking": { "source": "HM3 Skills 15", "skillBase": { "formula": "@dex, @dex, @tch, Anzor:2, Shirdun:2" }, "type": "Craft" },
     "Agriculture": { "source": "HM3 Skills 13", "skillBase": { "formula": "@str, @sta, @wil, Syrada:2, Jig-won:2, Ariala:2, Boru:2" }, "type": "Craft" },
-    "Lyahvi": { "source": "HM Magic, Shek-Pvar 6", "skillBase": { "formula": "@aur, @aur, @eye, Syrada:-3, Jig-won:-3, Ariala:-2, Boru:-2, Anzor:-1, Shirdun-1, Aramos, Lengjing, Caelaz:2, Sanyang:2, Gordol:3, Ying:3, Torka:2, Yari:2, Zhone, Yong, Dorma:-1, Shuchi:-1, Tollan:-2, Chuán:-2" }, "type": "Magic" },
-    "Savorya": { "source": "HM Magic, Shek-pvar 6", "skillBase": { "formula": "@aur, @aur, @int, Syrada:-1, Jig-won:-1, Ariala:-2, Boru:-2, Anzor:-3, Shirdun:-3, Izballa:-2, Zosan-shi:-2, Aramos:-1, Lengjing:-1, Gordol:1, Torka:2, Yari:2, Zhone:3, Yong:3, Quindor:2, Feniku:2, Dorma, Shuchi" }, "type": "Magic" },
-    "Peleahn": { "source": "HM Magic, Shek-pvar 6", "skillBase": { "formula": "@aur, @aur, @agl, Syrada:-1, Jig-won:-1, Anzor, Shirdun, Izballa:2, Zosan-shi:2, Aramos:3, Lengjing:3, Caelaz:2, Sanyang:2, Gordol, Ying, Zhone:-1, Yong:-1, Quindor:-2, Feniku:-2, Dorma:-3, Shuchi:-3, Tollan:-2, Chuán:-2" }, "type": "Magic" },
-    "Jmorvi": { "source": "HM Magic, Shek-pvar 6", "skillBase": { "formula": "@aur, @aur, @str, Syrada, Jig-won, Ariala:2, Boru:2, Anzor:3, Shirdun:3, Izballa:2, Zosan-shi:2, Aramos:1, Gordol:-1, Ying:-1, Torka:-2, Yari:-2, Zhone:-3, Quindor:-2, Feniku:-2, Dorma:-1, Shuchi:-1" }, "type": "Magic" },
-    "Odivshe": { "source": "HM Magic, Shek-pvar 6", "skillBase": { "formula": "@aur, @aur, @dex, Syrada, Jig-won, Anzor:-1, Shirdun-1, Izballa:-2, Zosan-shi:-2, Aramos:-3, Lengjing:-3, Caelaz:-2, Sanyang:-2, Gordol:-1, Ying:-1, Zhone:1, Quindor:2, Feniku:2, Dorma:3, Shuchi:3, Tollan:2, Chuán:2" }, "type": "Magic" },
+    "Vularu": { "source": "HM Magic, Shek-Pvar 6", "skillBase": { "formula": "@aur, @aur, @eye, Syrada:-3, Jig-won:-3, Ariala:-2, Boru:-2, Anzor:-1, Shirdun-1, Aramos, Lengjing, Caelaz:2, Sanyang:2, Gordol:3, Ying:3, Torka:2, Yari:2, Zhone, Yong, Dorma:-1, Shuchi:-1, Tollan:-2, Chuán:-2" }, "type": "Magic" },
+    "Xavar’na": { "source": "HM Magic, Shek-pvar 6", "skillBase": { "formula": "@aur, @aur, @int, Syrada:-1, Jig-won:-1, Ariala:-2, Boru:-2, Anzor:-3, Shirdun:-3, Izballa:-2, Zosan-shi:-2, Aramos:-1, Lengjing:-1, Gordol:1, Torka:2, Yari:2, Zhone:3, Yong:3, Quindor:2, Feniku:2, Dorma, Shuchi" }, "type": "Magic" },
+    "Yalva": { "source": "HM Magic, Shek-pvar 6", "skillBase": { "formula": "@aur, @aur, @agl, Syrada:-1, Jig-won:-1, Anzor, Shirdun, Izballa:2, Zosan-shi:2, Aramos:3, Lengjing:3, Caelaz:2, Sanyang:2, Gordol, Ying, Zhone:-1, Yong:-1, Quindor:-2, Feniku:-2, Dorma:-3, Shuchi:-3, Tollan:-2, Chuán:-2" }, "type": "Magic" },
+    "Tykizu": { "source": "HM Magic, Shek-pvar 6", "skillBase": { "formula": "@aur, @aur, @str, Syrada, Jig-won, Ariala:2, Boru:2, Anzor:3, Shirdun:3, Izballa:2, Zosan-shi:2, Aramos:1, Gordol:-1, Ying:-1, Torka:-2, Yari:-2, Zhone:-3, Quindor:-2, Feniku:-2, Dorma:-1, Shuchi:-1" }, "type": "Magic" },
+    "Avikor": { "source": "HM Magic, Shek-pvar 6", "skillBase": { "formula": "@aur, @aur, @dex, Syrada, Jig-won, Anzor:-1, Shirdun-1, Izballa:-2, Zosan-shi:-2, Aramos:-3, Lengjing:-3, Caelaz:-2, Sanyang:-2, Gordol:-1, Ying:-1, Zhone:1, Quindor:2, Feniku:2, Dorma:3, Shuchi:3, Tollan:2, Chuán:2" }, "type": "Magic" },
     "Neutral": { "source": "HM Magic, Shek-pvar 6", "skillBase": { "formula": "@aur, @aur, @wil" }, "type": "Magic" },
-    "Fyvria": { "source": "HM Magic, Shek-pvar 6", "skillBase": { "formula": "@aur, @aur, @sml, Syrada:3, Jig-won:3, Ariala:2, Boru:2, Anzor, Shirdun, Aramos:-1, Lengjing:-1, Caelaz:-2, Sanyang:-2, Gordol:-3, Ying:-3, Torka:-2, Yari:-2, Zhone:-1, Yong:-1, Dorma, Shuchi, Tollan:2, Chuán:2" }, "type": "Magic" },
+    "Toraz": { "source": "HM Magic, Shek-pvar 6", "skillBase": { "formula": "@aur, @aur, @sml, Syrada:3, Jig-won:3, Ariala:2, Boru:2, Anzor, Shirdun, Aramos:-1, Lengjing:-1, Caelaz:-2, Sanyang:-2, Gordol:-3, Ying:-3, Torka:-2, Yari:-2, Zhone:-1, Yong:-1, Dorma, Shuchi, Tollan:2, Chuán:2" }, "type": "Magic" },
     "Climbing": { "source": "HM3 Skills 8", "skillBase": { "formula": "@str, @dex, @agl, Syrada:2, Jig-won:2, Ariala:2, Boru:2" }, "type": "Physical" },
     "Swimming": { "source": "HM3 Skills 9", "skillBase": { "formula": "@sta, @dex, @agl, Quindor, Feniku, Dorma:3, Shuchi:3, Tollan:3, Chuán:3" }, "type": "Physical" },
     "Skiing": { "source": "HM3 Skills 9", "skillBase": { "formula": "@str, @dex, @agl, Dorma:2, Shuchi:2, Quindor, Feniku, Tollan, Chuán" }, "type": "Physical" },
@@ -259,13 +259,13 @@ HM3.defaultContainerIconName = 'sack';
 
 HM3.magicIcons = [
     ['pentacle', 'systems/hm3/images/icons/svg/pentacle.svg'],
-    ['lyahvi', 'systems/hm3/images/icons/svg/wind.svg'],
-    ['peleahn', 'systems/hm3/images/icons/svg/fire.svg'],
-    ['jmorvi', 'systems/hm3/images/icons/svg/anvil.svg'],
-    ['fyvria', 'systems/hm3/images/icons/svg/tree.svg'],
-    ['odivshe', 'systems/hm3/images/icons/svg/water.svg'],
-    ['savorya', 'systems/hm3/images/icons/svg/divination.svg'],
-    ['neutral', 'systems/hm3/images/icons/svg/pentacle.svg']
+    ['vularu', 'systems/hm3/images/icons/svg/vularu.svg'],
+    ['yalva', 'systems/hm3/images/icons/svg/yalva.svg'],
+    ['tykizu', 'systems/hm3/images/icons/svg/tykizu.svg'],
+    ['toraz', 'systems/hm3/images/icons/svg/toraz.svg'],
+    ['avikor', 'systems/hm3/images/icons/svg/avikor.svg'],
+    ["xavar'na", 'systems/hm3/images/icons/svg/xavarna.svg'],
+    ['neutral', 'systems/hm3/images/icons/svg/neutral.svg']
 ];
 
 HM3.ritualIcons = [
