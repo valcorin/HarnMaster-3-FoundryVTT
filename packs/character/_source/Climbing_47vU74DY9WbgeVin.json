@@ -19,7 +19,7 @@
     "type": "Physical",
     "skillBase": {
       "value": 0,
-      "formula": "@str, @dex, @agl, Syrada:2, Jig-won:2, Ariala:2, Boru:2",
+      "formula": "@str, @dex, @agl, Syrada:2, Jig’won:2, Ariala:2, Boru:2",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

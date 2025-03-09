@@ -19,7 +19,7 @@
     "type": "Ritual",
     "skillBase": {
       "value": 0,
-      "formula": "@voi, @int, @dex, Ariala:2, Boru:2, Aramos, Lengjing, Syrada, Jig-won",
+      "formula": "@voi, @int, @dex, Ariala:2, Boru:2, Aramos, Lengjing, Syrada, Jig’won",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

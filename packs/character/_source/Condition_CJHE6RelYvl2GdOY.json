@@ -19,7 +19,7 @@
     "type": "Physical",
     "skillBase": {
       "value": 0,
-      "formula": "@str, @sta, @wil, Syrada, Jig-won, Tollan, Chuán",
+      "formula": "@str, @sta, @wil, Syrada, Jig’won, Tollan, Chuán",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

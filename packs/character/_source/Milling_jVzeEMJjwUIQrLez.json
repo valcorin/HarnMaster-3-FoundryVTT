@@ -19,7 +19,7 @@
     "type": "Craft",
     "skillBase": {
       "value": 0,
-      "formula": "@str, @tch, @sml, Syrada, Jig-won",
+      "formula": "@str, @tch, @sml, Syrada, Jig’won",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

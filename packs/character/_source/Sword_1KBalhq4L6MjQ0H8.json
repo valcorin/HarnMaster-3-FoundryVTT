@@ -19,7 +19,7 @@
     "type": "Combat",
     "skillBase": {
       "value": 0,
-      "formula": "@str, @dex, @dex, Aramos:3, Lengjing:3, Izballa, Zosan-shi, Caelaz, Sanyang",
+      "formula": "@str, @dex, @dex, Aramos:3, Lengjing:3, Izballa, Zosan’shi, Caelaz, Sanyang",
       "isFormulaValid": true
     },
     "masteryLevel": 0,
