@@ -703,7 +703,7 @@ export class HarnMasterBaseActorSheet extends ActorSheet {
                 break;
 
             case 'invocation':
-                updateData['system.diety'] = otherData.diety;
+                updateData['system.deity'] = otherData.deity;
                 updateData['system.circle'] = otherData.circle;
                 break;
 
@@ -810,7 +810,7 @@ export class HarnMasterBaseActorSheet extends ActorSheet {
                 else if (dataset.type === 'trait') updateData['system.type'] = dataset.traittype;
                 else if (dataset.type.endsWith('gear')) updateData['system.container'] = dataset.containerId;
                 else if (dataset.type === 'spell') updateData['system.convocation'] = extraValue;
-                else if (dataset.type === 'invocation') updateData['system.diety'] = extraValue;
+                else if (dataset.type === 'invocation') updateData['system.deity'] = extraValue;
 
                 // Finally, create the item!
                 const result = await Item.create(updateData, {parent: this.actor });
@@ -960,7 +960,7 @@ export class HarnMasterBaseActorSheet extends ActorSheet {
                     chatData.title = `${itemData.convocation} Spell`;
                 } else if (item.type === 'invocation') {
                     chatData.level = utility.romanize(itemData.circle);
-                    chatData.title = `${itemData.diety} Invocation`;
+                    chatData.title = `${itemData.deity} Invocation`;
                 } else if (item.type === 'psionic') {
                     chatData.level = `F${itemData.fatigue}`;
                     chatData.title = `Psionic Talent`;
