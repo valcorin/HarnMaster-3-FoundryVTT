@@ -1,6 +1,6 @@
 {
   "_id": "zQsMYQFob2DQMlCg",
-  "name": "Save K'nor",
+  "name": "Shala",
   "type": "skill",
   "img": "systems/hm3/images/icons/png/shala.png",
   "effects": [],
@@ -11,7 +11,7 @@
   "system": {
     "notes": "",
     "description": "",
-    "source": "HM Religion, Save K'nor 1",
+    "source": "HM Religion, Shala 1",
     "macros": {
       "type": "script",
       "command": ""

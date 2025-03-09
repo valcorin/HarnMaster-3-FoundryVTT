@@ -255,11 +255,11 @@ HM3.ritualIcons = [
     ['naventhül', 'systems/hm3/images/icons/png/naventhul.png'],
     ['alea', 'systems/hm3/images/icons/png/alea.png'],
     ['tyvos', 'systems/hm3/images/icons/png/tyvos.png'],
-    ["save k'nor", 'systems/hm3/images/icons/png/saveknor.png'],
     ["shala", 'systems/hm3/images/icons/png/shala.png'],
+    ['arial', 'systems/hm3/images/icons/png/arial.png'],
+    ["save k'nor", 'systems/hm3/images/icons/png/saveknor.png'],
     ['save k’nor', 'systems/hm3/images/icons/png/saveknor.png'],
-    ['save knor', 'systems/hm3/images/icons/png/saveknor.png'],
-    ['arial', 'systems/hm3/images/icons/png/arial.png']
+    ['save knor', 'systems/hm3/images/icons/png/saveknor.png']
 ];
 
 HM3.psionicTalentIcons = [
