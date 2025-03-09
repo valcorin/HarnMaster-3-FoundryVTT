@@ -19,7 +19,7 @@
     "type": "Ritual",
     "skillBase": {
       "value": 0,
-      "formula": "@voi, @int, @aur, Gordol, Ying, Anzor, Shirdun, Syrada:2, Jig-won:2",
+      "formula": "@voi, @int, @aur, Gordol, Ying, Anzor, Shirdun, Syrada:2, Jig’won:2",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

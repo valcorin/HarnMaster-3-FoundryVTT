@@ -19,7 +19,7 @@
     "type": "Ritual",
     "skillBase": {
       "value": 0,
-      "formula": "@voi, @int, @int, Izballa:2, Zosan-shi:2, Ariala, Boru, Aramos, Lengjing",
+      "formula": "@voi, @int, @int, Izballa:2, Zosan’shi:2, Ariala, Boru, Aramos, Lengjing",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

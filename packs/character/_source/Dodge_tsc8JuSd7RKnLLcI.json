@@ -19,7 +19,7 @@
     "type": "Combat",
     "skillBase": {
       "value": 0,
-      "formula": "@agl, @agl, @spd, Ariala, Boru, Gordol, Ying, Izballa, Zosan-shi",
+      "formula": "@agl, @agl, @spd, Ariala, Boru, Gordol, Ying, Izballa, Zosan’shi",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

@@ -19,7 +19,7 @@
     "type": "Craft",
     "skillBase": {
       "value": 0,
-      "formula": "@dex, @dex, @wil, Syrada:2, Jig-won:2, Ariala, Boru, Tollan, Chuán",
+      "formula": "@dex, @dex, @wil, Syrada:2, Jig’won:2, Ariala, Boru, Tollan, Chuán",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

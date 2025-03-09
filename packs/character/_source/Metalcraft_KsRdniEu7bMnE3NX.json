@@ -19,7 +19,7 @@
     "type": "Craft",
     "skillBase": {
       "value": 0,
-      "formula": "@str, @dex, @tch, Anzor:3, Shirdun:3, Izballa, Zosan-shi, Aramos, Lengjing",
+      "formula": "@str, @dex, @tch, Anzor:3, Shirdun:3, Izballa, Zosan’shi, Aramos, Lengjing",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

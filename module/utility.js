@@ -7,7 +7,7 @@ import { HM3 } from './config.js';
  * 
  * A valid SB formula looks like this:
  * 
- *   "@str, @int, @sta, gordol:2, ying:2, izballa, zosan-shi, 5"
+ *   "@str, @int, @sta, gordol:2, ying:2, izballa, zosan’shi, 5"
  * 
  * meaning
  *   average STR, INT, and STA

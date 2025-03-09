@@ -19,7 +19,7 @@
     "type": "Combat",
     "skillBase": {
       "value": 0,
-      "formula": "@dex, @agl, @wil, Syrada, Jig-won, Ariala, Boru",
+      "formula": "@dex, @agl, @wil, Syrada, Jig’won, Ariala, Boru",
       "isFormulaValid": true
     },
     "masteryLevel": 0,
