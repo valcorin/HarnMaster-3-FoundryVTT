@@ -9,7 +9,7 @@
     "core": {}
   },
   "system": {
-    "notes": "Gargun weapon",
+    "notes": "Gargun weapon.  One-handed penalty of -5",
     "description": "",
     "source": "HM3 Combat 3",
     "macros": {
@@ -33,7 +33,7 @@
     "attackMasteryLevel": 0,
     "attack": 15,
     "defense": 10,
-    "attackModifier": -5,
+    "attackModifier": 0,
     "blunt": 3,
     "edged": 6,
     "piercing": -1,

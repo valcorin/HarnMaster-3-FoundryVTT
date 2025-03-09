@@ -9,7 +9,7 @@
     "core": {}
   },
   "system": {
-    "notes": "",
+    "notes": "One-handed penalty of -10",
     "description": "",
     "source": "HM3 Combat 3",
     "macros": {
@@ -33,7 +33,7 @@
     "attackMasteryLevel": 0,
     "attack": 20,
     "defense": 10,
-    "attackModifier": -10,
+    "attackModifier": 0,
     "blunt": 4,
     "edged": 7,
     "piercing": 4,
