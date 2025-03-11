@@ -19,7 +19,7 @@
     "type": "Magic",
     "skillBase": {
       "value": 0,
-      "formula": "@aur, @aur, @eye, Syrada:-3, Jig’won:-3, Ariala:-2, Boru:-2,Anzor:-1, Shirdun:-1, Aramos, Lengjing, Caelaz:2, Sanyang:2, Gordol:3, Ying:3, Torka:2, Yari:2, Zhone, Yong,Dorma:-1, Shuchi:-1, Tollan:-2, Chuán:-2",
+      "formula": "@aur, @aur, @eye, Syrada:2, Jig’won:2, Tollan:-2, Chuán:-2, Anzor:-1, Shirdun-1, Aramos:2, Lengjing:2, Caelaz:-3, Sanyang:-3, Gordol:3, Ying:3, Torka:-2, Yari:-2, Izballa, Zosan’shi, Dorma:-1, Shuchi:-1",
       "isFormulaValid": true
     },
     "masteryLevel": 0,
