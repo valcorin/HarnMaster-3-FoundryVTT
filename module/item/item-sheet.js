@@ -40,7 +40,7 @@ export class HarnMasterItemSheet extends ItemSheet {
     data.hasMagicSkills = false;
 
     data.macroTypes = foundry.utils.deepClone(game.system.documentTypes.Macro);
-    
+
     data.containers = { 'On Person': 'on-person' };
     // Containers are not allowed in other containers.  So if this item is a container,
     // don't show any other containers.
@@ -110,14 +110,14 @@ export class HarnMasterItemSheet extends ItemSheet {
 
     data.effects = {};
     this.item.effects.forEach(effect => {
-      effect._getSourceName().then(()=> {
-        data.effects[effect.id] = {
-          'source': effect.sourceName,
-          'duration': utility.aeDuration(effect),
-          'data': effect,
-          'changes': utility.aeChanges(effect)
-        }
-      })
+      //effect._getSourceName().then(()=> {
+      data.effects[effect.id] = {
+        'source': effect.sourceName,
+        'duration': utility.aeDuration(effect),
+        'data': effect,
+        'changes': utility.aeChanges(effect)
+      }
+      //})
     });
 
     return data;
@@ -157,7 +157,7 @@ export class HarnMasterItemSheet extends ItemSheet {
     });
 
     html.find(".effect-control").click(ev => {
-      if ( this.item.isOwned ) return ui.notifications.warn("You cannot change an Item's Effects after it is associated with an Actor. To modify this Effect, go to the Actor's Effects tab.")
+      if (this.item.isOwned) return ui.notifications.warn("You cannot change an Item's Effects after it is associated with an Actor. To modify this Effect, go to the Actor's Effects tab.")
       onManageActiveEffect(ev, this.item)
     });
 

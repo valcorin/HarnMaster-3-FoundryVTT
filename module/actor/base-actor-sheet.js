@@ -36,9 +36,9 @@ export class HarnMasterBaseActorSheet extends ActorSheet {
         data.adata = data.actor.system;
         data.labels = this.actor.labels || {};
         data.filters = this._filters;
-        
+
         data.macroTypes = foundry.utils.deepClone(game.system.documentTypes.Macro);
-    
+
         data.dtypes = ["String", "Number", "Boolean"];
         let capacityMax = 0;
         let capacityVal = 0;
@@ -89,17 +89,17 @@ export class HarnMasterBaseActorSheet extends ActorSheet {
         // get active effects.
         data.effects = {};
         this.actor.effects.forEach(effect => {
-            effect._getSourceName().then(() => {
-                data.effects[effect.id] = {
-                    'id': effect.id,
-                    'label': effect.label,
-                    'sourceName': effect.sourceName,
-                    'duration': utility.aeDuration(effect),
-                    'source': effect,
-                    'changes': utility.aeChanges(effect)
-                }
-                data.effects[effect.id].disabled = effect.disabled;
-            });
+            //effect._getSourceName().then(() => {
+            data.effects[effect.id] = {
+                'id': effect.id,
+                'label': effect.label,
+                'sourceName': effect.sourceName,
+                'duration': utility.aeDuration(effect),
+                'source': effect,
+                'changes': utility.aeChanges(effect)
+            }
+            data.effects[effect.id].disabled = effect.disabled;
+            //});
         });
 
         return data;
@@ -116,7 +116,7 @@ export class HarnMasterBaseActorSheet extends ActorSheet {
         // Get the drag source and its siblings
         const source = this.actor.items.get(itemData._id);
         const siblings = this.actor.items.filter(i => {
-            return (i.type.endsWith('gear') && 
+            return (i.type.endsWith('gear') &&
                 (i.id !== source.id));
         });
 
@@ -175,7 +175,7 @@ export class HarnMasterBaseActorSheet extends ActorSheet {
             // (this allows people to move items into containers easily)
             if (droppedItem.type.endsWith('gear') && droppedItem.type !== 'containergear') {
                 if (droppedItem.system.container !== destContainer) {
-                    await droppedItem.update({'system.container': destContainer });
+                    await droppedItem.update({ 'system.container': destContainer });
                 }
             }
 
@@ -214,7 +214,7 @@ export class HarnMasterBaseActorSheet extends ActorSheet {
 
         let itData = item.toObject;
         delete itData._id;
-        const containerResult = await Item.create(itData, {parent: this.actor});
+        const containerResult = await Item.create(itData, { parent: this.actor });
         if (!containerResult) {
             ui.notifications.warn(`Error while moving container, move aborted`);
             return null;
@@ -227,9 +227,9 @@ export class HarnMasterBaseActorSheet extends ActorSheet {
                 itData = it.toObject();
                 delete itData._id;
                 itData.system.container = containerResult.id;
-                const result = await Item.create(itData, {parent: this.actor});
+                const result = await Item.create(itData, { parent: this.actor });
                 if (result) {
-                    await Item.deleteDocuments([it.id], {parent: item.parent});
+                    await Item.deleteDocuments([it.id], { parent: item.parent });
                 } else {
                     failure = true;
                 }
@@ -242,7 +242,7 @@ export class HarnMasterBaseActorSheet extends ActorSheet {
         }
 
         // delete old container
-        await Item.deleteDocuments([data._id], {parent: item.parent});
+        await Item.deleteDocuments([data._id], { parent: item.parent });
         return containerResult;
     }
 
@@ -309,12 +309,12 @@ export class HarnMasterBaseActorSheet extends ActorSheet {
 
             itData.system.quantity = moveQuantity;
             itData.system.container = 'on-person';
-            result = await Item.create(itData, {parent: this.actor});
+            result = await Item.create(itData, { parent: this.actor });
         }
 
         if (result) {
             if (moveQuantity >= sourceQuantity) {
-                await Item.deleteDocuments([item.id], {parent: item.parent});
+                await Item.deleteDocuments([item.id], { parent: item.parent });
             } else {
                 const newSourceQuantity = sourceQuantity - moveQuantity;
                 await item.update({ 'system.quantity': newSourceQuantity });
@@ -346,7 +346,7 @@ export class HarnMasterBaseActorSheet extends ActorSheet {
                 }
             });
 
-            return Item.create(itemData, {parent: this.actor});
+            return Item.create(itemData, { parent: this.actor });
         }
 
         return super._onDropItemCreate(itemData);
@@ -656,7 +656,7 @@ export class HarnMasterBaseActorSheet extends ActorSheet {
                 deleteItems.push(itemId);  // ensure we delete the container last
 
                 for (let it of deleteItems) {
-                    await Item.deleteDocuments([it], {parent: this.actor});
+                    await Item.deleteDocuments([it], { parent: this.actor });
                     li.slideUp(200, () => this.render(false));
                 }
             }
@@ -796,7 +796,7 @@ export class HarnMasterBaseActorSheet extends ActorSheet {
                 let itemName = formdata.name;
                 let extraValue = formdata.extra_value;
 
-                const updateData = {name: itemName, type: dataset.type};
+                const updateData = { name: itemName, type: dataset.type };
                 if (dataset.type === 'gear') {
                     if (extraValue === 'Container') updateData.type = 'containergear';
                     else if (extraValue === 'Armor') updateData.type = 'armorgear';
@@ -813,7 +813,7 @@ export class HarnMasterBaseActorSheet extends ActorSheet {
                 else if (dataset.type === 'invocation') updateData['system.deity'] = extraValue;
 
                 // Finally, create the item!
-                const result = await Item.create(updateData, {parent: this.actor });
+                const result = await Item.create(updateData, { parent: this.actor });
 
                 if (!result) {
                     throw new Error(`Error creating item '${updateData.name}' of type '${updateData.type}' on character '${this.actor.name}'`);
@@ -900,7 +900,7 @@ export class HarnMasterBaseActorSheet extends ActorSheet {
             console.error(`HM3 | Can't find journal entry with name "${journalEntry}".`);
             return null;
         }
-        article.sheet.render(true, {editable: false});
+        article.sheet.render(true, { editable: false });
         return null;
     }
 
