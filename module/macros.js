@@ -1519,7 +1519,7 @@ export async function applyEffect(myActor, effectData) {
 
   // *****************************************************************************
   // Now find out if this actor already has an Active Effect for this spell.
-  const ae = targetActor.effects.find(m => m.label === spellName);
+  const ae = targetActor.effects.find(m => m.name === spellName);
   if (ae) {
       const result = await ae.delete();
       if (!result) return null;
