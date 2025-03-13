@@ -1546,3 +1546,7 @@ export async function applyEffect(myActor, effectData) {
   if (result) console.log(`Active Effect ${spellName} created with a modifier of ${modifier}!`);
   return null;
 }
+
+export async function deleteItem(myActor, itemname) {
+  console.log("Deleting " + itemname + " from " + myActor.name)
+}
