@@ -1556,7 +1556,7 @@ export async function deleteItem(myActor, item) {
       const chatmsg = "Deleting " + item.name + " from " + myActor.name
       ChatMessage.create({
         user: game.user._id,
-        speaker: shortName,
+        speaker: myActor.name,
         content: chatmsg
     }, {});
       await Item.deleteDocuments([item.id], { parent: item.parent });
