@@ -1547,6 +1547,18 @@ export async function applyEffect(myActor, effectData) {
   return null;
 }
 
-export async function deleteItem(myActor, itemname) {
-  console.log("Deleting " + itemname + " from " + myActor.name)
+export async function deleteItem(myActor, item) {
+  if (!myActor) {
+      console.log("No actor for this action could be determined.");
+      return null
+  }
+  if (item) {
+      const chatmsg = "Deleting " + item.name + " from " + myActor.name
+      ChatMessage.create({
+        user: game.user._id,
+        speaker: shortName,
+        content: chatmsg
+    }, {});
+      await Item.deleteDocuments([item.id], { parent: item.parent });
+  }
 }
