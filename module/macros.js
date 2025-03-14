@@ -226,22 +226,21 @@ export async function skillRoll(itemName, noDialog = false, myActor = null) {
       const mRoll = result.roll.rollObj;
       game.users.find(user => {
         if (user._id === game.user.id) {
-          uflags_str = JSON.stringify(user.flags)
+          let uflags_str = JSON.stringify(user.flags)
           uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
           const jsObject = JSON.parse(uflags_str);
-          dice_settings = jsObject.dicesonice
+          const dice_settings = jsObject.dicesonice
           if (dice_settings.hasOwnProperty('appearance')) {
-              const user_settings = jsObject.dicesonice.appearance.global
-              mRoll.dice[0].options.colorset = user_settings.colorset
-              mRoll.dice[0].options.diceColor = user_settings.diceColor
-              mRoll.dice[0].options.edgeColor = user_settings.edgeColor
-              mRoll.dice[0].options.labelColor = user_settings.labelColor
-              mRoll.dice[0].options.font = user_settings.font
-              mRoll.dice[0].options.outlineColor = user_settings.outlineColor
-              mRoll.dice[0].options.texture = user_settings.texture
+            const user_settings = jsObject.dicesonice.appearance.global
+            mRoll.dice[0].options.colorset = user_settings.colorset
+            if (mRoll.dice[0].options.colorset == "custom") {
+              console.log("Using custom settings for dice3d")
+              mRoll.dice[0].options.appearance = { "diceColor": user_settings.diceColor, "edgeColor": user_settings.edgeColor, "labelColor": user_settings.labelColor, "outlineColor": user_settings.outlineColor, "font": user_settings.font, "texture": user_settings.texture, "material": user_settings.material, "system ": user_settings.system }
+              console.log(mRoll.dice[0].options.appearance)
+            }
           }
         }
-      })     
+      })
       await game.dice3d.showForRoll(mRoll, game.user, true);
     }
     if (result) {
