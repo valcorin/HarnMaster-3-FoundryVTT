@@ -232,11 +232,11 @@ export async function skillRoll(itemName, noDialog = false, myActor = null) {
           const dice_settings = jsObject.dicesonice
           if (dice_settings.hasOwnProperty('appearance')) {
             const user_settings = jsObject.dicesonice.appearance.global
-            mRoll.dice[0].options.colorset = user_settings.colorset
-            if (mRoll.dice[0].options.colorset == "custom") {
+            if (user_settings.colorset == "custom") {
               console.log("Using custom settings for dice3d")
-              mRoll.dice[0].options.appearance = { "diceColor": user_settings.diceColor, "edgeColor": user_settings.edgeColor, "labelColor": user_settings.labelColor, "outlineColor": user_settings.outlineColor, "font": user_settings.font, "texture": user_settings.texture, "material": user_settings.material, "system ": user_settings.system }
-              console.log(mRoll.dice[0].options.appearance)
+              mRoll.dice[0].options.appearance = { "colorset": "custom", "diceColor": user_settings.diceColor, "edgeColor": user_settings.edgeColor, "labelColor": user_settings.labelColor, "outlineColor": user_settings.outlineColor, "font": user_settings.font, "texture": user_settings.texture, "material": user_settings.material, "system ": user_settings.system }
+            } else {
+              mRoll.dice[0].options.colorset = user_settings.colorset
             }
           }
         }

@@ -1197,7 +1197,7 @@ export class DiceHM3 {
         const numDice = (testData.diceNum > 0) ? testData.diceNum : 1;
         const diceSpec = numDice + diceType;
         const rollObj = new Roll(diceSpec, testData.data);
-        const roll = await rollObj.evaluate({async: true});
+        const roll = await rollObj.evaluate();
         if (!roll) {
             console.error(`Roll evaluation failed, diceSpec=${diceSpec}`)
         }
