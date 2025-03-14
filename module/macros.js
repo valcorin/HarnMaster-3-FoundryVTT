@@ -223,7 +223,7 @@ export async function skillRoll(itemName, noDialog = false, myActor = null) {
   if (hooksOk) {
     const result = await DiceHM3.d100StdRoll(stdRollData);
     if (game.dice3d) {
-      const mRoll = result.rollObj;
+      const mRoll = result.roll.rollObj;
       mRoll.dice[0].options.colorset = "glitterparty";
       await game.dice3d.showForRoll(mRoll, game.user, true);
     }
