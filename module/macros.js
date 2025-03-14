@@ -235,6 +235,15 @@ export async function skillRoll(itemName, noDialog = false, myActor = null) {
             if (user_settings.colorset == "custom") {
               console.log("Using custom settings for dice3d")
               mRoll.dice[0].options.appearance = { "colorset": "custom", "diceColor": user_settings.diceColor, "edgeColor": user_settings.edgeColor, "labelColor": user_settings.labelColor, "outlineColor": user_settings.outlineColor, "font": user_settings.font, "texture": user_settings.texture, "material": user_settings.material, "system ": user_settings.system }
+              mRoll.dice[0].options.colorset = user_settings.colorset
+              mRoll.dice[0].options.diceColor = user_settings.diceColor
+              mRoll.dice[0].options.edgeColor = user_settings.edgeColor
+              mRoll.dice[0].options.labelColor = user_settings.labelColor
+              mRoll.dice[0].options.outlineColor = user_settings.outlineColor
+              mRoll.dice[0].options.font = user_settings.font
+              mRoll.dice[0].options.texture = user_settings.texture
+              mRoll.dice[0].options.material = user_settings.material
+              mRoll.dice[0].options.system = user_settings.system
             } else {
               mRoll.dice[0].options.colorset = user_settings.colorset
             }
