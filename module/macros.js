@@ -222,6 +222,11 @@ export async function skillRoll(itemName, noDialog = false, myActor = null) {
   const hooksOk = Hooks.call("hm3.preSkillRoll", stdRollData, actor, item);
   if (hooksOk) {
     const result = await DiceHM3.d100StdRoll(stdRollData);
+    if (game.dice3d) {
+      const mRoll = result.rollObj;
+      mRoll.dice[0].options.colorset = "glitterparty";
+      await game.dice3d.showForRoll(mRoll, game.user, true);
+    }
     if (result) {
       if (!actor) {
         result = getActor(result);
@@ -1464,8 +1469,8 @@ export function callOnHooks(hook, actor, result, rollData, item = null) {
 export async function applyEffect(myActor, effectData) {
   let targetActor = myActor
   if (!targetActor) {
-      ui.notifications.warn(`No actor for this action could be determined.`);
-      return null
+    ui.notifications.warn(`No actor for this action could be determined.`);
+    return null
   }
 
   const spellName = effectData.spellName;
@@ -1477,70 +1482,70 @@ export async function applyEffect(myActor, effectData) {
   let chatmsg = '';
   let rDuration = 10
   if ('abilitycheck' in effectData) {
-      abilitycheck = effectData.abilitycheck
-      const save_roll = await testAbilityD100Roll(abilitycheck, true, targetActor, modifier)
-      if (save_roll.isSuccess) {
-          chatmsg = targetActor.name + ' succeeded at the ' + abilitycheck + ' check.';
-          ChatMessage.create({
-              user: game.user._id,
-              speaker: shortName,
-              content: chatmsg
-          }, {});
-          return null;
-      } else {
-          chatmsg = targetActor.name + ' failed at the ' + abilitycheck + ' check.';
-          if ('ae_duration' in effectData) {
-              rDuration = parseInt(effectData.ae_duration)
-          }
-          if (save_roll.isCritical) {
-              chatmsg = targetActor.name + ' failed horribly at the ' + abilitycheck + ' check.';
-              if ('abilitymodCS' in effectData) {
-                  modifier = effectData.abilitymodCS
-              }
-          } else {
-              if ('abilitymodMS' in effectData) {
-                  modifier = effectData.abilitymodMS
-              }
-          }
-          ChatMessage.create({
-              user: game.user._id,
-              speaker: shortName,
-              content: chatmsg
-          }, {});
+    abilitycheck = effectData.abilitycheck
+    const save_roll = await testAbilityD100Roll(abilitycheck, true, targetActor, modifier)
+    if (save_roll.isSuccess) {
+      chatmsg = targetActor.name + ' succeeded at the ' + abilitycheck + ' check.';
+      ChatMessage.create({
+        user: game.user._id,
+        speaker: shortName,
+        content: chatmsg
+      }, {});
+      return null;
+    } else {
+      chatmsg = targetActor.name + ' failed at the ' + abilitycheck + ' check.';
+      if ('ae_duration' in effectData) {
+        rDuration = parseInt(effectData.ae_duration)
       }
+      if (save_roll.isCritical) {
+        chatmsg = targetActor.name + ' failed horribly at the ' + abilitycheck + ' check.';
+        if ('abilitymodCS' in effectData) {
+          modifier = effectData.abilitymodCS
+        }
+      } else {
+        if ('abilitymodMS' in effectData) {
+          modifier = effectData.abilitymodMS
+        }
+      }
+      ChatMessage.create({
+        user: game.user._id,
+        speaker: shortName,
+        content: chatmsg
+      }, {});
+    }
   }
 
   let changeData = [];
   if (typeof (effectKey) == 'string') {
-      changeData = [{ key: effectKey, value: modifier, mode: 2 }]
+    changeData = [{ key: effectKey, value: modifier, mode: 2 }]
   } else {
-      changeData = effectKey
+    changeData = effectKey
   }
 
   // *****************************************************************************
   // Now find out if this actor already has an Active Effect for this spell.
   const ae = targetActor.effects.find(m => m.name === spellName);
   if (ae) {
-      const result = await ae.delete();
-      if (!result) return null;
+    const result = await ae.delete();
+    if (!result) return null;
   }
   let sTurn = 1
   let sRound = 1
   if (game.combat) {
-        sTurn = game.combat.turn
-        sRound = game.combat.round
+    sTurn = game.combat.turn
+    sRound = game.combat.round
   }
   // create a new Active Effect
   const activeEffectData = {
-      label: spellName,
-      icon: itemdataimg,
-      origin: targetActor.uuid,
-      duration: {
-          startTurn: sTurn,
-          startRound: sRound,
-          rounds: rDuration
-      },
-      'changes': changeData
+    label: spellName,
+    icon: itemdataimg,
+    origin: targetActor.uuid,
+    duration: {
+      startTurn: sTurn,
+      startRound: sRound,
+      rounds: rDuration
+    },
+    'changes': changeData
   }
   const result = await ActiveEffect.create(activeEffectData, { parent: targetActor });
   if (result) console.log(`Active Effect ${spellName} created with a modifier of ${modifier}!`);
@@ -1549,16 +1554,16 @@ export async function applyEffect(myActor, effectData) {
 
 export async function deleteItem(myActor, item) {
   if (!myActor) {
-      console.log("No actor for this action could be determined.");
-      return null
+    console.log("No actor for this action could be determined.");
+    return null
   }
   if (item) {
-      const chatmsg = "Deleting " + item.name + " from " + myActor.name
-      ChatMessage.create({
-        user: game.user._id,
-        speaker: myActor.name,
-        content: chatmsg
+    const chatmsg = "Deleting " + item.name + " from " + myActor.name
+    ChatMessage.create({
+      user: game.user._id,
+      speaker: myActor.name,
+      content: chatmsg
     }, {});
-      await Item.deleteDocuments([item.id], { parent: item.parent });
+    await Item.deleteDocuments([item.id], { parent: item.parent });
   }
 }
