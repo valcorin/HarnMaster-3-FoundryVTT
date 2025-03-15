@@ -19,7 +19,7 @@
     "type": "Ritual",
     "skillBase": {
       "value": 0,
-      "formula": "@voi, @int, @str Zhone:3, Yong:3, Torka, Yari, Anzor:2, Shirdun:2",
+      "formula": "@voi, @int, @str, Zhone:3, Yong:3, Torka, Yari, Anzor:2, Shirdun:2",
       "isFormulaValid": true
     },
     "masteryLevel": 0,

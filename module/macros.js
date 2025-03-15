@@ -255,12 +255,12 @@ export async function skillRoll(itemName, noDialog = false, myActor = null) {
     }
     if (result) {
       if (!actor) {
-        result = getActor(result);
-        if (!result) {
+        result_act = getActor(result);
+        if (!result_act) {
           ui.notifications.warn(`No actor for this action could be determined.`);
           return null;
         }
-        actor = result.actor
+        actor = result_act.actor
         console.log("Actor set to " + myActor.name)
       }
       item.runCustomMacro(result);
@@ -337,12 +337,12 @@ export async function castSpellRoll(itemName, noDialog = false, myActor = null) 
     }
     if (result) {
       if (!actor) {
-        result = getActor(result);
-        if (!result) {
+        result_act = getActor(result);
+        if (!result_act) {
           ui.notifications.warn(`No actor for this action could be determined.`);
           return null;
         }
-        actor = result.actor
+        actor = result_act.actor
         console.log("Actor set to " + myActor.name)
       }
       item.runCustomMacro(result);
@@ -419,12 +419,12 @@ export async function invokeRitualRoll(itemName, noDialog = false, myActor = nul
     }
     if (result) {
       if (!actor) {
-        result = getActor(result);
-        if (!result) {
+        result_act = getActor(result);
+        if (!result_act) {
           ui.notifications.warn(`No actor for this action could be determined.`);
           return null;
         }
-        actor = result.actor
+        actor = result_act.actor
         console.log("Actor set to " + myActor.name)
       }
       item.runCustomMacro(result);
@@ -499,13 +499,13 @@ export async function usePsionicRoll(itemName, noDialog = false, myActor = null)
       await game.dice3d.showForRoll(mRoll, game.user, true);
     }
     if (result) {
-      if (actor) {
-        result = getActor(result);
-        if (!result) {
+      if (!actor) {
+        result_act = getActor(result);
+        if (!result_act) {
           ui.notifications.warn(`No actor for this action could be determined.`);
           return null;
         }
-        actor = result.actor
+        actor = result_act.actor
         console.log("Actor set to " + myActor.name)
       }
       item.runCustomMacro(result);
@@ -555,13 +555,13 @@ export async function testAbilityD6Roll(ability, noDialog = false, myActor = nul
   if (hooksOk) {
     const result = await DiceHM3.d6Roll(stdRollData);
     if (result) {
-      if (actor) {
-        result = getActor(result);
-        if (!result) {
+      if (!actor) {
+        result_act = getActor(result);
+        if (!result_act) {
           ui.notifications.warn(`No actor for this action could be determined.`);
           return null;
         }
-        actor = result.actor
+        actor = result_act.actor
         console.log("Actor set to " + myActor.name)
       }
       result.runCustomMacro(result);

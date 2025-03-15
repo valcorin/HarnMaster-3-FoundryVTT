@@ -202,7 +202,7 @@ HM3.stdSkills = {
     "Mara": { "source": "HM Religion, Mara 1", "skillBase": { "formula": "@voi, @int, @dex, Ariala:2, Boru:2, Aramos, Lengjing, Syrada, Jig’won" }, "type": "Craft" },
     "Inarima": { "source": "HM Religion, Inarima 1", "skillBase": { "formula": "@voi, @int, @dex, Ariala:2, Boru:2, Aramos, Lengjing, Syrada, Jig’won" }, "type": "Craft" },
     "Tanar": { "source": "HM Religion, Tanar 1", "skillBase": { "formula": "@voi, @int, @str Zhone:3, Yong:3, Torka, Yari, Anzor:2, Shirdun:2" }, "type": "Craft" },
-    "Minachi": { "source": "HM Religion, Minachi 1", "skillBase": { "formula": "@voi, @int, @str Zhone:3, Yong:3, Torka, Yari, Anzor:2, Shirdun:2" }, "type": "Craft" },
+    "Minachi": { "source": "HM Religion, Minachi 1", "skillBase": { "formula": "@voi, @int, @str, Zhone:3, Yong:3, Torka, Yari, Anzor:2, Shirdun:2" }, "type": "Craft" },
     "Vandor": { "source": "HM Religion, Vandor 1", "skillBase": { "formula": "@voi, @int, @int, Izballa:2, Zosan’shi:2, Ariala, Boru, Aramos, Lengjing" }, "type": "Craft" },
     "Mikoto-sai": { "source": "HM Religion, Mikoto-sai 1", "skillBase": { "formula": "@voi, @int, @int, Izballa:2, Zosan’shi:2, Ariala, Boru, Aramos, Lengjing" }, "type": "Craft" },
     "Xydona": { "source": "HM Religion, Xydona 1", "skillBase": { "formula": "@voi, @int, @wil, Quindor, Feniku, Gordol:2, Ying:2, Anzor, Shirdun" }, "type": "Craft" },
