@@ -1198,14 +1198,9 @@ export async function blockResume(atkToken, defToken, type, weaponName, effAML, 
         })
         await game.dice3d.showForRoll(mRoll, game.user, true);
 
-         // If resume action is being done by player instead of gamemaster, use player dice
-        let reply_user = game.user.id
-        if (game.user.name.startsWith("Gamemaster")) {
-            reply_user = curr_user
-        }
         const dRoll = defRoll.rollObj;
         game.users.find(user => {
-            if (user._id === reply_user) {
+            if (user._id === game.user.id) {
               let uflags_str = JSON.stringify(user.flags)
               uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
               const jsObject = JSON.parse(uflags_str);
