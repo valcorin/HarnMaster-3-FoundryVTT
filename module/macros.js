@@ -1476,9 +1476,13 @@ export async function missileAttack(itemName = null, noDialog = false, myToken =
     missile = await combat.getItem(itemName, 'missilegear', combatant.actor);
   }
 
+  //Current user ID to use their dice
+  const curr_user = game.user.id
+  console.log("User ID " + curr_user + " initiated a missile attack")
+
   const hooksOk = Hooks.call("hm3.preMissileAttack", combatant, targetToken, missile);
   if (hooksOk) {
-    const result = await combat.missileAttack(combatant.token, targetToken, missile);
+    const result = await combat.missileAttack(combatant.token, targetToken, missile, curr_user);
     Hooks.call("hm3.onMissileAttack", result, combatant, targetToken, missile);
     return result;
   }
@@ -1497,7 +1501,7 @@ export async function missileAttack(itemName = null, noDialog = false, myToken =
  * @param {*} atkAspect Weapon aspect ("Blunt", "Edged", "Piercing")
  * @param {*} atkImpactMod Additional modifier to impact
  */
-export async function meleeCounterstrikeResume(atkTokenId, defTokenId, atkWeaponName, atkEffAML, atkAim, atkAspect, atkImpactMod) {
+export async function meleeCounterstrikeResume(atkTokenId, defTokenId, atkWeaponName, atkEffAML, atkAim, atkAspect, atkImpactMod, curr_user) {
   const atkToken = canvas.tokens.get(atkTokenId);
   if (!atkToken) {
     ui.notifications.warn(`Attacker ${atkToken.name} could not be found on canvas.`);
@@ -1512,7 +1516,7 @@ export async function meleeCounterstrikeResume(atkTokenId, defTokenId, atkWeapon
 
   const hooksOk = Hooks.call("hm3.preMeleeCounterstrikeResume", atkToken, defToken, atkWeaponName, atkEffAML, atkAim, atkAspect, atkImpactMod);
   if (hooksOk) {
-    const result = await combat.meleeCounterstrikeResume(atkToken, defToken, atkWeaponName, atkEffAML, atkAim, atkAspect, atkImpactMod);
+    const result = await combat.meleeCounterstrikeResume(atkToken, defToken, atkWeaponName, atkEffAML, atkAim, atkAspect, atkImpactMod, curr_user);
     Hooks.call("hm3.onMeleeCounterstrikeResume", result, atkToken, defToken, atkWeaponName, atkEffAML, atkAim, atkAspect, atkImpactMod);
     return result;
   }
@@ -1531,7 +1535,7 @@ export async function meleeCounterstrikeResume(atkTokenId, defTokenId, atkWeapon
  * @param {*} aspect Weapon aspect ("Blunt", "Edged", "Piercing")
  * @param {*} impactMod Additional modifier to impact
  */
-export async function dodgeResume(atkTokenId, defTokenId, type, weaponName, effAML, aim, aspect, impactMod) {
+export async function dodgeResume(atkTokenId, defTokenId, type, weaponName, effAML, aim, aspect, impactMod, curr_user) {
   const atkToken = canvas.tokens.get(atkTokenId);
   if (!atkToken) {
     ui.notifications.warn(`Attacker ${atkToken.name} could not be found on canvas.`);
@@ -1546,7 +1550,7 @@ export async function dodgeResume(atkTokenId, defTokenId, type, weaponName, effA
 
   const hooksOk = Hooks.call("hm3.preDodgeResume", atkToken, defToken, type, weaponName, effAML, aim, aspect, impactMod);
   if (hooksOk) {
-    const result = await combat.dodgeResume(atkToken, defToken, type, weaponName, effAML, aim, aspect, impactMod);
+    const result = await combat.dodgeResume(atkToken, defToken, type, weaponName, effAML, aim, aspect, impactMod, curr_user);
     Hooks.call("hm3.onDodgeResume", result, atkToken, defToken, type, weaponName, effAML, aim, aspect, impactMod);
     return result;
   }
@@ -1600,7 +1604,7 @@ export async function blockResume(atkTokenId, defTokenId, type, weaponName, effA
  * @param {*} aspect Weapon aspect ("Blunt", "Edged", "Piercing")
  * @param {*} impactMod Additional modifier to impact
  */
-export async function ignoreResume(atkTokenId, defTokenId, type, weaponName, effAML, aim, aspect, impactMod) {
+export async function ignoreResume(atkTokenId, defTokenId, type, weaponName, effAML, aim, aspect, impactMod, curr_user) {
   const atkToken = canvas.tokens.get(atkTokenId);
   if (!atkToken) {
     ui.notifications.warn(`Attacker ${atkToken.name} could not be found on canvas.`);
@@ -1615,7 +1619,7 @@ export async function ignoreResume(atkTokenId, defTokenId, type, weaponName, eff
 
   const hooksOk = Hooks.call("hm3.preIgnoreResume", atkToken, defToken, type, weaponName, effAML, aim, aspect, impactMod);
   if (hooksOk) {
-    const result = await combat.ignoreResume(atkToken, defToken, type, weaponName, effAML, aim, aspect, impactMod);
+    const result = await combat.ignoreResume(atkToken, defToken, type, weaponName, effAML, aim, aspect, impactMod, curr_user);
     Hooks.call("hm3.onIgnoreResume", result, atkToken, defToken, type, weaponName, effAML, aim, aspect, impactMod);
     return result;
   }
