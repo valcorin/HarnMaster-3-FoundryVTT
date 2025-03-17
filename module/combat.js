@@ -1170,8 +1170,14 @@ export async function blockResume(atkToken, defToken, type, weaponName, effAML, 
     // If we have "Dice So Nice" module, roll them dice!
     if (game.dice3d) {
         const mRoll = atkRoll.rollObj;
+        // If being done by player instead of gamemaster, use player dice
+        let isGamemaster = false
+        const player_user = game.user.id
+        if (game.user.name.startsWith("Gamemaster")) {
+            isGamemaster = true
+        }
         game.users.find(user => {
-          if (user._id === curr_user) {
+          if ((isGamemaster && user._id === curr_user) || (!isGamemaster && user._id === player_user)) {
             let uflags_str = JSON.stringify(user.flags)
             uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
             const jsObject = JSON.parse(uflags_str);
