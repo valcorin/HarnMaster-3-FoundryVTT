@@ -537,7 +537,7 @@ export async function testAbilityD6Roll(ability, noDialog = false, myActor = nul
 
   const stdRollData = {
     type: `${ability}-d6`,
-    label: `d6 ${ability[0].toUpperCase()}${ability.slice(1)} Roll`,
+    label: `${actorInfo.actor.name} ${ability[0].toUpperCase()}${ability.slice(1)} Roll`,
     target: actorInfo.actor.system.abilities[ability].effective,
     numdice: 3,
     notesData: {},
@@ -590,10 +590,22 @@ export async function testAbilityD100Roll(ability, noDialog = false, myActor = n
   }
   if (!ability || !abilities.includes(ability)) return null;
 
+  let rolltype = "Roll"
+  // Calcuate target allowing negative to indicate reversing the target number
+  let target_calc = Math.max(5, actorInfo.actor.system.abilities[ability].effective * Math.abs(multiplier))
+  if (multiplier != Math.abs(multiplier)) {
+    // Reverse the target
+    target_calc = 101 - target_calc
+    if (target_calc < 1) {
+      target_calc = 1
+    }
+    rolltype = "Reversed"
+  }
+
   const stdRollData = {
     type: `${ability}-d100`,
-    label: `d100 ${ability[0].toUpperCase()}${ability.slice(1)} Roll`,
-    target: Math.max(5, actorInfo.actor.system.abilities[ability].effective * multiplier),
+    label: `${actorInfo.actor.name} ${ability[0].toUpperCase()}${ability.slice(1)} ${rolltype}`,
+    target: target_calc,
     notesData: {},
     speaker: actorInfo.speaker,
     fastforward: noDialog,
