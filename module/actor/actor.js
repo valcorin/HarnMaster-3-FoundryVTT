@@ -966,7 +966,7 @@ export class HarnMasterActor extends Actor {
             case 'block':
                 macros.blockResume(atkToken.id, defToken.id, button.dataset.weaponType, button.dataset.weapon,
                     button.dataset.effAml, button.dataset.aim,
-                    button.dataset.aspect, button.dataset.impactMod)
+                    button.dataset.aspect, button.dataset.impactMod, button.dataset.curruser)
                 break;
 
             case 'counterstrike':
