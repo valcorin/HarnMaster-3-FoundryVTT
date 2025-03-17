@@ -396,7 +396,7 @@ export async function meleeAttack(attackToken, defendToken, weaponItem=null, cur
         hasCounterstrike: true,
         hasIgnore: true,
         visibleActorId: defendToken.actor.id,
-        curruser: curr_user
+        currUser: curr_user
     };
 
     const html = await renderTemplate(chatTemplate, chatTemplateData);
@@ -1057,7 +1057,7 @@ export async function dodgeResume(atkToken, defToken, type, weaponName, effAML, 
  * @param {*} aspect Weapon aspect ("Blunt", "Edged", "Piercing")
  * @param {*} impactMod Additional modifier to impact
  */
-export async function blockResume(atkToken, defToken, type, weaponName, effAML, aim, aspect, impactMod) {
+export async function blockResume(atkToken, defToken, type, weaponName, effAML, aim, aspect, impactMod, curr_user) {
     if (!isValidToken(atkToken) || !isValidToken(defToken)) return null;
     if (!defToken.isOwner) {
         ui.notifications.warn(`You do not have permissions to perform this operation on ${attackToken.name}`);
@@ -1168,7 +1168,7 @@ export async function blockResume(atkToken, defToken, type, weaponName, effAML, 
     if (game.dice3d) {
         const mRoll = atkRoll.rollObj;
         game.users.find(user => {
-          if (user._id === game.user.id) {
+          if (user._id === curr_user) {
             let uflags_str = JSON.stringify(user.flags)
             uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
             const jsObject = JSON.parse(uflags_str);

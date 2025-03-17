@@ -1581,7 +1581,7 @@ export async function blockResume(atkTokenId, defTokenId, type, weaponName, effA
 
   const hooksOk = Hooks.call("hm3.preBlockResume", atkToken, defToken, type, weaponName, effAML, aim, aspect, impactMod);
   if (hooksOk) {
-    const result = await combat.blockResume(atkToken, defToken, type, weaponName, effAML, aim, aspect, impactMod)
+    const result = await combat.blockResume(atkToken, defToken, type, weaponName, effAML, aim, aspect, impactMod, curr_user)
     Hooks.call("hm3.onBlockResume", result, atkToken, defToken, type, weaponName, effAML, aim, aspect, impactMod);
     return result;
   }
