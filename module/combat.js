@@ -1170,14 +1170,8 @@ export async function blockResume(atkToken, defToken, type, weaponName, effAML, 
     // If we have "Dice So Nice" module, roll them dice!
     if (game.dice3d) {
         const mRoll = atkRoll.rollObj;
-        // If being done by player instead of gamemaster, use player dice
-        let isGamemaster = false
-        const player_user = game.user.id
-        if (game.user.name.startsWith("Gamemaster")) {
-            isGamemaster = true
-        }
         game.users.find(user => {
-          if ((isGamemaster && user._id === curr_user) || (!isGamemaster && user._id === player_user)) {
+          if (user._id === curr_user) {
             let uflags_str = JSON.stringify(user.flags)
             uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
             const jsObject = JSON.parse(uflags_str);
@@ -1204,8 +1198,38 @@ export async function blockResume(atkToken, defToken, type, weaponName, effAML, 
         })
         await game.dice3d.showForRoll(mRoll, game.user, true);
 
+         // If resume action is being done by player instead of gamemaster, use player dice
+        let reply_user = game.user.id
+        if (game.user.name.startsWith("Gamemaster")) {
+            reply_user = curr_user
+        }
         const dRoll = defRoll.rollObj;
-        dRoll.dice[0].options.colorset = "bloodmoon";
+        game.users.find(user => {
+            if (user._id === reply_user) {
+              let uflags_str = JSON.stringify(user.flags)
+              uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
+              const jsObject = JSON.parse(uflags_str);
+              const dice_settings = jsObject.dicesonice
+              if (dice_settings.hasOwnProperty('appearance')) {
+                const user_settings = jsObject.dicesonice.appearance.global
+                if (user_settings.colorset == "custom") {
+                  console.log("Using custom settings for dice3d")
+                  dRoll.dice[0].options.appearance = { "colorset": "custom", "diceColor": user_settings.diceColor, "edgeColor": user_settings.edgeColor, "labelColor": user_settings.labelColor, "outlineColor": user_settings.outlineColor, "font": user_settings.font, "texture": user_settings.texture, "material": user_settings.material, "system ": user_settings.system }
+                  dRoll.dice[0].options.colorset = user_settings.colorset
+                  dRoll.dice[0].options.diceColor = user_settings.diceColor
+                  dRoll.dice[0].options.edgeColor = user_settings.edgeColor
+                  dRoll.dice[0].options.labelColor = user_settings.labelColor
+                  dRoll.dice[0].options.outlineColor = user_settings.outlineColor
+                  dRoll.dice[0].options.font = user_settings.font
+                  dRoll.dice[0].options.texture = user_settings.texture
+                  dRoll.dice[0].options.material = user_settings.material
+                  dRoll.dice[0].options.system = user_settings.system
+                } else {
+                  dRoll.dice[0].options.colorset = user_settings.colorset
+                }
+              }
+            }
+          })
         await game.dice3d.showForRoll(dRoll, game.user, true);
     }
 
