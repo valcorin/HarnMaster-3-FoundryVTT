@@ -151,7 +151,7 @@ export async function missileAttack(attackToken, defendToken, missileItem) {
  * @param defendToken {Token} Token representing defender 
  * @param weaponItem {Item} Melee weapon used by attacker
  */
-export async function meleeAttack(attackToken, defendToken, weaponItem=null) {
+export async function meleeAttack(attackToken, defendToken, weaponItem=null, curr_user=0) {
     if (!attackToken) {
         ui.notifications.warn(`No attacker token identified.`);
         return null;
@@ -395,7 +395,8 @@ export async function meleeAttack(attackToken, defendToken, weaponItem=null) {
         hasBlock: true,
         hasCounterstrike: true,
         hasIgnore: true,
-        visibleActorId: defendToken.actor.id
+        visibleActorId: defendToken.actor.id,
+        curruser: curr_user
     };
 
     const html = await renderTemplate(chatTemplate, chatTemplateData);

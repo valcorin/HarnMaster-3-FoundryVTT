@@ -1451,9 +1451,12 @@ export async function weaponAttack(itemName = null, noDialog = false, myToken = 
     console.log("Weapon not found: " + itemName)
   }
 
+  //Current user ID to use their dice
+  const curr_user = game.user.id
+
   const hooksOk = Hooks.call("hm3.preMeleeAttack", combatant, targetToken, weapon);
   if (hooksOk) {
-    const result = await combat.meleeAttack(combatant.token, targetToken, weapon);
+    const result = await combat.meleeAttack(combatant.token, targetToken, weapon, curr_user);
     Hooks.call("hm3.onMeleeAttack", result, combatant, targetToken, weapon);
     return result;
   }
@@ -1561,7 +1564,8 @@ export async function dodgeResume(atkTokenId, defTokenId, type, weaponName, effA
  * @param {*} aspect Weapon aspect ("Blunt", "Edged", "Piercing")
  * @param {*} impactMod Additional modifier to impact
  */
-export async function blockResume(atkTokenId, defTokenId, type, weaponName, effAML, aim, aspect, impactMod) {
+export async function blockResume(atkTokenId, defTokenId, type, weaponName, effAML, aim, aspect, impactMod, curr_user) {
+  console.log("Attacking user ID is " + curr_user)
   const atkToken = canvas.tokens.get(atkTokenId);
   if (!atkToken) {
     ui.notifications.warn(`Attacker ${atkToken.name} could not be found on canvas.`);
