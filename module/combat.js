@@ -14,7 +14,7 @@ import { HM3 } from "./config.js";
  * @param defendToken {Token} Token representing defender 
  * @param weaponItem {Item} Missile weapon used by attacker
  */
-export async function missileAttack(attackToken, defendToken, missileItem) {
+export async function missileAttack(attackToken, defendToken, missileItem, curr_user=0) {
     if (!attackToken) {
         ui.notifications.warn(`No attacker token identified.`);
         return null;
@@ -115,7 +115,8 @@ export async function missileAttack(attackToken, defendToken, missileItem) {
         hasBlock: true,
         hasCounterstrike: false,
         hasIgnore: true,
-        visibleActorId: defendToken.actor.id
+        visibleActorId: defendToken.actor.id,
+        currUser: curr_user
     };
 
     const html = await renderTemplate(chatTemplate, chatTemplateData);
@@ -675,7 +676,7 @@ function defaultMeleeWeapon(token) {
  * @param {*} atkAspect Weapon aspect ("Blunt", "Edged", "Piercing")
  * @param {*} atkImpactMod Additional modifier to impact
  */
-export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName, atkEffAML, atkAim, atkAspect, atkImpactMod) {
+export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName, atkEffAML, atkAim, atkAspect, atkImpactMod, curr_user) {
     if (!isValidToken(atkToken) || !isValidToken(defToken)) return null;
     if (!defToken.isOwner) {
         ui.notifications.warn(`You do not have permissions to perform this operation on ${attackToken.name}`);
@@ -839,7 +840,8 @@ export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName
         isDefStumbleRoll: null,
         isDefFumbleRoll: null,
         visibleAtkActorId: defToken.actor.id,
-        visibleDefActorId: atkToken.actor.id
+        visibleDefActorId: atkToken.actor.id,
+        currUser: curr_user
     }
 
     let chatTemplate = "systems/hm3/templates/chat/attack-result-card.html";
@@ -903,7 +905,7 @@ export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName
  * @param {*} aspect Weapon aspect ("Blunt", "Edged", "Piercing")
  * @param {*} impactMod Additional modifier to impact
  */
-export async function dodgeResume(atkToken, defToken, type, weaponName, effAML, aim, aspect, impactMod) {
+export async function dodgeResume(atkToken, defToken, type, weaponName, effAML, aim, aspect, impactMod, curr_user) {
     if (!isValidToken(atkToken) || !isValidToken(defToken)) return null;
     if (!defToken.isOwner) {
         ui.notifications.warn(`You do not have permissions to perform this operation on ${attackToken.name}`);
