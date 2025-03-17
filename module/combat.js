@@ -965,6 +965,7 @@ export async function dodgeResume(atkToken, defToken, type, weaponName, effAML, 
 
   // If we have "Dice So Nice" module, roll them dice!
   if (game.dice3d) {
+    console.log("curr_user is " + curr_user + " and game user is " + game.user.id)
     const mRoll = atkRoll.rollObj;
     game.users.find(user => {
       if (user._id === curr_user) {
@@ -1201,8 +1202,7 @@ export async function blockResume(atkToken, defToken, type, weaponName, effAML, 
     effDML = 5;
   }
 
-  // If attacking weapon is a missile and defending weapon is not
-  // a sheild, then it will defend at 1/2 DML.
+  // If attacking weapon is a missile and defending weapon is not a shield, then it will defend at 1/2 DML.
   if (type === 'missile') {
     if (!shields.some(s => s.name === dialogResult.weapon.name)) {
       effDML = Math.max(Math.round(effDML / 2), 5);
@@ -1219,6 +1219,7 @@ export async function blockResume(atkToken, defToken, type, weaponName, effAML, 
 
   // If we have "Dice So Nice" module, roll them dice!
   if (game.dice3d) {
+    console.log("curr_user is " + curr_user + " and game user is " + game.user.id)
     const mRoll = atkRoll.rollObj;
     game.users.find(user => {
       if (user._id === curr_user) {
