@@ -967,7 +967,7 @@ export class HarnMasterActor extends Actor {
                 console.log(JSON.stringify(button.dataset))
                 macros.blockResume(atkToken.id, defToken.id, button.dataset.weaponType, button.dataset.weapon,
                     button.dataset.effAml, button.dataset.aim,
-                    button.dataset.aspect, button.dataset.impactMod, button.dataset.curruser)
+                    button.dataset.aspect, button.dataset.impactMod, button.dataset.currUser)
                 break;
 
             case 'counterstrike':
