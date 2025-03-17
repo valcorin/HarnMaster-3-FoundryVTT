@@ -1453,6 +1453,7 @@ export async function weaponAttack(itemName = null, noDialog = false, myToken = 
 
   //Current user ID to use their dice
   const curr_user = game.user.id
+  console.log("User ID " + curr_user + " initiated a weapon attack")
 
   const hooksOk = Hooks.call("hm3.preMeleeAttack", combatant, targetToken, weapon);
   if (hooksOk) {
