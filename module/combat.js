@@ -727,7 +727,32 @@ export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName
   // If we have "Dice So Nice" module, roll them dice!
   if (game.dice3d) {
     const cRoll = atkRoll.rollObj;
-    cRoll.dice[0].options.colorset = "bloodmoon";
+    game.users.find(user => {
+      if (user._id === game.user.id) {
+        let uflags_str = JSON.stringify(user.flags)
+        uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
+        const jsObject = JSON.parse(uflags_str);
+        const dice_settings = jsObject.dicesonice
+        if (dice_settings.hasOwnProperty('appearance')) {
+          const user_settings = jsObject.dicesonice.appearance.global
+          if (user_settings.colorset == "custom") {
+            console.log("Using custom settings for dice3d")
+            cRoll.dice[0].options.appearance = { "colorset": "custom", "diceColor": user_settings.diceColor, "edgeColor": user_settings.edgeColor, "labelColor": user_settings.labelColor, "outlineColor": user_settings.outlineColor, "font": user_settings.font, "texture": user_settings.texture, "material": user_settings.material, "system ": user_settings.system }
+            cRoll.dice[0].options.colorset = user_settings.colorset
+            cRoll.dice[0].options.diceColor = user_settings.diceColor
+            cRoll.dice[0].options.edgeColor = user_settings.edgeColor
+            cRoll.dice[0].options.labelColor = user_settings.labelColor
+            cRoll.dice[0].options.outlineColor = user_settings.outlineColor
+            cRoll.dice[0].options.font = user_settings.font
+            cRoll.dice[0].options.texture = user_settings.texture
+            cRoll.dice[0].options.material = user_settings.material
+            cRoll.dice[0].options.system = user_settings.system
+          } else {
+            cRoll.dice[0].options.colorset = user_settings.colorset
+          }
+        }
+      }
+    })
     await game.dice3d.showForRoll(cRoll, game.user, true);
 
     // Use custom dice for counterstrike
@@ -970,7 +995,32 @@ export async function dodgeResume(atkToken, defToken, type, weaponName, effAML, 
     await game.dice3d.showForRoll(mRoll, game.user, true);
 
     const dRoll = defRoll.rollObj;
-    dRoll.dice[0].options.colorset = "bloodmoon";
+    game.users.find(user => {
+      if (user._id === game.user.id) {
+        let uflags_str = JSON.stringify(user.flags)
+        uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
+        const jsObject = JSON.parse(uflags_str);
+        const dice_settings = jsObject.dicesonice
+        if (dice_settings.hasOwnProperty('appearance')) {
+          const user_settings = jsObject.dicesonice.appearance.global
+          if (user_settings.colorset == "custom") {
+            console.log("Using custom settings for dice3d")
+            dRoll.dice[0].options.appearance = { "colorset": "custom", "diceColor": user_settings.diceColor, "edgeColor": user_settings.edgeColor, "labelColor": user_settings.labelColor, "outlineColor": user_settings.outlineColor, "font": user_settings.font, "texture": user_settings.texture, "material": user_settings.material, "system ": user_settings.system }
+            dRoll.dice[0].options.colorset = user_settings.colorset
+            dRoll.dice[0].options.diceColor = user_settings.diceColor
+            dRoll.dice[0].options.edgeColor = user_settings.edgeColor
+            dRoll.dice[0].options.labelColor = user_settings.labelColor
+            dRoll.dice[0].options.outlineColor = user_settings.outlineColor
+            dRoll.dice[0].options.font = user_settings.font
+            dRoll.dice[0].options.texture = user_settings.texture
+            dRoll.dice[0].options.material = user_settings.material
+            dRoll.dice[0].options.system = user_settings.system
+          } else {
+            dRoll.dice[0].options.colorset = user_settings.colorset
+          }
+        }
+      }
+    })
     await game.dice3d.showForRoll(dRoll, game.user, true);
   }
 
