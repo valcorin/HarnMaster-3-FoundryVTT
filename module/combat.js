@@ -309,7 +309,7 @@ export async function meleeAttack(attackToken, defendToken, weaponItem=null, cur
                                     if (game.dice3d) {
                                         const mRoll = missRoll.rollObj;
                                         game.users.find(user => {
-                                          if (user._id === game.user.id) {
+                                        if (user._id === curr_user) {
                                             let uflags_str = JSON.stringify(user.flags)
                                             uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
                                             const jsObject = JSON.parse(uflags_str);
@@ -726,9 +726,14 @@ export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName
 
     // If we have "Dice So Nice" module, roll them dice!
     if (game.dice3d) {
-        const mRoll = atkRoll.rollObj;
+        const cRoll = atkRoll.rollObj;
+        cRoll.dice[0].options.colorset = "bloodmoon";
+        await game.dice3d.showForRoll(cRoll, game.user, true);
+
+        // Use custom dice for counterstrike
+        const mRoll = csRoll.rollObj;
         game.users.find(user => {
-          if (user._id === game.user.id) {
+        if (user._id === curr_user) {
             let uflags_str = JSON.stringify(user.flags)
             uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
             const jsObject = JSON.parse(uflags_str);
@@ -754,10 +759,6 @@ export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName
           }
         })
         await game.dice3d.showForRoll(mRoll, game.user, true);
-
-        const cRoll = csRoll.rollObj;
-        cRoll.dice[0].options.colorset = "bloodmoon";
-        await game.dice3d.showForRoll(cRoll, game.user, true);
     }
 
     const atkResult = `${atkRoll.isCritical?'c':'m'}${atkRoll.isSuccess?'s':'f'}`;
@@ -941,7 +942,7 @@ export async function dodgeResume(atkToken, defToken, type, weaponName, effAML, 
     if (game.dice3d) {
         const mRoll = atkRoll.rollObj;
         game.users.find(user => {
-          if (user._id === game.user.id) {
+          if (user._id === curr_user) {
             let uflags_str = JSON.stringify(user.flags)
             uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
             const jsObject = JSON.parse(uflags_str);
@@ -1429,7 +1430,7 @@ export async function ignoreResume(atkToken, defToken, type, weaponName, effAML,
     if (game.dice3d) {
         const mRoll = atkRoll.rollObj;
         game.users.find(user => {
-          if (user._id === game.user.id) {
+          if (user._id === curr_user) {
             let uflags_str = JSON.stringify(user.flags)
             uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
             const jsObject = JSON.parse(uflags_str);
