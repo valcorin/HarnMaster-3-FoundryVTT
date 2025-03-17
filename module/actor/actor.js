@@ -954,13 +954,13 @@ export class HarnMasterActor extends Actor {
             case 'dodge':
                 macros.dodgeResume(atkToken.id, defToken.id, button.dataset.weaponType, button.dataset.weapon,
                     button.dataset.effAml, button.dataset.aim,
-                    button.dataset.aspect, button.dataset.impactMod)
+                    button.dataset.aspect, button.dataset.impactMod, button.dataset.currUser)
                 break;
 
             case 'ignore':
                 macros.ignoreResume(atkToken.id, defToken.id, button.dataset.weaponType, button.dataset.weapon,
                     button.dataset.effAml, button.dataset.aim,
-                    button.dataset.aspect, button.dataset.impactMod)
+                    button.dataset.aspect, button.dataset.impactMod, button.dataset.currUser)
                 break;
 
             case 'block':
@@ -973,7 +973,7 @@ export class HarnMasterActor extends Actor {
             case 'counterstrike':
                 macros.meleeCounterstrikeResume(atkToken.id, defToken.id, button.dataset.weapon,
                     button.dataset.effAml, button.dataset.aim,
-                    button.dataset.aspect, button.dataset.impactMod)
+                    button.dataset.aspect, button.dataset.impactMod, button.dataset.currUser)
                 break;
 
             case 'shock':
