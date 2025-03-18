@@ -728,7 +728,7 @@ export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName
   if (game.dice3d) {
     const cRoll = atkRoll.rollObj;
     game.users.find(user => {
-      if (user._id === game.user.id) {
+      if (user._id === curr_user) {
         let uflags_str = JSON.stringify(user.flags)
         uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
         const jsObject = JSON.parse(uflags_str);
@@ -758,7 +758,7 @@ export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName
     // Use custom dice for counterstrike
     const mRoll = csRoll.rollObj;
     game.users.find(user => {
-      if (user._id === curr_user) {
+      if (user._id === game.user.id) {
         let uflags_str = JSON.stringify(user.flags)
         uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
         const jsObject = JSON.parse(uflags_str);
@@ -1483,7 +1483,7 @@ export async function checkWeaponBreak(atkWeapon, defWeapon) {
  * @param {*} aspect Weapon aspect ("Blunt", "Edged", "Piercing")
  * @param {*} impactMod Additional modifier to impact
  */
-export async function ignoreResume(atkToken, defToken, type, weaponName, effAML, aim, aspect, impactMod) {
+export async function ignoreResume(atkToken, defToken, type, weaponName, effAML, aim, aspect, impactMod, curr_user) {
   if (!isValidToken(atkToken) || !isValidToken(defToken)) return null;
   if (!defToken.isOwner) {
     ui.notifications.warn(`You do not have permissions to perform this operation on ${attackToken.name}`);
