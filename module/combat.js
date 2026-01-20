@@ -59,7 +59,7 @@ export async function missileAttack(attackToken, defendToken, missileItem, curr_
     if (missileItem.system.isEquipped) {
       options['weapon'] = missileItem;
     } else {
-      ui.notification.warn(`${missileItem.name} is not equipped.`);
+      ui.notifications.warn(`${missileItem.name} is not equipped.`);
       return null;
     }
   } else {
@@ -78,7 +78,7 @@ export async function missileAttack(attackToken, defendToken, missileItem, curr_
 
   if (game.settings.get('hm3', 'missileTracking') && attackToken.actor) {
     if (missileItem.system.quantity <= 0) {
-      ui.notification.warn(`No more ${missileItem.name} left, attack denied.`);
+      ui.notifications.warn(`No more ${missileItem.name} left, attack denied.`);
       return null;
     }
 
@@ -201,7 +201,7 @@ export async function meleeAttack(attackToken, defendToken, weaponItem = null, c
     if (weaponItem.system.isEquipped) {
       options['weapon'] = weaponItem;
     } else {
-      ui.notification.warn(`For ${attackToken.name} ${weaponItem.name} is not equipped.`);
+      ui.notifications.warn(`For ${attackToken.name} ${weaponItem.name} is not equipped.`);
       return null;
     }
   } else {
@@ -241,7 +241,7 @@ export async function meleeAttack(attackToken, defendToken, weaponItem = null, c
                     spellMod = parseInt(ae.changes[j].value)
                     dialogResult.addlModifier = dialogResult.addlModifier + spellMod
                     ChatMessage.create({
-                      user: game.user._id,
+                      user: game.user.id,
                       speaker: speaker,
                       content: ae.name + " is active; applying " + spellMod + " to attack."
                     }, {});
@@ -273,7 +273,7 @@ export async function meleeAttack(attackToken, defendToken, weaponItem = null, c
                       spellMod = parseInt(ae.changes[j].value)
                       dialogResult.addlModifier = dialogResult.addlModifier + spellMod
                       ChatMessage.create({
-                        user: game.user._id,
+                        user: game.user.id,
                         speaker: speaker,
                         content: ae.name + " is active; applying " + spellMod + " to attack."
                       }, {});
@@ -293,7 +293,7 @@ export async function meleeAttack(attackToken, defendToken, weaponItem = null, c
                     }
                   }
                   ChatMessage.create({
-                    user: game.user._id,
+                    user: game.user.id,
                     speaker: speaker,
                     content: ae.name + " is active - rolling against " + miss_chance + "..."
                   }, {});
@@ -338,7 +338,7 @@ export async function meleeAttack(attackToken, defendToken, weaponItem = null, c
                   }
                   if (missRoll.isSuccess) {
                     ChatMessage.create({
-                      user: game.user._id,
+                      user: game.user.id,
                       speaker: speaker,
                       content: miss_addmsg
                     }, {});
