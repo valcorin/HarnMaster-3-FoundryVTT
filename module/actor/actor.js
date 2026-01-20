@@ -880,7 +880,24 @@ export class HarnMasterActor extends Actor {
     }
 
     static chatListeners(html) {
-        html.on('click', '.card-buttons button', this._onChatCardAction.bind(this));
+        // Foundry v13 passes a plain HTMLElement instead of a jQuery object. Support both.
+        const element = html?.on ? html : (html?.[0] instanceof HTMLElement ? html[0] : html);
+        if (!element) return;
+
+        if (element.on) {
+            element.on('click', '.card-buttons button', this._onChatCardAction.bind(this));
+            return;
+        }
+
+        element.addEventListener('click', (event) => {
+            const button = event.target.closest('.card-buttons button');
+            if (!button) return;
+            this._onChatCardAction({
+                preventDefault: () => event.preventDefault(),
+                currentTarget: button,
+                target: event.target
+            });
+        });
     }
 
     static async _onChatCardAction(event) {
