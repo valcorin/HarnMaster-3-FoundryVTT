@@ -881,7 +881,7 @@ export class HarnMasterActor extends Actor {
 
     static chatListeners(html) {
         // Foundry v13 passes a plain HTMLElement instead of a jQuery object. Support both.
-        const element = html?.on ? html : (html?.[0] instanceof HTMLElement ? html[0] : html);
+        const element = html?.on ? html : (html instanceof HTMLElement ? html : html?.[0]);
         if (!element) return;
 
         if (element.on) {
