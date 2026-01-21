@@ -885,10 +885,12 @@ export class HarnMasterActor extends Actor {
         if (!element) return;
 
         if (typeof element.on === 'function') {
+            console.log('HM3 | chatListeners binding via jQuery object');
             element.on('click', '.card-buttons button', this._onChatCardAction.bind(this));
             return;
         }
 
+        console.log('HM3 | chatListeners binding via addEventListener');
         element.addEventListener('click', (event) => {
             const button = event.target.closest('.card-buttons button');
             if (!button) return;
@@ -903,6 +905,11 @@ export class HarnMasterActor extends Actor {
     static async _onChatCardAction(event) {
         event.preventDefault();
         const button = event.currentTarget;
+        console.log('HM3 | chat card action clicked', {
+            action: button?.dataset?.action,
+            atkTokenId: button?.dataset?.atkTokenId,
+            defTokenId: button?.dataset?.defTokenId
+        });
         button.disabled = true;
         const action = button.dataset.action;
         const weaponType = button.dataset.weaponType;
