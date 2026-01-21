@@ -148,6 +148,22 @@ Hooks.once('init', async function () {
 Hooks.on("renderChatMessage", (app, html, data) => {
     // Display action buttons
     combat.displayChatActionButtons(app, html, data);
+
+    // Directly bind click handlers to HM3 chat card buttons (v13-safe)
+    const root = html?.[0] || html;
+    const buttons = root?.querySelectorAll?.('.hm3.chat-card .card-buttons button');
+    if (buttons && buttons.length) {
+        console.log('HM3 | renderChatMessage binding buttons', buttons.length);
+        buttons.forEach((btn) => {
+            btn.addEventListener('click', (event) => {
+                HarnMasterActor._onChatCardAction({
+                    preventDefault: () => event.preventDefault(),
+                    currentTarget: event.currentTarget,
+                    target: event.target
+                });
+            });
+        });
+    }
 });
 Hooks.on('renderChatLog', (app, html, data) => {
     console.log('HM3 | renderChatLog hook', { hasHtml: !!html, htmlType: typeof html, htmlKeys: html && Object.keys(html) });
