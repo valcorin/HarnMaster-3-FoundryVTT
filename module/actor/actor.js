@@ -896,6 +896,21 @@ export class HarnMasterActor extends Actor {
         }
 
         console.log('HM3 | chatListeners resolving element', { hasHtml: !!html, elementFound: !!element, htmlType: typeof html });
+        // As a fallback, attach a single global delegated listener once to ensure buttons still work.
+        if (!this._globalChatListenerBound) {
+            document.addEventListener('click', (event) => {
+                const button = event.target?.closest('.hm3.chat-card .card-buttons button');
+                if (!button) return;
+                this._onChatCardAction({
+                    preventDefault: () => event.preventDefault(),
+                    currentTarget: button,
+                    target: event.target
+                });
+            });
+            this._globalChatListenerBound = true;
+            console.log('HM3 | chatListeners global listener bound to document');
+        }
+
         if (!element) return;
 
         if (typeof element.on === 'function') {
