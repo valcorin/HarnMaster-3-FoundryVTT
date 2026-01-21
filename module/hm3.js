@@ -169,14 +169,7 @@ function bindHm3ChatButtons(app, html, data) {
 
 Hooks.on("renderChatMessageHTML", bindHm3ChatButtons);
 Hooks.on("renderChatMessage", bindHm3ChatButtons);
-Hooks.on('renderChatLog', (app, html, data) => {
-    console.log('HM3 | renderChatLog hook', { hasHtml: !!html, htmlType: typeof html, htmlKeys: html && Object.keys(html) });
-    HarnMasterActor.chatListeners(html);
-});
-Hooks.on('renderChatPopout', (app, html, data) => {
-    console.log('HM3 | renderChatPopout hook', { hasHtml: !!html, htmlType: typeof html, htmlKeys: html && Object.keys(html) });
-    HarnMasterActor.chatListeners(html);
-});
+// Removed renderChatLog/Popout binding (v13 passes HTMLElement and we bind per-message instead).
 
 /**
  * Active Effects need to expire at certain times, so keep track of that here
