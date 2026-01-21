@@ -145,15 +145,16 @@ Hooks.once('init', async function () {
 
 });
 
-Hooks.on("renderChatMessage", (app, html, data) => {
-    // Display action buttons
+// v13: renderChatMessageHTML is the HTMLElement version; keep legacy renderChatMessage for back-compat.
+function bindHm3ChatButtons(app, html, data) {
+    // Display action buttons (hide for non-owners)
     combat.displayChatActionButtons(app, html, data);
 
     // Directly bind click handlers to HM3 chat card buttons (v13-safe)
     const root = html?.[0] || html;
     const buttons = root?.querySelectorAll?.('.hm3.chat-card .card-buttons button');
     if (buttons && buttons.length) {
-        console.log('HM3 | renderChatMessage binding buttons', buttons.length);
+        console.log('HM3 | renderChatMessage* binding buttons', buttons.length);
         buttons.forEach((btn) => {
             btn.addEventListener('click', (event) => {
                 HarnMasterActor._onChatCardAction({
@@ -164,7 +165,10 @@ Hooks.on("renderChatMessage", (app, html, data) => {
             });
         });
     }
-});
+}
+
+Hooks.on("renderChatMessageHTML", bindHm3ChatButtons);
+Hooks.on("renderChatMessage", bindHm3ChatButtons);
 Hooks.on('renderChatLog', (app, html, data) => {
     console.log('HM3 | renderChatLog hook', { hasHtml: !!html, htmlType: typeof html, htmlKeys: html && Object.keys(html) });
     HarnMasterActor.chatListeners(html);
