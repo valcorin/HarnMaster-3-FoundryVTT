@@ -948,7 +948,10 @@ export async function missileAttackRoll(itemName, myActor = null) {
 
 export async function injuryRoll(myActor = null, rollData = {}) {
   // Normalize rollData because some callers pass a string from chat buttons
-  if (!rollData || typeof rollData !== "object") {
+  if (typeof rollData === "string") {
+    console.warn("hm3.injuryRoll received string rollData; normalizing to object", rollData);
+    rollData = {};
+  } else if (!rollData || typeof rollData !== "object") {
     console.warn("hm3.injuryRoll expected rollData object; received", rollData);
     rollData = {};
   }
