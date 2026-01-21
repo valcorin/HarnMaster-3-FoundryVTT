@@ -907,6 +907,9 @@ export class HarnMasterActor extends Actor {
         const action = button.dataset.action;
         const weaponType = button.dataset.weaponType;
 
+        // v13: canvas.tokens.get only returns placeables on the active scene; prefer scene tokens.
+        const resolveToken = (tokenId) => canvas.scene?.tokens.get(tokenId)?.object ?? null;
+
         let actor = null;
         if (button.dataset.actorId) {
             actor = game.actors.get(button.dataset.actorId);
@@ -918,7 +921,7 @@ export class HarnMasterActor extends Actor {
         }
         let token = null;
         if (button.dataset.tokenId) {
-            token = canvas.tokens.get(button.dataset.tokenId);
+            token = resolveToken(button.dataset.tokenId);
             if (!token) {
                 console.warn(`HM3 | Action=${action}; Cannot find token ${button.dataset.tokenId}`);
                 button.disabled = false;
@@ -932,7 +935,7 @@ export class HarnMasterActor extends Actor {
 
         let atkToken = null;
         if (button.dataset.atkTokenId) {
-            atkToken = canvas.tokens.get(button.dataset.atkTokenId);
+            atkToken = resolveToken(button.dataset.atkTokenId);
             if (!atkToken) {
                 console.warn(`HM3 | Action=${action}; Cannot find attack token ${button.dataset.atkTokenId}`)
                 button.disabled = false;
@@ -942,7 +945,7 @@ export class HarnMasterActor extends Actor {
 
         let defToken = null;
         if (button.dataset.defTokenId) {
-            defToken = canvas.tokens.get(button.dataset.defTokenId);
+            defToken = resolveToken(button.dataset.defTokenId);
             if (!defToken) {
                 console.warn(`HM3 | Action=${action}; Cannot find defense token ${button.dataset.defTokenId}`)
                 button.disabled = false;
