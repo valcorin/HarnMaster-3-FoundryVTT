@@ -881,7 +881,21 @@ export class HarnMasterActor extends Actor {
 
     static chatListeners(html) {
         // Foundry v13 passes a plain HTMLElement; pre-v13 passed a jQuery wrapper. Support both safely.
-        const element = (html && typeof html.on === 'function') ? html : (html instanceof HTMLElement ? html : html?.[0]);
+        // Possible shapes: jQuery collection, HTMLElement, DocumentFragment, Application render context {element}
+        let element = null;
+        if (html && typeof html.on === 'function') {
+            element = html;
+        } else if (html instanceof HTMLElement) {
+            element = html;
+        } else if (html?.element instanceof HTMLElement) {
+            element = html.element;
+        } else if (html?.[0] instanceof HTMLElement) {
+            element = html[0];
+        } else if (html?.element?.[0] instanceof HTMLElement) {
+            element = html.element[0];
+        }
+
+        console.log('HM3 | chatListeners resolving element', { hasHtml: !!html, elementFound: !!element, htmlType: typeof html });
         if (!element) return;
 
         if (typeof element.on === 'function') {
