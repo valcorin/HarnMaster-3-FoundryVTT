@@ -1852,18 +1852,30 @@ export function rangeToTarget(sourceToken, targetToken, gridUnits = false) {
  * Optionally hide the display of chat card action buttons which cannot be performed by the user
  */
 export const displayChatActionButtons = function (message, html, data) {
-  const chatCard = html.find(".hm3.chat-card");
-  if (chatCard.length > 0) {
-    // If the user is the GM, proceed
-    if (game.user.isGM) return;
+  // html may be a jQuery object or an HTMLElement/DocumentFragment in v13
+  const root = (html && typeof html.find === 'function') ? html : (html instanceof HTMLElement ? html : html?.[0]);
+  if (!root) return;
 
-    // Otherwise conceal action buttons
-    const buttons = chatCard.find("button[data-action]");
-    buttons.each((i, btn) => {
-      const actor = btn.dataset.visibleActorId ? game.actors.get(btn.dataset.visibleActorId) : null;
-      if (!actor || !actor.isOwner) {
-        btn.style.display = "none";
-      }
-    });
-  }
+  const chatCards = (typeof root.find === 'function') ? root.find('.hm3.chat-card') : root.querySelectorAll?.('.hm3.chat-card');
+  const hasCards = chatCards && (chatCards.length !== undefined ? chatCards.length > 0 : !!chatCards);
+  if (!hasCards) return;
+
+  // If the user is the GM, proceed without hiding
+  if (game.user.isGM) return;
+
+  const buttons = (typeof chatCards.find === 'function') ? chatCards.find('button[data-action]') : root.querySelectorAll?.('.hm3.chat-card button[data-action]');
+  if (!buttons) return;
+
+  const buttonList = buttons.length !== undefined ? buttons : [buttons];
+  buttonList.forEach ? buttonList.forEach((btn) => {
+    const actor = btn.dataset.visibleActorId ? game.actors.get(btn.dataset.visibleActorId) : null;
+    if (!actor || !actor.isOwner) {
+      btn.style.display = 'none';
+    }
+  }) : buttons.each((i, btn) => {
+    const actor = btn.dataset.visibleActorId ? game.actors.get(btn.dataset.visibleActorId) : null;
+    if (!actor || !actor.isOwner) {
+      btn.style.display = 'none';
+    }
+  });
 };
