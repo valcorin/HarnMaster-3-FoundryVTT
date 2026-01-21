@@ -145,7 +145,6 @@ Hooks.once('init', async function () {
 
 });
 
-// v13: renderChatMessageHTML is the HTMLElement version; keep legacy renderChatMessage for back-compat.
 function bindHm3ChatButtons(app, html, data) {
     // Display action buttons (hide for non-owners)
     combat.displayChatActionButtons(app, html, data);
@@ -156,6 +155,7 @@ function bindHm3ChatButtons(app, html, data) {
     if (buttons && buttons.length) {
         console.log('HM3 | renderChatMessage* binding buttons', buttons.length);
         buttons.forEach((btn) => {
+            if (btn.dataset.hm3Bound === '1') return;
             btn.addEventListener('click', (event) => {
                 HarnMasterActor._onChatCardAction({
                     preventDefault: () => event.preventDefault(),
@@ -163,12 +163,13 @@ function bindHm3ChatButtons(app, html, data) {
                     target: event.target
                 });
             });
+            btn.dataset.hm3Bound = '1';
         });
     }
 }
 
 Hooks.on("renderChatMessageHTML", bindHm3ChatButtons);
-Hooks.on("renderChatMessage", bindHm3ChatButtons);
+// Legacy hook removed to avoid double-binding in v13+
 // Removed renderChatLog/Popout binding (v13 passes HTMLElement and we bind per-message instead).
 
 /**

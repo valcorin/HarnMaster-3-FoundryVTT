@@ -892,10 +892,13 @@ export class HarnMasterActor extends Actor {
         }
 
         console.log('HM3 | chatListeners resolving element', { hasHtml: !!html, elementFound: !!element, htmlType: typeof html });
-        // As a fallback, attach a single global delegated listener once to ensure buttons still work.
-        if (!this._globalChatListenerBound) {
-            document.addEventListener('click', (event) => {
-                const button = event.target?.closest('.hm3.chat-card .card-buttons button');
+        if (!element || typeof element.addEventListener !== 'function') return;
+
+        // Prevent duplicate bindings on the same element
+        if (!element._hm3ChatBound) {
+            console.log('HM3 | chatListeners binding via addEventListener (normalized)');
+            element.addEventListener('click', (event) => {
+                const button = event.target.closest('.card-buttons button');
                 if (!button) return;
                 this._onChatCardAction({
                     preventDefault: () => event.preventDefault(),
@@ -903,22 +906,8 @@ export class HarnMasterActor extends Actor {
                     target: event.target
                 });
             });
-            this._globalChatListenerBound = true;
-            console.log('HM3 | chatListeners global listener bound to document');
+            element._hm3ChatBound = true;
         }
-
-        if (!element || typeof element.addEventListener !== 'function') return;
-
-        console.log('HM3 | chatListeners binding via addEventListener (normalized)');
-        element.addEventListener('click', (event) => {
-            const button = event.target.closest('.card-buttons button');
-            if (!button) return;
-            this._onChatCardAction({
-                preventDefault: () => event.preventDefault(),
-                currentTarget: button,
-                target: event.target
-            });
-        });
     }
 
     static async _onChatCardAction(event) {
