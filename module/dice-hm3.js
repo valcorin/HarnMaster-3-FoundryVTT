@@ -386,13 +386,8 @@ export class DiceHM3 {
 
         const html = await renderTemplate(chatTemplate, chatTemplateData);
 
-        // Ensure the chat header uses the provided speaker alias when available
-        const messageSpeaker = { ...speaker };
-        if (!messageSpeaker.alias) {
-            messageSpeaker.alias = rollData.speaker?.alias
-                || rollData.speaker?.name
-                || (rollData.actor.token ? rollData.actor.token.name : rollData.actor.name);
-        }
+        // Ensure the chat header shows the current player's name
+        const messageSpeaker = { ...speaker, alias: game.user?.name };
 
         const messageData = {
             speaker: messageSpeaker,
