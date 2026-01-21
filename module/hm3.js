@@ -149,8 +149,14 @@ Hooks.on("renderChatMessage", (app, html, data) => {
     // Display action buttons
     combat.displayChatActionButtons(app, html, data);
 });
-Hooks.on('renderChatLog', (app, html, data) => HarnMasterActor.chatListeners(html));
-Hooks.on('renderChatPopout', (app, html, data) => HarnMasterActor.chatListeners(html));
+Hooks.on('renderChatLog', (app, html, data) => {
+    console.log('HM3 | renderChatLog hook', { hasHtml: !!html, htmlType: typeof html, htmlKeys: html && Object.keys(html) });
+    HarnMasterActor.chatListeners(html);
+});
+Hooks.on('renderChatPopout', (app, html, data) => {
+    console.log('HM3 | renderChatPopout hook', { hasHtml: !!html, htmlType: typeof html, htmlKeys: html && Object.keys(html) });
+    HarnMasterActor.chatListeners(html);
+});
 
 /**
  * Active Effects need to expire at certain times, so keep track of that here
