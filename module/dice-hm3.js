@@ -1,5 +1,13 @@
 import * as utility from './utility.js';
 
+// Use the current player's name for chat headers when the user is a GM
+function speakerWithGMOverride(speaker) {
+    if (game.user?.isGM) {
+        return { ...speaker, alias: game.user.name };
+    }
+    return speaker;
+}
+
 export class DiceHM3 {
     /*--------------------------------------------------------------------------------*/
     /*        STANDARD D100 ROLL PROCESSING
@@ -85,7 +93,7 @@ export class DiceHM3 {
 
         const messageData = {
             user: game.user.id,
-            speaker: speaker,
+            speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             type: CONST.CHAT_MESSAGE_TYPES.ROLL,
             sound: CONFIG.sounds.dice,
@@ -219,7 +227,7 @@ export class DiceHM3 {
 
         const messageData = {
             user: game.user.id,
-            speaker: speaker,
+            speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             type: CONST.CHAT_MESSAGE_TYPES.ROLL,
             sound: CONFIG.sounds.dice,
@@ -309,7 +317,7 @@ export class DiceHM3 {
         const html = await renderTemplate(chatTemplate, chatTemplateData);
 
         const messageData = {
-            speaker: speaker,
+            speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             user: game.user.id,
             type: CONST.CHAT_MESSAGE_TYPES.ROLL,
@@ -386,11 +394,8 @@ export class DiceHM3 {
 
         const html = await renderTemplate(chatTemplate, chatTemplateData);
 
-        // Ensure the chat header shows the current player's name
-        const messageSpeaker = { ...speaker, alias: game.user?.name };
-
         const messageData = {
-            speaker: messageSpeaker,
+            speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             user: game.user.id,
             type: CONST.CHAT_MESSAGE_TYPES.OTHER,
@@ -793,7 +798,7 @@ export class DiceHM3 {
 
         const messageData = {
             user: game.user.id,
-            speaker: speaker,
+            speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             type: CONST.CHAT_MESSAGE_TYPES.ROLL,
             sound: CONFIG.sounds.dice,
@@ -963,7 +968,7 @@ export class DiceHM3 {
 
         const messageData = {
             user: game.user.id,
-            speaker: speaker,
+            speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             type: CONST.CHAT_MESSAGE_TYPES.ROLL,
             sound: CONFIG.sounds.dice,
@@ -1130,7 +1135,7 @@ export class DiceHM3 {
 
         const messageData = {
             user: game.user.id,
-            speaker: speaker,
+            speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             type: CONST.CHAT_MESSAGE_TYPES.ROLL,
             sound: CONFIG.sounds.dice,
