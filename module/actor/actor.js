@@ -880,11 +880,11 @@ export class HarnMasterActor extends Actor {
     }
 
     static chatListeners(html) {
-        // Foundry v13 passes a plain HTMLElement instead of a jQuery object. Support both.
-        const element = html?.on ? html : (html instanceof HTMLElement ? html : html?.[0]);
+        // Foundry v13 passes a plain HTMLElement; pre-v13 passed a jQuery wrapper. Support both safely.
+        const element = (html && typeof html.on === 'function') ? html : (html instanceof HTMLElement ? html : html?.[0]);
         if (!element) return;
 
-        if (element.on) {
+        if (typeof element.on === 'function') {
             element.on('click', '.card-buttons button', this._onChatCardAction.bind(this));
             return;
         }
