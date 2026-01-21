@@ -880,19 +880,15 @@ export class HarnMasterActor extends Actor {
     }
 
     static chatListeners(html) {
-        // Foundry v13 passes a plain HTMLElement; pre-v13 passed a jQuery wrapper. Support both safely.
-        // Possible shapes: jQuery collection, HTMLElement, DocumentFragment, Application render context {element}
+        // Foundry v13 passes a plain HTMLElement/DocumentFragment; pre-v13 passed a jQuery wrapper.
+        // Normalize to an EventTarget and always use addEventListener to avoid html.on errors.
         let element = null;
-        if (html && typeof html.on === 'function') {
-            element = html;
-        } else if (html instanceof HTMLElement) {
-            element = html;
-        } else if (html?.element instanceof HTMLElement) {
+        if (html?.element instanceof HTMLElement || html?.element instanceof DocumentFragment) {
             element = html.element;
-        } else if (html?.[0] instanceof HTMLElement) {
+        } else if (html?.[0] instanceof HTMLElement || html?.[0] instanceof DocumentFragment) {
             element = html[0];
-        } else if (html?.element?.[0] instanceof HTMLElement) {
-            element = html.element[0];
+        } else if (html instanceof HTMLElement || html instanceof DocumentFragment) {
+            element = html;
         }
 
         console.log('HM3 | chatListeners resolving element', { hasHtml: !!html, elementFound: !!element, htmlType: typeof html });
@@ -911,15 +907,9 @@ export class HarnMasterActor extends Actor {
             console.log('HM3 | chatListeners global listener bound to document');
         }
 
-        if (!element) return;
+        if (!element || typeof element.addEventListener !== 'function') return;
 
-        if (typeof element.on === 'function') {
-            console.log('HM3 | chatListeners binding via jQuery object');
-            element.on('click', '.card-buttons button', this._onChatCardAction.bind(this));
-            return;
-        }
-
-        console.log('HM3 | chatListeners binding via addEventListener');
+        console.log('HM3 | chatListeners binding via addEventListener (normalized)');
         element.addEventListener('click', (event) => {
             const button = event.target.closest('.card-buttons button');
             if (!button) return;
