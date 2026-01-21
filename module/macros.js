@@ -947,6 +947,11 @@ export async function missileAttackRoll(itemName, myActor = null) {
 }
 
 export async function injuryRoll(myActor = null, rollData = {}) {
+  // Normalize rollData because some callers pass a string from chat buttons
+  if (!rollData || typeof rollData !== "object") {
+    console.warn("hm3.injuryRoll expected rollData object; received", rollData);
+    rollData = {};
+  }
   const actorInfo = getActor({ actor: myActor, item: null, speaker: ChatMessage.getSpeaker() });
   if (!actorInfo) {
     ui.notifications.warn(`No actor for this action could be determined.`);
