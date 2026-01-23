@@ -792,6 +792,7 @@ export async function weaponAttackRoll(itemName, noDialog = false, myActor = nul
   const hooksOk = Hooks.call("hm3.preWeaponAttackRoll", stdRollData, actor, item);
   if (hooksOk) {
     const result = await DiceHM3.d100StdRoll(stdRollData);
+    sleep(5000);
     // If we have "Dice So Nice" module, roll them dice!
     if (game.dice3d) {
       const mRoll = result.roll.rollObj;
