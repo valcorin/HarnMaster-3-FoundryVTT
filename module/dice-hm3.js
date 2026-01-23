@@ -99,9 +99,10 @@ export class DiceHM3 {
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             style: CONST.CHAT_MESSAGE_STYLES.ROLL,
-            type: CONST.CHAT_MESSAGE_STYLES.ROLL,
+            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
             sound: CONFIG.sounds.dice,
-            roll: roll.rollObj
+            roll: roll.rollObj,
+            rolls: [roll.rollObj]
         };
 
         const messageOptions = {
@@ -234,9 +235,10 @@ export class DiceHM3 {
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             style: CONST.CHAT_MESSAGE_STYLES.ROLL,
-            type: CONST.CHAT_MESSAGE_STYLES.ROLL,
+            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
             sound: CONFIG.sounds.dice,
-            roll: roll.rollObj
+            roll: roll.rollObj,
+            rolls: [roll.rollObj]
         };
 
         const messageOptions = {
@@ -326,9 +328,10 @@ export class DiceHM3 {
             content: html.trim(),
             user: game.user.id,
             style: CONST.CHAT_MESSAGE_STYLES.ROLL,
-            type: CONST.CHAT_MESSAGE_STYLES.ROLL,
+            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
             sound: CONFIG.sounds.dice,
-            roll: roll
+            roll: roll,
+            rolls: [roll]
         };
 
         const messageOptions = {
@@ -405,7 +408,7 @@ export class DiceHM3 {
             content: html.trim(),
             user: game.user.id,
             style: CONST.CHAT_MESSAGE_STYLES.OTHER,
-            type: CONST.CHAT_MESSAGE_STYLES.OTHER,
+            type: CONST.CHAT_MESSAGE_TYPES.OTHER,
             sound: CONFIG.sounds.notify
         };
 
@@ -808,9 +811,10 @@ export class DiceHM3 {
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             style: CONST.CHAT_MESSAGE_STYLES.ROLL,
-            type: CONST.CHAT_MESSAGE_STYLES.ROLL,
+            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
             sound: CONFIG.sounds.dice,
-            roll: roll.rollObj
+            roll: roll.rollObj,
+            rolls: [roll.rollObj]
         };
 
         const messageOptions = {
@@ -979,9 +983,10 @@ export class DiceHM3 {
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             style: CONST.CHAT_MESSAGE_STYLES.ROLL,
-            type: CONST.CHAT_MESSAGE_STYLES.ROLL,
+            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
             sound: CONFIG.sounds.dice,
-            roll: roll.rollObj
+            roll: roll.rollObj,
+            rolls: [roll.rollObj]
         };
 
         const messageOptions = {
@@ -1147,9 +1152,10 @@ export class DiceHM3 {
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             style: CONST.CHAT_MESSAGE_STYLES.ROLL,
-            type: CONST.CHAT_MESSAGE_STYLES.ROLL,
+            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
             sound: CONFIG.sounds.dice,
-            roll: roll.rollObj
+            roll: roll.rollObj,
+            rolls: [roll.rollObj]
         };
 
         const messageOptions = {
