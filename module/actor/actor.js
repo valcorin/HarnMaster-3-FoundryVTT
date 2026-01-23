@@ -1010,6 +1010,11 @@ export class HarnMasterActor extends Actor {
                     button.dataset.aspect, button.dataset.impactMod, button.dataset.currUser)
                 break;
 
+            case 'endurance': {
+                const numdice = Number(button.dataset.injuryLevel);
+                macros.enduranceRoll(false, actor, { numdice });
+                break;
+            }
             case 'counterstrike':
                 macros.meleeCounterstrikeResume(atkToken.id, defToken.id, button.dataset.weapon,
                     button.dataset.effAml, button.dataset.aim,
@@ -1026,10 +1031,6 @@ export class HarnMasterActor extends Actor {
 
             case 'fumble':
                 macros.fumbleRoll(false, actor);
-                break;
-
-            case 'endurance':
-                macros.enduranceRoll(false, actor);
                 break;
 
         }

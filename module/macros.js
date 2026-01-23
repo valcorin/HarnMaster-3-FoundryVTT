@@ -1028,7 +1028,7 @@ export async function fumbleRoll(noDialog = false, myActor = null) {
   return null;
 }
 
-export async function enduranceRoll(noDialog = false, myActor = null) {
+export async function enduranceRoll(noDialog = false, myActor = null, opts = {}) {
   const actorInfo = getActor({ actor: myActor, item: null, speaker: ChatMessage.getSpeaker() });
   if (!actorInfo) {
     ui.notifications.warn(`No actor for this action could be determined.`);
@@ -1037,12 +1037,13 @@ export async function enduranceRoll(noDialog = false, myActor = null) {
 
   // Prefer the computed endurance target; fall back to base endurance to avoid NaN dialogs
   const enduranceTarget = actorInfo.actor.system?.eph?.enduranceTarget ?? actorInfo.actor.system?.endurance ?? 0;
+  const numdice = Number.isFinite(Number(opts?.numdice)) ? Number(opts.numdice) : 4;
 
   const stdRollData = {
     type: 'endurance',
     label: `${actorInfo.actor.isToken ? actorInfo.actor.token.name : actorInfo.actor.name} Endurance Roll`,
     target: Number.isFinite(Number(enduranceTarget)) ? Number(enduranceTarget) : 0,
-    numdice: 4,
+    numdice: numdice,
     notesData: {},
     speaker: actorInfo.speaker,
     fastforward: noDialog,
