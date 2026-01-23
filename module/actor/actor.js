@@ -1027,6 +1027,11 @@ export class HarnMasterActor extends Actor {
             case 'fumble':
                 macros.fumbleRoll(false, actor);
                 break;
+
+            case 'endurance':
+                macros.enduranceRoll(false, actor);
+                break;
+
         }
 
         button.disabled = false;
