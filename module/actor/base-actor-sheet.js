@@ -11,6 +11,8 @@ const CompatActorSheet = foundry.appv1?.sheets?.ActorSheet ?? ActorSheet;
 const renderTemplateCompat = foundry.applications?.handlebars?.renderTemplate ?? renderTemplate;
 // Prefer v13+ namespaced FormDataExtended; fall back for v12
 const FormDataExtendedCompat = foundry.applications?.ux?.FormDataExtended ?? FormDataExtended;
+// Prefer v13+ Dialog V2; fall back for v12 Dialog
+const DialogCompat = foundry.applications?.api?.DialogV2 ?? Dialog;
 
 /**
  * Extend the basic ActorSheet with some common capabilities
@@ -272,7 +274,7 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
         const dlghtml = await renderTemplateCompat(dlgTemplate, dialogData);
 
         // Create the dialog window
-        return Dialog.prompt({
+        return DialogCompat.prompt({
             title: "Move Items",
             content: dlghtml,
             label: "OK",
@@ -792,7 +794,7 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
         const dlghtml = await renderTemplateCompat(dlgTemplate, dialogData);
 
         // Create the dialog window
-        return Dialog.prompt({
+        return DialogCompat.prompt({
             title: dialogData.title,
             content: dlghtml,
             label: "Create",

@@ -4,6 +4,8 @@
 const renderTemplateCompat = foundry.applications?.handlebars?.renderTemplate ?? renderTemplate;
 // Prefer v13+ namespaced FormDataExtended; fall back for v12
 const FormDataExtendedCompat = foundry.applications?.ux?.FormDataExtended ?? FormDataExtended;
+// Prefer v13+ Dialog V2; fall back for v12 Dialog
+const DialogCompat = foundry.applications?.api?.DialogV2 ?? Dialog;
 
 /**
  * Manage Active Effect instances through the Actor Sheet via effect control buttons.
@@ -29,7 +31,7 @@ export async function onManageActiveEffect(event, owner) {
             const html = await renderTemplateCompat(dlgTemplate, dialogData);
     
             // Create the dialog window
-            return Dialog.prompt({
+            return DialogCompat.prompt({
                 title: "Select Start Time",
                 content: html,
                 label: "OK",

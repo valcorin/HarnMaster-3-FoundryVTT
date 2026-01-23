@@ -2,6 +2,8 @@ import * as utility from './utility.js';
 
 // Prefer v13+ namespaced renderTemplate; fall back for v12
 const renderTemplateCompat = foundry.applications?.handlebars?.renderTemplate ?? renderTemplate;
+// Prefer v13+ Dialog V2; fall back for v12 Dialog
+const DialogCompat = foundry.applications?.api?.DialogV2 ?? Dialog;
 
 // Use the current player's name for chat headers when the user is a GM
 function speakerWithGMOverride(speaker) {
@@ -133,7 +135,7 @@ export class DiceHM3 {
         const html = await renderTemplateCompat(dlgTemplate, dialogData);
         
         // Create the dialog window
-        return Dialog.prompt({
+                return DialogCompat.prompt({
             title: dialogOptions.label,
             content: html.trim(),
             label: "Roll",
@@ -268,7 +270,7 @@ export class DiceHM3 {
         const html = await renderTemplateCompat(dlgTemplate, dialogData);
         
         // Create the dialog window
-        return Dialog.prompt({
+                return DialogCompat.prompt({
             title: dialogOptions.label,
             content: html.trim(),
             label: "Roll",
@@ -509,7 +511,7 @@ export class DiceHM3 {
         const html = await renderTemplateCompat(dlgTemplate, dialogData);
 
         // Create the dialog window
-        return Dialog.prompt({
+                return DialogCompat.prompt({
             title: dialogOptions.label,
             content: html.trim(),
             label: "Determine Injury",
@@ -893,7 +895,7 @@ export class DiceHM3 {
         const html = await renderTemplateCompat(dlgTemplate, dialogData);
         
         // Create the dialog window
-        return Dialog.prompt({
+        return DialogCompat.prompt({
             title: dialogOptions.label,
             content: html.trim(),
             label: "Roll",
@@ -1021,7 +1023,7 @@ export class DiceHM3 {
         const title = `${dialogOptions.name} Attack`;
 
         // Create the dialog window
-        return Dialog.prompt({
+        return DialogCompat.prompt({
             title: dialogOptions.label,
             content: html.trim(),
             label: "Roll",
@@ -1176,7 +1178,7 @@ export class DiceHM3 {
         const title = `${dialogOptions.name} Missile Damage`;
 
         // Create the dialog window
-        return Dialog.prompt({
+        return DialogCompat.prompt({
             title: dialogOptions.label,
             content: html.trim(),
             label: "Roll",

@@ -3,6 +3,8 @@ import { HM3 } from "./config.js";
 
 // Prefer v13+ namespaced renderTemplate; fall back for v12
 const renderTemplateCompat = foundry.applications?.handlebars?.renderTemplate ?? renderTemplate;
+// Prefer v13+ Dialog V2; fall back for v12 Dialog
+const DialogCompat = foundry.applications?.api?.DialogV2 ?? Dialog;
 
 /**
  * Initiates a missile attack.
@@ -453,7 +455,7 @@ async function selectWeaponDialog(options) {
   const dlghtml = await renderTemplateCompat(queryWeaponDialog, dialogOptions);
 
   // Request weapon name
-  return Dialog.prompt({
+  return DialogCompat.prompt({
     title: dialogOptions.title,
     content: dlghtml.trim(),
     label: "OK",
@@ -572,7 +574,7 @@ async function attackDialog(options) {
   const dlghtml = await renderTemplateCompat(attackDialogTemplate, dialogOptions);
 
   // Request weapon details
-  return Dialog.prompt({
+  return DialogCompat.prompt({
     title: dialogOptions.title,
     content: dlghtml.trim(),
     label: options.type,

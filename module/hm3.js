@@ -25,6 +25,7 @@ const ActiveEffectConfigCompat = foundry.applications?.sheets?.ActiveEffectConfi
 const ActorSheetCompat = foundry.appv1?.sheets?.ActorSheet ?? ActorSheet;
 const ItemSheetCompat = foundry.appv1?.sheets?.ItemSheet ?? ItemSheet;
 const FormDataExtendedCompat = foundry.applications?.ux?.FormDataExtended ?? FormDataExtended;
+const DialogCompat = foundry.applications?.api?.DialogV2 ?? Dialog;
 
 Hooks.once('init', async function () {
 
@@ -277,7 +278,7 @@ async function welcomeDialog() {
     const html = await renderTemplateCompat(dlgTemplate, {});
 
     // Create the dialog window
-    return Dialog.prompt({
+    return DialogCompat.prompt({
         title: 'Welcome!',
         content: html,
         label: 'OK',

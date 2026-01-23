@@ -7,6 +7,8 @@ import * as utility from '../utility.js';
 const renderTemplateCompat = foundry.applications?.handlebars?.renderTemplate ?? renderTemplate;
 // Prefer v13+ namespaced FormDataExtended; fall back for v12
 const FormDataExtendedCompat = foundry.applications?.ux?.FormDataExtended ?? FormDataExtended;
+// Prefer v13+ Dialog V2; fall back for v12 Dialog
+const DialogCompat = foundry.applications?.api?.DialogV2 ?? Dialog;
 
 /**
  * Extend the base Actor by defining a custom roll data structure which is ideal for the Simple system.
@@ -74,7 +76,7 @@ export class HarnMasterActor extends Actor {
         });
 
         // Render the confirmation dialog window
-        return Dialog.prompt({
+        return DialogCompat.prompt({
             title,
             content: html,
             label: title,
