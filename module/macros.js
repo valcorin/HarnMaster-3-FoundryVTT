@@ -1572,6 +1572,8 @@ export async function applyEffect(myActor, effectData) {
   }
   // create a new Active Effect
   const activeEffectData = {
+    // Foundry v13 requires a name; keep label for backwards compatibility
+    name: spellName,
     label: spellName,
     icon: itemdataimg,
     origin: targetActor.uuid,
@@ -1580,7 +1582,7 @@ export async function applyEffect(myActor, effectData) {
       startRound: sRound,
       rounds: rDuration
     },
-    'changes': changeData
+    changes: changeData
   }
   const result = await ActiveEffect.create(activeEffectData, { parent: targetActor });
   if (result) console.log(`Active Effect ${spellName} created with a modifier of ${modifier}!`);
