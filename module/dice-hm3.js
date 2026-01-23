@@ -48,13 +48,16 @@ export class DiceHM3 {
         };
 
         // Create the Roll instance
-        const roll = rollData.fastforward ? await DiceHM3.rollTest({
+        let roll = rollData.fastforward ? await DiceHM3.rollTest({
             type: rollData.type,
             diceSides: 100,
             diceNum: 1,
             modifier: rollData.modifier || 0,
             target: rollData.target
         }) : await DiceHM3.d100StdDialog(dialogOptions);
+
+        // Dialog callbacks may return a Promise; await if needed
+        if (roll?.then) roll = await roll;
 
         // If user cancelled the roll, then return immediately
         if (!roll) return null;
@@ -135,11 +138,11 @@ export class DiceHM3 {
         const html = await renderTemplateCompat(dlgTemplate, dialogData);
         
         // Create the dialog window
-                return DialogCompat.prompt({
+        return DialogCompat.prompt({
             title: dialogOptions.label,
             content: html.trim(),
             label: "Roll",
-            callback: html => {
+            callback: async html => {
                 const formModifier = html[0].querySelector("form").modifier.value;
                 return DiceHM3.rollTest({
                     type: dialogOptions.type,
@@ -190,13 +193,15 @@ export class DiceHM3 {
         };
 
         // Create the Roll instance
-        const roll = rollData.fastforward ? await DiceHM3.rollTest({
+        let roll = rollData.fastforward ? await DiceHM3.rollTest({
             type: rollData.type,
             diceSides: 6,
             diceNum: Number(rollData.numdice),
             modifier: rollData.modifier || 0,
             target: rollData.target
         }) : await DiceHM3.d6Dialog(dialogOptions);
+
+        if (roll?.then) roll = await roll;
 
         // If user cancelled the roll, then return immediately
         if (!roll) return null;
@@ -270,11 +275,11 @@ export class DiceHM3 {
         const html = await renderTemplateCompat(dlgTemplate, dialogData);
         
         // Create the dialog window
-                return DialogCompat.prompt({
+        return DialogCompat.prompt({
             title: dialogOptions.label,
             content: html.trim(),
             label: "Roll",
-            callback: html => {
+            callback: async html => {
                 const formModifier = html[0].querySelector("form").modifier.value;
                 return DiceHM3.rollTest({
                     type: dialogOptions.type,
