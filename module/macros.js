@@ -1508,7 +1508,7 @@ export async function applyEffect(myActor, effectData) {
     if ('actor_from_token_ID' in effectData) {
       console.log("Changing actor from effectData.actor_from_token_ID", effectData.actor_from_token_ID);
       let target_token = canvas.tokens.get(effectData.actor_from_token_ID);
-      actor = target_token.actor;
+      targetActor = target_token.actor;
     }
     ui.notifications.warn(`No actor for applyEffect could be determined.`);
     return null
