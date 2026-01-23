@@ -1502,9 +1502,10 @@ export function callOnHooks(hook, actor, result, rollData, item = null) {
 }
 
 export async function applyEffect(myActor, effectData) {
+  console.log(JSON.stringify(myActor) + " applying effect: " + JSON.stringify(effectData))
   let targetActor = myActor
   if (!targetActor) {
-    ui.notifications.warn(`No actor for this action could be determined.`);
+    ui.notifications.warn(`No actor for applyEffect could be determined.`);
     return null
   }
 
