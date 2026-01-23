@@ -5,11 +5,14 @@ import * as utility from '../utility.js';
 import * as macros from '../macros.js';
 import { onManageActiveEffect } from '../effect.js';
 
+// Prefer v13+ namespace; fall back for v12
+const CompatActorSheet = foundry.appv1?.sheets?.ActorSheet ?? ActorSheet;
+
 /**
  * Extend the basic ActorSheet with some common capabilities
  * @extends {ActorSheet}
  */
-export class HarnMasterBaseActorSheet extends ActorSheet {
+export class HarnMasterBaseActorSheet extends CompatActorSheet {
 
     /** @override */
     getData() {
