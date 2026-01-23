@@ -9,6 +9,8 @@ import { onManageActiveEffect } from '../effect.js';
 const CompatActorSheet = foundry.appv1?.sheets?.ActorSheet ?? ActorSheet;
 // Prefer v13+ namespaced renderTemplate; fall back for v12
 const renderTemplateCompat = foundry.applications?.handlebars?.renderTemplate ?? renderTemplate;
+// Prefer v13+ namespaced FormDataExtended; fall back for v12
+const FormDataExtendedCompat = foundry.applications?.ux?.FormDataExtended ?? FormDataExtended;
 
 /**
  * Extend the basic ActorSheet with some common capabilities
@@ -276,7 +278,7 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
             label: "OK",
             callback: async (html) => {
                 const form = html.querySelector('#items-to-move');
-                const fd = new FormDataExtended(form);
+                const fd = new FormDataExtendedCompat(form);
                 const formdata = fd.toObject();
                 let formQtyToMove = parseInt(formdata.itemstomove);
 
@@ -796,7 +798,7 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
             label: "Create",
             callback: async (html) => {
                 const form = html.querySelector('#create-item');
-                const fd = new FormDataExtended(form);
+                const fd = new FormDataExtendedCompat(form);
                 const formdata = fd.object;
                 let itemName = formdata.name;
                 let extraValue = formdata.extra_value;
