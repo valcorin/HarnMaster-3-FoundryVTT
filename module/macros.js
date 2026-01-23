@@ -222,37 +222,6 @@ export async function skillRoll(itemName, noDialog = false, myActor = null) {
   const hooksOk = Hooks.call("hm3.preSkillRoll", stdRollData, actor, item);
   if (hooksOk) {
     const result = await DiceHM3.d100StdRoll(stdRollData);
-    // If we have "Dice So Nice" module, roll them dice!
-    if (game.dice3d) {
-      const mRoll = result.roll.rollObj;
-      game.users.find(user => {
-        if (user._id === game.user.id) {
-          let uflags_str = JSON.stringify(user.flags)
-          uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
-          const jsObject = JSON.parse(uflags_str);
-          const dice_settings = jsObject.dicesonice
-          if (dice_settings.hasOwnProperty('appearance')) {
-            const user_settings = jsObject.dicesonice.appearance.global
-            if (user_settings.colorset == "custom") {
-              console.log("Using custom settings for dice3d")
-              mRoll.dice[0].options.appearance = { "colorset": "custom", "diceColor": user_settings.diceColor, "edgeColor": user_settings.edgeColor, "labelColor": user_settings.labelColor, "outlineColor": user_settings.outlineColor, "font": user_settings.font, "texture": user_settings.texture, "material": user_settings.material, "system ": user_settings.system }
-              mRoll.dice[0].options.colorset = user_settings.colorset
-              mRoll.dice[0].options.diceColor = user_settings.diceColor
-              mRoll.dice[0].options.edgeColor = user_settings.edgeColor
-              mRoll.dice[0].options.labelColor = user_settings.labelColor
-              mRoll.dice[0].options.outlineColor = user_settings.outlineColor
-              mRoll.dice[0].options.font = user_settings.font
-              mRoll.dice[0].options.texture = user_settings.texture
-              mRoll.dice[0].options.material = user_settings.material
-              mRoll.dice[0].options.system = user_settings.system
-            } else {
-              mRoll.dice[0].options.colorset = user_settings.colorset
-            }
-          }
-        }
-      })
-      await game.dice3d.showForRoll(mRoll, game.user, true);
-    }
     if (result) {
       if (!actor) {
         result_act = getActor(result);
@@ -304,37 +273,6 @@ export async function castSpellRoll(itemName, noDialog = false, myActor = null) 
   const hooksOk = Hooks.call("hm3.preSpellRoll", stdRollData, actor, item);
   if (hooksOk) {
     const result = await DiceHM3.d100StdRoll(stdRollData);
-    // If we have "Dice So Nice" module, roll them dice!
-    if (game.dice3d) {
-      const mRoll = result.roll.rollObj;
-      game.users.find(user => {
-        if (user._id === game.user.id) {
-          let uflags_str = JSON.stringify(user.flags)
-          uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
-          const jsObject = JSON.parse(uflags_str);
-          const dice_settings = jsObject.dicesonice
-          if (dice_settings.hasOwnProperty('appearance')) {
-            const user_settings = jsObject.dicesonice.appearance.global
-            if (user_settings.colorset == "custom") {
-              console.log("Using custom settings for dice3d")
-              mRoll.dice[0].options.appearance = { "colorset": "custom", "diceColor": user_settings.diceColor, "edgeColor": user_settings.edgeColor, "labelColor": user_settings.labelColor, "outlineColor": user_settings.outlineColor, "font": user_settings.font, "texture": user_settings.texture, "material": user_settings.material, "system ": user_settings.system }
-              mRoll.dice[0].options.colorset = user_settings.colorset
-              mRoll.dice[0].options.diceColor = user_settings.diceColor
-              mRoll.dice[0].options.edgeColor = user_settings.edgeColor
-              mRoll.dice[0].options.labelColor = user_settings.labelColor
-              mRoll.dice[0].options.outlineColor = user_settings.outlineColor
-              mRoll.dice[0].options.font = user_settings.font
-              mRoll.dice[0].options.texture = user_settings.texture
-              mRoll.dice[0].options.material = user_settings.material
-              mRoll.dice[0].options.system = user_settings.system
-            } else {
-              mRoll.dice[0].options.colorset = user_settings.colorset
-            }
-          }
-        }
-      })
-      await game.dice3d.showForRoll(mRoll, game.user, true);
-    }
     if (result) {
       if (!actor) {
         result_act = getActor(result);
@@ -386,37 +324,6 @@ export async function invokeRitualRoll(itemName, noDialog = false, myActor = nul
   const hooksOk = Hooks.call("hm3.preInvocationRoll", stdRollData, actor, item);
   if (hooksOk) {
     const result = await DiceHM3.d100StdRoll(stdRollData);
-    // If we have "Dice So Nice" module, roll them dice!
-    if (game.dice3d) {
-      const mRoll = result.roll.rollObj;
-      game.users.find(user => {
-        if (user._id === game.user.id) {
-          let uflags_str = JSON.stringify(user.flags)
-          uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
-          const jsObject = JSON.parse(uflags_str);
-          const dice_settings = jsObject.dicesonice
-          if (dice_settings.hasOwnProperty('appearance')) {
-            const user_settings = jsObject.dicesonice.appearance.global
-            if (user_settings.colorset == "custom") {
-              console.log("Using custom settings for dice3d")
-              mRoll.dice[0].options.appearance = { "colorset": "custom", "diceColor": user_settings.diceColor, "edgeColor": user_settings.edgeColor, "labelColor": user_settings.labelColor, "outlineColor": user_settings.outlineColor, "font": user_settings.font, "texture": user_settings.texture, "material": user_settings.material, "system ": user_settings.system }
-              mRoll.dice[0].options.colorset = user_settings.colorset
-              mRoll.dice[0].options.diceColor = user_settings.diceColor
-              mRoll.dice[0].options.edgeColor = user_settings.edgeColor
-              mRoll.dice[0].options.labelColor = user_settings.labelColor
-              mRoll.dice[0].options.outlineColor = user_settings.outlineColor
-              mRoll.dice[0].options.font = user_settings.font
-              mRoll.dice[0].options.texture = user_settings.texture
-              mRoll.dice[0].options.material = user_settings.material
-              mRoll.dice[0].options.system = user_settings.system
-            } else {
-              mRoll.dice[0].options.colorset = user_settings.colorset
-            }
-          }
-        }
-      })
-      await game.dice3d.showForRoll(mRoll, game.user, true);
-    }
     if (result) {
       if (!actor) {
         result_act = getActor(result);
@@ -467,37 +374,6 @@ export async function usePsionicRoll(itemName, noDialog = false, myActor = null)
   const hooksOk = Hooks.call("hm3.prePsionicsRoll", stdRollData, actor, item);
   if (hooksOk) {
     const result = await DiceHM3.d100StdRoll(stdRollData);
-    // If we have "Dice So Nice" module, roll them dice!
-    if (game.dice3d) {
-      const mRoll = result.roll.rollObj;
-      game.users.find(user => {
-        if (user._id === game.user.id) {
-          let uflags_str = JSON.stringify(user.flags)
-          uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
-          const jsObject = JSON.parse(uflags_str);
-          const dice_settings = jsObject.dicesonice
-          if (dice_settings.hasOwnProperty('appearance')) {
-            const user_settings = jsObject.dicesonice.appearance.global
-            if (user_settings.colorset == "custom") {
-              console.log("Using custom settings for dice3d")
-              mRoll.dice[0].options.appearance = { "colorset": "custom", "diceColor": user_settings.diceColor, "edgeColor": user_settings.edgeColor, "labelColor": user_settings.labelColor, "outlineColor": user_settings.outlineColor, "font": user_settings.font, "texture": user_settings.texture, "material": user_settings.material, "system ": user_settings.system }
-              mRoll.dice[0].options.colorset = user_settings.colorset
-              mRoll.dice[0].options.diceColor = user_settings.diceColor
-              mRoll.dice[0].options.edgeColor = user_settings.edgeColor
-              mRoll.dice[0].options.labelColor = user_settings.labelColor
-              mRoll.dice[0].options.outlineColor = user_settings.outlineColor
-              mRoll.dice[0].options.font = user_settings.font
-              mRoll.dice[0].options.texture = user_settings.texture
-              mRoll.dice[0].options.material = user_settings.material
-              mRoll.dice[0].options.system = user_settings.system
-            } else {
-              mRoll.dice[0].options.colorset = user_settings.colorset
-            }
-          }
-        }
-      })
-      await game.dice3d.showForRoll(mRoll, game.user, true);
-    }
     if (result) {
       if (!actor) {
         result_act = getActor(result);
@@ -631,37 +507,6 @@ export async function testAbilityD100Roll(ability, noDialog = false, myActor = n
   const hooksOk = Hooks.call("hm3.preAbilityRollD100", stdRollData, actorInfo.actor);
   if (hooksOk) {
     const result = await DiceHM3.d100StdRoll(stdRollData);
-    // If we have "Dice So Nice" module, roll them dice!
-    if (game.dice3d) {
-      const mRoll = result.roll.rollObj;
-      game.users.find(user => {
-        if (user._id === game.user.id) {
-          let uflags_str = JSON.stringify(user.flags)
-          uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
-          const jsObject = JSON.parse(uflags_str);
-          const dice_settings = jsObject.dicesonice
-          if (dice_settings.hasOwnProperty('appearance')) {
-            const user_settings = jsObject.dicesonice.appearance.global
-            if (user_settings.colorset == "custom") {
-              console.log("Using custom settings for dice3d")
-              mRoll.dice[0].options.appearance = { "colorset": "custom", "diceColor": user_settings.diceColor, "edgeColor": user_settings.edgeColor, "labelColor": user_settings.labelColor, "outlineColor": user_settings.outlineColor, "font": user_settings.font, "texture": user_settings.texture, "material": user_settings.material, "system ": user_settings.system }
-              mRoll.dice[0].options.colorset = user_settings.colorset
-              mRoll.dice[0].options.diceColor = user_settings.diceColor
-              mRoll.dice[0].options.edgeColor = user_settings.edgeColor
-              mRoll.dice[0].options.labelColor = user_settings.labelColor
-              mRoll.dice[0].options.outlineColor = user_settings.outlineColor
-              mRoll.dice[0].options.font = user_settings.font
-              mRoll.dice[0].options.texture = user_settings.texture
-              mRoll.dice[0].options.material = user_settings.material
-              mRoll.dice[0].options.system = user_settings.system
-            } else {
-              mRoll.dice[0].options.colorset = user_settings.colorset
-            }
-          }
-        }
-      })
-      await game.dice3d.showForRoll(mRoll, game.user, true);
-    }
     if (result) {
       actorInfo.actor.runCustomMacro(result);
       callOnHooks("hm3.onAbilityRollD100", actorInfo.actor, result, stdRollData);
@@ -792,37 +637,6 @@ export async function weaponAttackRoll(itemName, noDialog = false, myActor = nul
   const hooksOk = Hooks.call("hm3.preWeaponAttackRoll", stdRollData, actor, item);
   if (hooksOk) {
     const result = await DiceHM3.d100StdRoll(stdRollData);
-    // If we have "Dice So Nice" module, roll them dice!
-    if (game.dice3d) {
-      const mRoll = result.roll.rollObj;
-      game.users.find(user => {
-        if (user._id === game.user.id) {
-          let uflags_str = JSON.stringify(user.flags)
-          uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
-          const jsObject = JSON.parse(uflags_str);
-          const dice_settings = jsObject.dicesonice
-          if (dice_settings.hasOwnProperty('appearance')) {
-            const user_settings = jsObject.dicesonice.appearance.global
-            if (user_settings.colorset == "custom") {
-              console.log("Using custom settings for dice3d")
-              mRoll.dice[0].options.appearance = { "colorset": "custom", "diceColor": user_settings.diceColor, "edgeColor": user_settings.edgeColor, "labelColor": user_settings.labelColor, "outlineColor": user_settings.outlineColor, "font": user_settings.font, "texture": user_settings.texture, "material": user_settings.material, "system ": user_settings.system }
-              mRoll.dice[0].options.colorset = user_settings.colorset
-              mRoll.dice[0].options.diceColor = user_settings.diceColor
-              mRoll.dice[0].options.edgeColor = user_settings.edgeColor
-              mRoll.dice[0].options.labelColor = user_settings.labelColor
-              mRoll.dice[0].options.outlineColor = user_settings.outlineColor
-              mRoll.dice[0].options.font = user_settings.font
-              mRoll.dice[0].options.texture = user_settings.texture
-              mRoll.dice[0].options.material = user_settings.material
-              mRoll.dice[0].options.system = user_settings.system
-            } else {
-              mRoll.dice[0].options.colorset = user_settings.colorset
-            }
-          }
-        }
-      })
-      await game.dice3d.showForRoll(mRoll, game.user, true);
-    }
     if (result) {
       callOnHooks("hm3.onWeaponAttackRoll", actor, result, stdRollData, item);
     }
@@ -868,37 +682,6 @@ export async function weaponDefendRoll(itemName, noDialog = false, myActor = nul
   const hooksOk = Hooks.call("hm3.preWeaponDefendRoll", stdRollData, actor, item);
   if (hooksOk) {
     const result = await DiceHM3.d100StdRoll(stdRollData);
-    // If we have "Dice So Nice" module, roll them dice!
-    if (game.dice3d) {
-      const mRoll = result.roll.rollObj;
-      game.users.find(user => {
-        if (user._id === game.user.id) {
-          let uflags_str = JSON.stringify(user.flags)
-          uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
-          const jsObject = JSON.parse(uflags_str);
-          const dice_settings = jsObject.dicesonice
-          if (dice_settings.hasOwnProperty('appearance')) {
-            const user_settings = jsObject.dicesonice.appearance.global
-            if (user_settings.colorset == "custom") {
-              console.log("Using custom settings for dice3d")
-              mRoll.dice[0].options.appearance = { "colorset": "custom", "diceColor": user_settings.diceColor, "edgeColor": user_settings.edgeColor, "labelColor": user_settings.labelColor, "outlineColor": user_settings.outlineColor, "font": user_settings.font, "texture": user_settings.texture, "material": user_settings.material, "system ": user_settings.system }
-              mRoll.dice[0].options.colorset = user_settings.colorset
-              mRoll.dice[0].options.diceColor = user_settings.diceColor
-              mRoll.dice[0].options.edgeColor = user_settings.edgeColor
-              mRoll.dice[0].options.labelColor = user_settings.labelColor
-              mRoll.dice[0].options.outlineColor = user_settings.outlineColor
-              mRoll.dice[0].options.font = user_settings.font
-              mRoll.dice[0].options.texture = user_settings.texture
-              mRoll.dice[0].options.material = user_settings.material
-              mRoll.dice[0].options.system = user_settings.system
-            } else {
-              mRoll.dice[0].options.colorset = user_settings.colorset
-            }
-          }
-        }
-      })
-      await game.dice3d.showForRoll(mRoll, game.user, true);
-    }
     if (result) {
       callOnHooks("hm3.onWeaponDefendRoll", actor, result, stdRollData, item);
     }
@@ -1096,37 +879,6 @@ export async function healingRoll(itemName, noDialog = false, myActor = null) {
   const hooksOk = Hooks.call("hm3.preHealingRoll", stdRollData, actor, item);
   if (hooksOk) {
     const result = await DiceHM3.d100StdRoll(stdRollData);
-    // If we have "Dice So Nice" module, roll them dice!
-    if (game.dice3d) {
-      const mRoll = result.roll.rollObj;
-      game.users.find(user => {
-        if (user._id === game.user.id) {
-          let uflags_str = JSON.stringify(user.flags)
-          uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
-          const jsObject = JSON.parse(uflags_str);
-          const dice_settings = jsObject.dicesonice
-          if (dice_settings.hasOwnProperty('appearance')) {
-            const user_settings = jsObject.dicesonice.appearance.global
-            if (user_settings.colorset == "custom") {
-              console.log("Using custom settings for dice3d")
-              mRoll.dice[0].options.appearance = { "colorset": "custom", "diceColor": user_settings.diceColor, "edgeColor": user_settings.edgeColor, "labelColor": user_settings.labelColor, "outlineColor": user_settings.outlineColor, "font": user_settings.font, "texture": user_settings.texture, "material": user_settings.material, "system ": user_settings.system }
-              mRoll.dice[0].options.colorset = user_settings.colorset
-              mRoll.dice[0].options.diceColor = user_settings.diceColor
-              mRoll.dice[0].options.edgeColor = user_settings.edgeColor
-              mRoll.dice[0].options.labelColor = user_settings.labelColor
-              mRoll.dice[0].options.outlineColor = user_settings.outlineColor
-              mRoll.dice[0].options.font = user_settings.font
-              mRoll.dice[0].options.texture = user_settings.texture
-              mRoll.dice[0].options.material = user_settings.material
-              mRoll.dice[0].options.system = user_settings.system
-            } else {
-              mRoll.dice[0].options.colorset = user_settings.colorset
-            }
-          }
-        }
-      })
-      await game.dice3d.showForRoll(mRoll, game.user, true);
-    }
     item.runCustomMacro(result);
     if (result) {
       callOnHooks("hm3.onHealingRoll", actor, result, stdRollData, item);
@@ -1161,37 +913,6 @@ export async function dodgeRoll(noDialog = false, myActor = null) {
   const hooksOk = Hooks.call("hm3.preDodgeRoll", stdRollData, actorInfo.actor);
   if (hooksOk) {
     const result = await DiceHM3.d100StdRoll(stdRollData);
-    // If we have "Dice So Nice" module, roll them dice!
-    if (game.dice3d) {
-      const mRoll = result.roll.rollObj;
-      game.users.find(user => {
-        if (user._id === game.user.id) {
-          let uflags_str = JSON.stringify(user.flags)
-          uflags_str = uflags_str.replace("dice-so-nice", "dicesonice")
-          const jsObject = JSON.parse(uflags_str);
-          const dice_settings = jsObject.dicesonice
-          if (dice_settings.hasOwnProperty('appearance')) {
-            const user_settings = jsObject.dicesonice.appearance.global
-            if (user_settings.colorset == "custom") {
-              console.log("Using custom settings for dice3d")
-              mRoll.dice[0].options.appearance = { "colorset": "custom", "diceColor": user_settings.diceColor, "edgeColor": user_settings.edgeColor, "labelColor": user_settings.labelColor, "outlineColor": user_settings.outlineColor, "font": user_settings.font, "texture": user_settings.texture, "material": user_settings.material, "system ": user_settings.system }
-              mRoll.dice[0].options.colorset = user_settings.colorset
-              mRoll.dice[0].options.diceColor = user_settings.diceColor
-              mRoll.dice[0].options.edgeColor = user_settings.edgeColor
-              mRoll.dice[0].options.labelColor = user_settings.labelColor
-              mRoll.dice[0].options.outlineColor = user_settings.outlineColor
-              mRoll.dice[0].options.font = user_settings.font
-              mRoll.dice[0].options.texture = user_settings.texture
-              mRoll.dice[0].options.material = user_settings.material
-              mRoll.dice[0].options.system = user_settings.system
-            } else {
-              mRoll.dice[0].options.colorset = user_settings.colorset
-            }
-          }
-        }
-      })
-      await game.dice3d.showForRoll(mRoll, game.user, true);
-    }
     if (result) {
       callOnHooks("hm3.onDodgeRoll", actorInfo.actor, result, stdRollData);
     }
