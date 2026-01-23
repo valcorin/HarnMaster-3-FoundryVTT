@@ -1035,10 +1035,13 @@ export async function enduranceRoll(noDialog = false, myActor = null) {
     return null;
   }
 
+  // Prefer the computed endurance target; fall back to base endurance to avoid NaN dialogs
+  const enduranceTarget = actorInfo.actor.system?.eph?.enduranceTarget ?? actorInfo.actor.system?.endurance ?? 0;
+
   const stdRollData = {
     type: 'endurance',
     label: `${actorInfo.actor.isToken ? actorInfo.actor.token.name : actorInfo.actor.name} Endurance Roll`,
-    target: actorInfo.actor.system.eph.enduranceTarget,
+    target: Number.isFinite(Number(enduranceTarget)) ? Number(enduranceTarget) : 0,
     numdice: 4,
     notesData: {},
     speaker: actorInfo.speaker,
