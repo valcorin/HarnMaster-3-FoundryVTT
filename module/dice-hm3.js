@@ -95,7 +95,7 @@ export class DiceHM3 {
             user: game.user.id,
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
-            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+            style: CONST.CHAT_MESSAGE_STYLES.ROLL,
             sound: CONFIG.sounds.dice,
             roll: roll.rollObj
         };
@@ -229,7 +229,7 @@ export class DiceHM3 {
             user: game.user.id,
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
-            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+            style: CONST.CHAT_MESSAGE_STYLES.ROLL,
             sound: CONFIG.sounds.dice,
             roll: roll.rollObj
         };
@@ -320,7 +320,7 @@ export class DiceHM3 {
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             user: game.user.id,
-            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+            style: CONST.CHAT_MESSAGE_STYLES.ROLL,
             sound: CONFIG.sounds.dice,
             roll: roll
         };
@@ -398,7 +398,7 @@ export class DiceHM3 {
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             user: game.user.id,
-            type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+            style: CONST.CHAT_MESSAGE_STYLES.OTHER,
             sound: CONFIG.sounds.notify
         };
 
@@ -800,7 +800,7 @@ export class DiceHM3 {
             user: game.user.id,
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
-            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+            style: CONST.CHAT_MESSAGE_STYLES.ROLL,
             sound: CONFIG.sounds.dice,
             roll: roll.rollObj
         };
@@ -970,7 +970,7 @@ export class DiceHM3 {
             user: game.user.id,
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
-            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+            style: CONST.CHAT_MESSAGE_STYLES.ROLL,
             sound: CONFIG.sounds.dice,
             roll: roll.rollObj
         };
@@ -1137,7 +1137,7 @@ export class DiceHM3 {
             user: game.user.id,
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
-            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+            style: CONST.CHAT_MESSAGE_STYLES.ROLL,
             sound: CONFIG.sounds.dice,
             roll: roll.rollObj
         };
