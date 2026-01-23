@@ -276,7 +276,7 @@ export class HarnMasterItem extends Item {
 
         if (!this.system.macros.command) return null;
 
-        const macro = await Macro.create({
+        const macro = new Macro({
             name: `${this.name} ${this.type} macro`,
             type: this.system.macros.type,
             scope: 'global',

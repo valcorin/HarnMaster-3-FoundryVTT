@@ -488,6 +488,7 @@ function toNormTime(seconds) {
 
 export function executeMacroScript(macro, { actor, token, rollResult, rollData, item } = {}) {
     console.log("Executing " + macro.name)
+    const renderTemplateCompat = foundry.applications?.handlebars?.renderTemplate ?? renderTemplate;
     let speaker = null;
     if (!actor) {
         if (!token) {
@@ -511,7 +512,9 @@ export function executeMacroScript(macro, { actor, token, rollResult, rollData, 
         token: token,
         character: game.user.character,
         rollResult: rollResult,
-        scene: canvas.scene
+        scene: canvas.scene,
+        renderTemplate: renderTemplateCompat,
+        renderTemplateCompat: renderTemplateCompat
     }
 
     if (rollData) context.rollData = rollData;
@@ -520,11 +523,12 @@ export function executeMacroScript(macro, { actor, token, rollResult, rollData, 
     // Attempt script execution
     const asyncFunction = macro.command.includes("await") ? "async" : "";
     const itemParam = item ? ", item" : "";
-    const rollDataParam = rollData ? ", rollData" : ""
+    const rollDataParam = rollData ? ", rollData" : "";
+    const renderParam = ", renderTemplate, renderTemplateCompat";
     let result = null;
     try {
         result = (new Function(`"use strict";
-            return (${asyncFunction} function ({speaker, actor, token, character, rollResult ${itemParam} ${rollDataParam}}={}) {
+            return (${asyncFunction} function ({speaker, actor, token, character, rollResult${itemParam}${rollDataParam}${renderParam}}={}) {
                 ${macro.command}
                 });`))().call(macro, context);
     } catch (err) {

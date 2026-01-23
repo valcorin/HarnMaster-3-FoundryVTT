@@ -1308,7 +1308,7 @@ export class HarnMasterActor extends Actor {
 
         if (!actorData.macros.command) return null;
 
-        const macro = await Macro.create({
+        const macro = new Macro({
             name: `${this.name} ${this.type} macro`,
             type: actorData.macros.type,
             scope: 'global',
