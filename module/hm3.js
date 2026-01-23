@@ -15,6 +15,9 @@ import * as combat from "./combat.js";
 import * as effect from "./effect.js";
 import { DiceHM3 } from "./dice-hm3.js";
 
+// Prefer v13+ namespaced renderTemplate; fall back for v12
+const renderTemplateCompat = foundry.applications?.handlebars?.renderTemplate ?? renderTemplate;
+
 Hooks.once('init', async function () {
 
     console.log(`HM3 | Initializing the HM3 Game System\n${HM3.ASCII}`);
@@ -263,7 +266,7 @@ Hooks.on('closeSceneConfig', (app, html, data) => {
 
 async function welcomeDialog() {
     const dlgTemplate = 'systems/hm3/templates/dialog/welcome.html';
-    const html = await renderTemplate(dlgTemplate, {});
+    const html = await renderTemplateCompat(dlgTemplate, {});
 
     // Create the dialog window
     return Dialog.prompt({

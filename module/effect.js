@@ -1,5 +1,8 @@
 //import { HM3ActiveEffect } from './hm3-active-effect.js';
 
+// Prefer v13+ namespaced renderTemplate; fall back for v12
+const renderTemplateCompat = foundry.applications?.handlebars?.renderTemplate ?? renderTemplate;
+
 /**
  * Manage Active Effect instances through the Actor Sheet via effect control buttons.
  * @param {MouseEvent} event      The left-click event on the effect control
@@ -21,7 +24,7 @@ export async function onManageActiveEffect(event, owner) {
                 dialogData.combatRound = game.combat.round;
                 dialogData.combatTurn = game.combat.turn;
             }
-            const html = await renderTemplate(dlgTemplate, dialogData);
+            const html = await renderTemplateCompat(dlgTemplate, dialogData);
     
             // Create the dialog window
             return Dialog.prompt({
