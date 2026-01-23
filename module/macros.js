@@ -304,8 +304,6 @@ export async function castSpellRoll(itemName, noDialog = false, myActor = null) 
   const hooksOk = Hooks.call("hm3.preSpellRoll", stdRollData, actor, item);
   if (hooksOk) {
     const result = await DiceHM3.d100StdRoll(stdRollData);
-    console.log("Waiting for dice3d")
-    sleep(5000);
     // If we have "Dice So Nice" module, roll them dice!
     if (game.dice3d) {
       const mRoll = result.roll.rollObj;
