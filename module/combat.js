@@ -129,7 +129,7 @@ export async function missileAttack(attackToken, defendToken, missileItem, curr_
     speaker: speaker,
     content: html.trim(),
     style: CONST.CHAT_MESSAGE_STYLES.OTHER,
-    type: CONST.CHAT_MESSAGE_STYLES.OTHER
+    type: CONST.CHAT_MESSAGE_TYPES.OTHER
   };
 
   const messageOptions = {};
@@ -411,7 +411,7 @@ export async function meleeAttack(attackToken, defendToken, weaponItem = null, c
     speaker: speaker,
     content: html.trim(),
     style: CONST.CHAT_MESSAGE_STYLES.OTHER,
-    type: CONST.CHAT_MESSAGE_STYLES.OTHER
+    type: CONST.CHAT_MESSAGE_TYPES.OTHER
   };
 
   const messageOptions = {};
@@ -889,13 +889,13 @@ export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName
   };
   if (combatResult.outcome.atkDice) {
     messageData.style = CONST.CHAT_MESSAGE_STYLES.ROLL;
+    messageData.type = CONST.CHAT_MESSAGE_TYPES.ROLL;
     messageData.sound = CONFIG.sounds.dice;
     messageData.roll = atkImpactRoll;
   } else {
     messageData.style = CONST.CHAT_MESSAGE_STYLES.OTHER;
+    messageData.type = CONST.CHAT_MESSAGE_TYPES.OTHER;
   }
-  messageData.type = messageData.style;
-
   const messageOptions = {};
 
   // Create a chat message
@@ -918,7 +918,6 @@ export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName
   } else {
     messageData.style = CONST.CHAT_MESSAGE_STYLES.OTHER;
   }
-  messageData.type = messageData.style;
 
   // Create a chat message
   await ChatMessage.create(messageData, messageOptions)
@@ -1094,7 +1093,6 @@ export async function dodgeResume(atkToken, defToken, type, weaponName, effAML, 
   } else {
     messageData.style = CONST.CHAT_MESSAGE_STYLES.OTHER;
   }
-  messageData.type = messageData.style;
 
   const messageOptions = {};
 
@@ -1376,12 +1374,13 @@ export async function blockResume(atkToken, defToken, type, weaponName, effAML, 
   };
   if (combatResult.outcome.atkDice) {
     messageData.style = CONST.CHAT_MESSAGE_STYLES.ROLL;
+    messageData.type = CONST.CHAT_MESSAGE_TYPES.ROLL;
     messageData.sound = CONFIG.sounds.dice;
     messageData.roll = atkImpactRoll;
   } else {
     messageData.style = CONST.CHAT_MESSAGE_STYLES.OTHER;
+    messageData.type = CONST.CHAT_MESSAGE_TYPES.OTHER;
   }
-  messageData.type = messageData.style;
 
   const messageOptions = {};
 
@@ -1433,7 +1432,7 @@ export async function checkWeaponBreak(atkWeapon, defWeapon) {
   const messageData = {
     user: game.user.id,
     style: CONST.CHAT_MESSAGE_STYLES.ROLL,
-    type: CONST.CHAT_MESSAGE_STYLES.ROLL,
+    type: CONST.CHAT_MESSAGE_TYPES.ROLL,
     sound: CONFIG.sounds.dice
   };
 
@@ -1600,12 +1599,13 @@ export async function ignoreResume(atkToken, defToken, type, weaponName, effAML,
   };
   if (combatResult.outcome.atkDice) {
     messageData.style = CONST.CHAT_MESSAGE_STYLES.ROLL;
+    messageData.type = CONST.CHAT_MESSAGE_TYPES.ROLL;
     messageData.sound = CONFIG.sounds.dice;
     messageData.roll = atkImpactRoll;
   } else {
     messageData.style = CONST.CHAT_MESSAGE_STYLES.OTHER;
+    messageData.type = CONST.CHAT_MESSAGE_TYPES.OTHER;
   }
-  messageData.type = messageData.style;
 
   const messageOptions = {};
 
