@@ -62,6 +62,12 @@ export class DiceHM3 {
         // If user cancelled the roll, then return immediately
         if (!roll) return null;
 
+        // Guard against invalid roll payloads
+        if (!roll.rollObj) {
+            console.error('HM3 | d100StdRoll received invalid roll payload', roll);
+            return null;
+        }
+
         // Prepare for Chat Message
         const chatTemplate = 'systems/hm3/templates/chat/standard-test-card.html';
 
@@ -143,7 +149,7 @@ export class DiceHM3 {
             content: html.trim(),
             label: "Roll",
             callback: async html => {
-                const formModifier = html[0].querySelector("form").modifier.value;
+                const formModifier = Number(html[0].querySelector("form").modifier.value || 0);
                 return DiceHM3.rollTest({
                     type: dialogOptions.type,
                     target: dialogOptions.target,
@@ -205,6 +211,11 @@ export class DiceHM3 {
 
         // If user cancelled the roll, then return immediately
         if (!roll) return null;
+
+        if (!roll.rollObj) {
+            console.error('HM3 | d6Roll received invalid roll payload', roll);
+            return null;
+        }
 
         // Prepare for Chat Message
         const chatTemplate = 'systems/hm3/templates/chat/standard-test-card.html';
@@ -280,7 +291,7 @@ export class DiceHM3 {
             content: html.trim(),
             label: "Roll",
             callback: async html => {
-                const formModifier = html[0].querySelector("form").modifier.value;
+                const formModifier = Number(html[0].querySelector("form").modifier.value || 0);
                 return DiceHM3.rollTest({
                     type: dialogOptions.type,
                     target: dialogOptions.target,
