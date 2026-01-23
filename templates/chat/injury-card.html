@@ -126,6 +126,10 @@
             {{#if injuryLevel}}
             <button data-action="shock" data-visible-actor-id="{{visibleActorId}}" {{#if tokenId}}data-token-id="{{tokenId}}"{{else}}data-actor-id="{{actorId}}"{{/if}}>Shock Roll</button>
             {{/if}}
+
+            {{#if isKillShot}}
+            <button data-action="endurance" data-visible-actor-id="{{visibleActorId}}" {{#if tokenId}}data-token-id="{{tokenId}}"{{else}}data-actor-id="{{actorId}}"{{/if}}>Endurance Roll</button>
+            {{/if}}
         </div>
     {{/unless}}
 </div>

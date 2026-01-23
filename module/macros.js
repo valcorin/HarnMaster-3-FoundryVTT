@@ -1028,6 +1028,41 @@ export async function fumbleRoll(noDialog = false, myActor = null) {
   return null;
 }
 
+export async function enduranceRoll(noDialog = false, myActor = null) {
+  const actorInfo = getActor({ actor: myActor, item: null, speaker: ChatMessage.getSpeaker() });
+  if (!actorInfo) {
+    ui.notifications.warn(`No actor for this action could be determined.`);
+    return null;
+  }
+
+  const stdRollData = {
+    type: 'endurance',
+    label: `${actorInfo.actor.isToken ? actorInfo.actor.token.name : actorInfo.actor.name} Endurance Roll`,
+    target: actorInfo.actor.system.eph.enduranceTarget,
+    numdice: 4,
+    notesData: {},
+    speaker: actorInfo.speaker,
+    fastforward: noDialog,
+    notes: ''
+  };
+  if (actorInfo.actor.isToken) {
+    stdRollData.token = actorInfo.actor.token.id;
+  } else {
+    stdRollData.actor = actorInfo.actor.id;
+  }
+
+  const hooksOk = Hooks.call("hm3.preEnduranceRoll", stdRollData, actorInfo.actor);
+  if (hooksOk) {
+    const result = await DiceHM3.d6Roll(stdRollData);
+    if (result) {
+      actorInfo.actor.runCustomMacro(result);
+      callOnHooks("hm3.onEnduranceRoll", actorInfo.actor, result, stdRollData);
+    }
+    return result;
+  }
+  return null;
+}
+
 export async function genericDamageRoll(myActor = null) {
   const actorInfo = getActor({ actor: myActor, item: null, speaker: ChatMessage.getSpeaker() });
   if (!actorInfo) {

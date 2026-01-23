@@ -601,7 +601,7 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
 
         // Fumble Roll
         html.find('.fumble-roll').click(ev => macros.fumbleRoll(ev.shiftKey || ev.altKey || ev.ctrlKey, this.actor));
-
+        
         // Generic Damage Roll
         html.find('.damage-roll').click(ev => macros.genericDamageRoll(this.actor));
 
@@ -981,8 +981,8 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
                     user: game.user.id,
                     speaker: ChatMessage.getSpeaker(),
                     content: html.trim(),
-                    style: CONST.CHAT_MESSAGE_STYLES.OTHER,
-                    type: CONST.CHAT_MESSAGE_STYLES.OTHER
+                    style: CONST.CHAT_MESSAGE_TYPES.OTHER,
+                    type: CONST.CHAT_MESSAGE_TYPES.OTHER
                 };
 
                 // Create a chat message
