@@ -7,6 +7,8 @@ import { onManageActiveEffect } from '../effect.js';
 
 // Prefer v13+ namespace; fall back for v12
 const CompatActorSheet = foundry.appv1?.sheets?.ActorSheet ?? ActorSheet;
+// Prefer v13+ namespaced renderTemplate; fall back for v12
+const renderTemplateCompat = foundry.applications?.handlebars?.renderTemplate ?? renderTemplate;
 
 /**
  * Extend the basic ActorSheet with some common capabilities
@@ -265,7 +267,7 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
             maxItems: item.system.quantity,
         };
 
-        const dlghtml = await renderTemplate(dlgTemplate, dialogData);
+        const dlghtml = await renderTemplateCompat(dlgTemplate, dialogData);
 
         // Create the dialog window
         return Dialog.prompt({
@@ -785,7 +787,7 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
             extraLabel: extraLabel,
         };
 
-        const dlghtml = await renderTemplate(dlgTemplate, dialogData);
+        const dlghtml = await renderTemplateCompat(dlgTemplate, dialogData);
 
         // Create the dialog window
         return Dialog.prompt({
@@ -971,7 +973,7 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
 
                 const chatTemplate = 'systems/hm3/templates/chat/esoteric-desc-card.html';
 
-                const html = await renderTemplate(chatTemplate, chatData);
+                const html = await renderTemplateCompat(chatTemplate, chatData);
 
                 const messageData = {
                     user: game.user.id,

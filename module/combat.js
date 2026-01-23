@@ -1,6 +1,9 @@
 import { DiceHM3 } from './dice-hm3.js';
 import { HM3 } from "./config.js";
 
+// Prefer v13+ namespaced renderTemplate; fall back for v12
+const renderTemplateCompat = foundry.applications?.handlebars?.renderTemplate ?? renderTemplate;
+
 /**
  * Initiates a missile attack.
  * 
@@ -119,7 +122,7 @@ export async function missileAttack(attackToken, defendToken, missileItem, curr_
     currUser: curr_user
   };
 
-  const html = await renderTemplate(chatTemplate, chatTemplateData);
+  const html = await renderTemplateCompat(chatTemplate, chatTemplateData);
 
   const messageData = {
     user: game.user.id,
@@ -401,7 +404,7 @@ export async function meleeAttack(attackToken, defendToken, weaponItem = null, c
     currUser: curr_user
   };
 
-  const html = await renderTemplate(chatTemplate, chatTemplateData);
+  const html = await renderTemplateCompat(chatTemplate, chatTemplateData);
 
   const messageData = {
     user: game.user.id,
@@ -447,7 +450,7 @@ async function selectWeaponDialog(options) {
   }
   dialogOptions.prompt = options.prompt ? options.prompt : 'Please select your weapon';
 
-  const dlghtml = await renderTemplate(queryWeaponDialog, dialogOptions);
+  const dlghtml = await renderTemplateCompat(queryWeaponDialog, dialogOptions);
 
   // Request weapon name
   return Dialog.prompt({
@@ -566,7 +569,7 @@ async function attackDialog(options) {
   dialogOptions.title = `${options.attackerName} vs. ${options.defenderName} ${options.type} with ${options.weapon.name}`;
 
   const attackDialogTemplate = "systems/hm3/templates/dialog/attack-dialog.html";
-  const dlghtml = await renderTemplate(attackDialogTemplate, dialogOptions);
+  const dlghtml = await renderTemplateCompat(attackDialogTemplate, dialogOptions);
 
   // Request weapon details
   return Dialog.prompt({
@@ -877,7 +880,7 @@ export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName
   /*-----------------------------------------------------
    *    Attack Chat
    *----------------------------------------------------*/
-  let html = await renderTemplate(chatTemplate, atkChatData);
+  let html = await renderTemplateCompat(chatTemplate, atkChatData);
 
   let messageData = {
     user: game.user.id,
@@ -901,7 +904,7 @@ export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName
   /*-----------------------------------------------------
    *    Counterstrike Chat
    *----------------------------------------------------*/
-  html = await renderTemplate(chatTemplate, csChatData);
+  html = await renderTemplateCompat(chatTemplate, csChatData);
 
   messageData = {
     user: game.user.id,
@@ -1077,7 +1080,7 @@ export async function dodgeResume(atkToken, defToken, type, weaponName, effAML, 
 
   let chatTemplate = "systems/hm3/templates/chat/attack-result-card.html";
 
-  const html = await renderTemplate(chatTemplate, chatData);
+  const html = await renderTemplateCompat(chatTemplate, chatData);
 
   let messageData = {
     user: game.user.id,
@@ -1364,7 +1367,7 @@ export async function blockResume(atkToken, defToken, type, weaponName, effAML, 
 
   let chatTemplate = "systems/hm3/templates/chat/attack-result-card.html";
 
-  const html = await renderTemplate(chatTemplate, chatData);
+  const html = await renderTemplateCompat(chatTemplate, chatData);
 
   let messageData = {
     user: game.user.id,
@@ -1446,7 +1449,7 @@ export async function checkWeaponBreak(atkWeapon, defWeapon) {
   chatData.actorId = atkWeapon.parent;
   chatData.title = "Attack Weapon Break Check";
 
-  let html = await renderTemplate(chatTemplate, chatData);
+  let html = await renderTemplateCompat(chatTemplate, chatData);
 
   messageData.content = html.trim();
   messageData.speaker = ChatMessage.getSpeaker({ token: defToken.document });
@@ -1466,7 +1469,7 @@ export async function checkWeaponBreak(atkWeapon, defWeapon) {
   chatData.actorId = defWeapon.parent;
   chatData.title = "Defend Weapon Break Check";
 
-  html = await renderTemplate(chatTemplate, chatData);
+  html = await renderTemplateCompat(chatTemplate, chatData);
 
   messageData.content = html.trim();
   messageData.speaker = ChatMessage.getSpeaker({ token: defToken.document });
@@ -1588,7 +1591,7 @@ export async function ignoreResume(atkToken, defToken, type, weaponName, effAML,
 
   let chatTemplate = "systems/hm3/templates/chat/attack-result-card.html";
 
-  const html = await renderTemplate(chatTemplate, chatData);
+  const html = await renderTemplateCompat(chatTemplate, chatData);
 
   let messageData = {
     user: game.user.id,

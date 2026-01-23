@@ -1,5 +1,8 @@
 import * as utility from './utility.js';
 
+// Prefer v13+ namespaced renderTemplate; fall back for v12
+const renderTemplateCompat = foundry.applications?.handlebars?.renderTemplate ?? renderTemplate;
+
 // Use the current player's name for chat headers when the user is a GM
 function speakerWithGMOverride(speaker) {
     if (game.user?.isGM) {
@@ -89,7 +92,7 @@ export class DiceHM3 {
             roll: roll
         };
 
-        const html = await renderTemplate(chatTemplate, chatTemplateData);
+        const html = await renderTemplateCompat(chatTemplate, chatTemplateData);
 
         const messageData = {
             user: game.user.id,
@@ -127,7 +130,7 @@ export class DiceHM3 {
             target: dialogOptions.target,
             modifier: dialogOptions.modifier
         };
-        const html = await renderTemplate(dlgTemplate, dialogData);
+        const html = await renderTemplateCompat(dlgTemplate, dialogData);
         
         // Create the dialog window
         return Dialog.prompt({
@@ -224,7 +227,7 @@ export class DiceHM3 {
             roll: roll
         };
 
-        const html = await renderTemplate(chatTemplate, chatTemplateData);
+        const html = await renderTemplateCompat(chatTemplate, chatTemplateData);
 
         const messageData = {
             user: game.user.id,
@@ -262,7 +265,7 @@ export class DiceHM3 {
             target: dialogOptions.target,
             modifier: dialogOptions.modifier
         };
-        const html = await renderTemplate(dlgTemplate, dialogData);
+        const html = await renderTemplateCompat(dlgTemplate, dialogData);
         
         // Create the dialog window
         return Dialog.prompt({
@@ -316,7 +319,7 @@ export class DiceHM3 {
             chatTemplateData.notes = `Since this is a specialized skill of ${specMatch[1]}, ML will be increased by 2`
         }
 
-        const html = await renderTemplate(chatTemplate, chatTemplateData);
+        const html = await renderTemplateCompat(chatTemplate, chatTemplateData);
 
         const messageData = {
             speaker: speakerWithGMOverride(speaker),
@@ -395,7 +398,7 @@ export class DiceHM3 {
             visibleActorId: rollData.actor.id
         }, result);
 
-        const html = await renderTemplate(chatTemplate, chatTemplateData);
+        const html = await renderTemplateCompat(chatTemplate, chatTemplateData);
 
         const messageData = {
             speaker: speakerWithGMOverride(speaker),
@@ -503,7 +506,7 @@ export class DiceHM3 {
             hitLocations: dialogOptions.hitLocations
         };
 
-        const html = await renderTemplate(dlgTemplate, dialogData);
+        const html = await renderTemplateCompat(dlgTemplate, dialogData);
 
         // Create the dialog window
         return Dialog.prompt({
@@ -798,7 +801,7 @@ export class DiceHM3 {
             notes: renderedNotes,
             roll: roll
         };
-        const html = await renderTemplate(chatTemplate, chatTemplateData);
+        const html = await renderTemplateCompat(chatTemplate, chatTemplateData);
 
         const messageData = {
             user: game.user.id,
@@ -887,7 +890,7 @@ export class DiceHM3 {
             weaponAspects: dialogOptions.weaponAspects,
             addlWeaponImpact: 0
         };
-        const html = await renderTemplate(dlgTemplate, dialogData);
+        const html = await renderTemplateCompat(dlgTemplate, dialogData);
         
         // Create the dialog window
         return Dialog.prompt({
@@ -969,7 +972,7 @@ export class DiceHM3 {
             notes: renderedNotes,
             roll: roll
         };
-        const html = await renderTemplate(chatTemplate, chatTemplateData);
+        const html = await renderTemplateCompat(chatTemplate, chatTemplateData);
 
         const messageData = {
             user: game.user.id,
@@ -1014,7 +1017,7 @@ export class DiceHM3 {
         dialogData.rangeExceedsExtreme = false;
         dialogData.defaultRange = extremeDesc;
 
-        const html = await renderTemplate(dlgTemplate, dialogData);
+        const html = await renderTemplateCompat(dlgTemplate, dialogData);
         const title = `${dialogOptions.name} Attack`;
 
         // Create the dialog window
@@ -1137,7 +1140,7 @@ export class DiceHM3 {
             notes: renderedNotes,
             roll: roll
         };
-        const html = await renderTemplate(chatTemplate, chatTemplateData);
+        const html = await renderTemplateCompat(chatTemplate, chatTemplateData);
 
         const messageData = {
             user: game.user.id,
@@ -1168,7 +1171,7 @@ export class DiceHM3 {
             ranges: dialogOptions.ranges,
             defaultRange: dialogOptions.defaultRange
         };
-        const html = await renderTemplate(dlgTemplate, dialogData);
+        const html = await renderTemplateCompat(dlgTemplate, dialogData);
         
         const title = `${dialogOptions.name} Missile Damage`;
 

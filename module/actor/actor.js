@@ -3,6 +3,9 @@ import { DiceHM3 } from '../dice-hm3.js';
 import * as macros from '../macros.js';
 import * as utility from '../utility.js';
 
+// Prefer v13+ namespaced renderTemplate; fall back for v12
+const renderTemplateCompat = foundry.applications?.handlebars?.renderTemplate ?? renderTemplate;
+
 /**
  * Extend the base Actor by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
@@ -50,7 +53,7 @@ export class HarnMasterActor extends Actor {
         const type = data.type || defaultType;
 
         // Render the document creation form
-        const html = await renderTemplate(`templates/sidebar/document-create.html`, {
+        const html = await renderTemplateCompat(`templates/sidebar/document-create.html`, {
             folders,
             name: data.name || "",
             defaultName: this.implementation.defaultName({type, parent, pack}),
