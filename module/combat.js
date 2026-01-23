@@ -125,7 +125,8 @@ export async function missileAttack(attackToken, defendToken, missileItem, curr_
     user: game.user.id,
     speaker: speaker,
     content: html.trim(),
-    style: CONST.CHAT_MESSAGE_STYLES.OTHER
+    style: CONST.CHAT_MESSAGE_STYLES.OTHER,
+    type: CONST.CHAT_MESSAGE_STYLES.OTHER
   };
 
   const messageOptions = {};
@@ -406,7 +407,8 @@ export async function meleeAttack(attackToken, defendToken, weaponItem = null, c
     user: game.user.id,
     speaker: speaker,
     content: html.trim(),
-    style: CONST.CHAT_MESSAGE_STYLES.OTHER
+    style: CONST.CHAT_MESSAGE_STYLES.OTHER,
+    type: CONST.CHAT_MESSAGE_STYLES.OTHER
   };
 
   const messageOptions = {};
@@ -889,6 +891,7 @@ export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName
   } else {
     messageData.style = CONST.CHAT_MESSAGE_STYLES.OTHER;
   }
+  messageData.type = messageData.style;
 
   const messageOptions = {};
 
@@ -912,6 +915,7 @@ export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName
   } else {
     messageData.style = CONST.CHAT_MESSAGE_STYLES.OTHER;
   }
+  messageData.type = messageData.style;
 
   // Create a chat message
   await ChatMessage.create(messageData, messageOptions)
@@ -1087,6 +1091,7 @@ export async function dodgeResume(atkToken, defToken, type, weaponName, effAML, 
   } else {
     messageData.style = CONST.CHAT_MESSAGE_STYLES.OTHER;
   }
+  messageData.type = messageData.style;
 
   const messageOptions = {};
 
@@ -1373,6 +1378,7 @@ export async function blockResume(atkToken, defToken, type, weaponName, effAML, 
   } else {
     messageData.style = CONST.CHAT_MESSAGE_STYLES.OTHER;
   }
+  messageData.type = messageData.style;
 
   const messageOptions = {};
 
@@ -1424,6 +1430,7 @@ export async function checkWeaponBreak(atkWeapon, defWeapon) {
   const messageData = {
     user: game.user.id,
     style: CONST.CHAT_MESSAGE_STYLES.ROLL,
+    type: CONST.CHAT_MESSAGE_STYLES.ROLL,
     sound: CONFIG.sounds.dice
   };
 
@@ -1595,6 +1602,7 @@ export async function ignoreResume(atkToken, defToken, type, weaponName, effAML,
   } else {
     messageData.style = CONST.CHAT_MESSAGE_STYLES.OTHER;
   }
+  messageData.type = messageData.style;
 
   const messageOptions = {};
 
