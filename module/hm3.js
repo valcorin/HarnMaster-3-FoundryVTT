@@ -24,6 +24,7 @@ const DocumentSheetConfigCompat = foundry.applications?.apps?.DocumentSheetConfi
 const ActiveEffectConfigCompat = foundry.applications?.sheets?.ActiveEffectConfig ?? ActiveEffectConfig;
 const ActorSheetCompat = foundry.appv1?.sheets?.ActorSheet ?? ActorSheet;
 const ItemSheetCompat = foundry.appv1?.sheets?.ItemSheet ?? ItemSheet;
+const FormDataExtendedCompat = foundry.applications?.ux?.FormDataExtended ?? FormDataExtended;
 
 Hooks.once('init', async function () {
 
@@ -282,7 +283,7 @@ async function welcomeDialog() {
         label: 'OK',
         callback: html => {
             const form = html.querySelector("#welcome");
-            const fd = new FormDataExtended(form);
+            const fd = new FormDataExtendedCompat(form);
             const data = fd.object;
             return data.showOnStartup;
         },

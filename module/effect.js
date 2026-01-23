@@ -2,6 +2,8 @@
 
 // Prefer v13+ namespaced renderTemplate; fall back for v12
 const renderTemplateCompat = foundry.applications?.handlebars?.renderTemplate ?? renderTemplate;
+// Prefer v13+ namespaced FormDataExtended; fall back for v12
+const FormDataExtendedCompat = foundry.applications?.ux?.FormDataExtended ?? FormDataExtended;
 
 /**
  * Manage Active Effect instances through the Actor Sheet via effect control buttons.
@@ -33,7 +35,7 @@ export async function onManageActiveEffect(event, owner) {
                 label: "OK",
                 callback: async (html) => {
                     const form = html.querySelector('#active-effect-start');
-                    const fd = new FormDataExtended(form);
+                    const fd = new FormDataExtendedCompat(form);
                     const formdata = fd.object;
                     const startType = formdata.startType;
 

@@ -5,6 +5,8 @@ import * as utility from '../utility.js';
 
 // Prefer v13+ namespaced renderTemplate; fall back for v12
 const renderTemplateCompat = foundry.applications?.handlebars?.renderTemplate ?? renderTemplate;
+// Prefer v13+ namespaced FormDataExtended; fall back for v12
+const FormDataExtendedCompat = foundry.applications?.ux?.FormDataExtended ?? FormDataExtended;
 
 /**
  * Extend the base Actor by defining a custom roll data structure which is ideal for the Simple system.
@@ -85,7 +87,7 @@ export class HarnMasterActor extends Actor {
             },
             callback: html => {
                 const form = html[0].querySelector("form");
-                const fd = new FormDataExtended(form);
+                const fd = new FormDataExtendedCompat(form);
                 foundry.utils.mergeObject(data, fd.object, {inplace: true});
                 if (!data.folder) delete data["folder"];
                 if ( documentTypes.length === 1 ) data.type = documentTypes[0];
