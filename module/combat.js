@@ -128,8 +128,7 @@ export async function missileAttack(attackToken, defendToken, missileItem, curr_
     user: game.user.id,
     speaker: speaker,
     content: html.trim(),
-    style: CONST.CHAT_MESSAGE_STYLES.OTHER,
-    type: CONST.CHAT_MESSAGE_TYPES.OTHER
+    style: CONST.CHAT_MESSAGE_STYLES.OTHER
   };
 
   const messageOptions = {};
@@ -410,8 +409,7 @@ export async function meleeAttack(attackToken, defendToken, weaponItem = null, c
     user: game.user.id,
     speaker: speaker,
     content: html.trim(),
-    style: CONST.CHAT_MESSAGE_STYLES.OTHER,
-    type: CONST.CHAT_MESSAGE_TYPES.OTHER
+    style: CONST.CHAT_MESSAGE_STYLES.OTHER
   };
 
   const messageOptions = {};
@@ -1432,7 +1430,6 @@ export async function checkWeaponBreak(atkWeapon, defWeapon) {
   const messageData = {
     user: game.user.id,
     style: CONST.CHAT_MESSAGE_STYLES.ROLL,
-    type: CONST.CHAT_MESSAGE_TYPES.ROLL,
     sound: CONFIG.sounds.dice
   };
 
