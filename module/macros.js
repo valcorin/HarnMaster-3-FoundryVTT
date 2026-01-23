@@ -1509,9 +1509,10 @@ export async function applyEffect(myActor, effectData) {
       console.log("Changing actor from effectData.actor_from_token_ID", effectData.actor_from_token_ID);
       let target_token = canvas.tokens.get(effectData.actor_from_token_ID);
       targetActor = target_token.actor;
+    } else {
+      ui.notifications.warn(`No actor for applyEffect could be determined.`);
+      return null
     }
-    ui.notifications.warn(`No actor for applyEffect could be determined.`);
-    return null
   }
 
   const spellName = effectData.spellName;
