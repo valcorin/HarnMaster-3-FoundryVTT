@@ -197,6 +197,7 @@ export async function skillRoll(itemName, noDialog = false, myActor = null) {
 
   const stdRollData = {
     type: `skill-${item.name}`,
+    name: `${item.name} Skill Test`,
     label: `${item.name} Skill Test`,
     target: item.system.effectiveMasteryLevel,
     notesData: {
@@ -297,6 +298,7 @@ export async function invokeRitualRoll(itemName, noDialog = false, myActor = nul
 
   const stdRollData = {
     type: `invocation-${item.name}`,
+    name: `Invoking ${item.name} Ritual`,
     label: `Invoking ${item.name} Ritual`,
     target: item.system.effectiveMasteryLevel,
     notesData: {
@@ -348,6 +350,7 @@ export async function usePsionicRoll(itemName, noDialog = false, myActor = null)
 
   const stdRollData = {
     type: `psionic-${item.name}`,
+    name: `Using ${item.name} Talent`,
     label: `Using ${item.name} Talent`,
     target: item.system.effectiveMasteryLevel,
     notesData: {
@@ -426,6 +429,7 @@ export async function testAbilityD6Roll(ability, noDialog = false, myActor = nul
   const displayName = actorInfo.actor.token?.name || actorInfo.actor.name;
   const stdRollData = {
     type: `${ability}-d6`,
+    name: `${displayName} ${ability[0].toUpperCase()}${ability.slice(1)} ${rolltype}`,
     label: `${displayName} ${ability[0].toUpperCase()}${ability.slice(1)} ${rolltype}`,
     target: actorInfo.actor.system.abilities[ability].effective,
     numdice: 3,
@@ -495,6 +499,7 @@ export async function testAbilityD100Roll(ability, noDialog = false, myActor = n
   const stdRollData = {
     type: `${ability}-d100`,
     //label: `${actorInfo.speaker?.token ? canvas.tokens.get(actorInfo.speaker.token)?.name : actorInfo.actor.name} ${ability[0].toUpperCase()}${ability.slice(1)} ${rolltype}`,
+    name: `${displayName} ${ability[0].toUpperCase()}${ability.slice(1)} ${rolltype}`,
     label: `${displayName} ${ability[0].toUpperCase()}${ability.slice(1)} ${rolltype}`,
     target: target_calc,
     notesData: {},
@@ -613,6 +618,7 @@ export async function weaponAttackRoll(itemName, noDialog = false, myActor = nul
   const { actor, item, speaker } = await getItemAndActor(itemName, myActor, 'weapongear');
 
   const stdRollData = {
+    name: `${item.name} Attack`,
     label: `${item.name} Attack`,
     target: item.system.attackMasteryLevel,
     notesData: {
@@ -658,6 +664,7 @@ export async function weaponDefendRoll(itemName, noDialog = false, myActor = nul
   }
 
   const stdRollData = {
+    name: `${item.name} Defense`,
     label: `${item.name} Defense`,
     target: item.system.defenseMasteryLevel,
     modifier: outnumberedMod,
@@ -859,6 +866,7 @@ export async function healingRoll(itemName, noDialog = false, myActor = null) {
 
   const stdRollData = {
     type: 'healing',
+    name: `${item.name} Healing Roll`,
     label: `${item.name} Healing Roll`,
     target: item.system.healRate * actor.system.endurance,
     notesData: {
@@ -901,6 +909,7 @@ export async function dodgeRoll(noDialog = false, myActor = null) {
 
   const stdRollData = {
     type: 'dodge',
+    name: `Dodge Roll`,
     label: `Dodge Roll`,
     target: actorInfo.actor.system.dodge,
     notesData: {},
@@ -936,6 +945,7 @@ export async function shockRoll(noDialog = false, myActor = null) {
   let stdRollData = null;
   stdRollData = {
     type: 'shock',
+    name: `${actorInfo.actor.isToken ? actorInfo.actor.token.name : actorInfo.actor.name} Shock Roll`,
     label: `${actorInfo.actor.isToken ? actorInfo.actor.token.name : actorInfo.actor.name} Shock Roll`,
     target: actorInfo.actor.system.endurance,
     numdice: actorInfo.actor.system.universalPenalty,
@@ -971,6 +981,7 @@ export async function stumbleRoll(noDialog = false, myActor = null) {
 
   const stdRollData = {
     type: 'stumble',
+    name: `${actorInfo.actor.isToken ? actorInfo.actor.token.name : actorInfo.actor.name} Stumble Roll`,
     label: `${actorInfo.actor.isToken ? actorInfo.actor.token.name : actorInfo.actor.name} Stumble Roll`,
     target: actorInfo.actor.system.eph.stumbleTarget,
     numdice: 3,
@@ -1006,6 +1017,7 @@ export async function fumbleRoll(noDialog = false, myActor = null) {
 
   const stdRollData = {
     type: 'fumble',
+    name: `${actorInfo.actor.isToken ? actorInfo.actor.token.name : actorInfo.actor.name} Fumble Roll`,
     label: `${actorInfo.actor.isToken ? actorInfo.actor.token.name : actorInfo.actor.name} Fumble Roll`,
     target: actorInfo.actor.system.eph.fumbleTarget,
     numdice: 3,
@@ -1045,6 +1057,7 @@ export async function enduranceRoll(noDialog = false, myActor = null, opts = {})
 
   const stdRollData = {
     type: 'endurance',
+    name: `${actorInfo.actor.isToken ? actorInfo.actor.token.name : actorInfo.actor.name} Endurance Roll`,
     label: `${actorInfo.actor.isToken ? actorInfo.actor.token.name : actorInfo.actor.name} Endurance Roll`,
     target: Number.isFinite(Number(enduranceTarget)) ? Number(enduranceTarget) : 0,
     numdice: numdice,
