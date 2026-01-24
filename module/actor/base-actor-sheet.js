@@ -364,6 +364,19 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
     activateListeners(html) {
         super.activateListeners(html);
 
+        // Apply widths from `data-width` attributes to `.bar` elements
+        try {
+            html.find('.bar[data-width]').each((i, el) => {
+                const val = el.dataset?.width ?? el.getAttribute('data-width');
+                if (val !== undefined && val !== null && String(val).trim() !== '') {
+                    el.style.width = String(val).trim() + '%';
+                }
+            });
+        } catch (err) {
+            // Defensive: if something goes wrong, don't block sheet activation
+            console.debug('HM3 | error applying data-width to bars', err);
+        }
+
         // Everything below here is only needed if the sheet is editable
         if (!this.options.editable) return;
 
