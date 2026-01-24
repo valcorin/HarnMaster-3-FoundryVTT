@@ -96,17 +96,19 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
         // get active effects.
         data.effects = {};
         this.actor.effects.forEach(effect => {
-            //effect._getSourceName().then(() => {
+            // Some Foundry versions/documents may have `name` instead of `label`.
+            // Prefer an explicit label, but fall back to `name` to ensure the
+            // sheet displays the ActiveEffect title.
+            const displayLabel = effect.label || effect.name || "";
             data.effects[effect.id] = {
                 'id': effect.id,
-                'label': effect.label,
+                'label': displayLabel,
                 'sourceName': effect.sourceName,
                 'duration': utility.aeDuration(effect),
                 'source': effect,
                 'changes': utility.aeChanges(effect)
-            }
+            };
             data.effects[effect.id].disabled = effect.disabled;
-            //});
         });
 
         return data;
