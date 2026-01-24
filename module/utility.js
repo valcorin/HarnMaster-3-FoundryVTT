@@ -438,43 +438,66 @@ export function aeChanges(effect) {
     return effect.changes.map(ch => {
         const modes = CONST.ACTIVE_EFFECT_MODES;
         const key = ch.key;
-        let val = 0;
         let prefix = '';
         const parts = parseAEValue(ch.value);
+        // If value is of form "name:val" treat specially (item-based mods)
         if (parts.length === 2) {
-            val = Number.parseInt(parts[1], 10) || 0;
             const itemName = parts[0];
-            switch(key) {
+            const numeric = Number.parseInt(parts[1], 10) || 0;
+            // Map a few known keys to readable prefixes that include the item name
+            switch (key) {
                 case 'system.eph.itemEMLMod':
                     prefix = `${itemName} EML`;
                     break;
-
                 case 'system.eph.itemAMLMod':
                     prefix = `${itemName} AML`;
                     break;
-
                 case 'system.eph.itemDMLMod':
                     prefix = `${itemName} DML`;
                     break;
+                default:
+                    prefix = HM3.activeEffectKey[key] || key;
             }
-        } else {
-            val = ch.value;
-            prefix = HM3.activeEffectKey[key];
+            switch (ch.mode) {
+                case modes.ADD:
+                    return `${prefix} ${numeric < 0 ? '-' : '+'} ${Math.abs(numeric)}`;
+                case modes.MULTIPLY:
+                    return `${prefix} x ${numeric}`;
+                case modes.OVERRIDE:
+                    return `${prefix} = ${numeric}`;
+                case modes.UPGRADE:
+                    return `${prefix} >= ${numeric}`;
+                case modes.DOWNGRADE:
+                    return `${prefix} <= ${numeric}`;
+                default:
+                    return `${prefix} custom`;
+            }
         }
-        switch (ch.mode) {
-            case modes.ADD:
-                return `${prefix} ${val < 0 ? '-' : '+'} ${Math.abs(val)}`;
-            case modes.MULTIPLY:
-                return `${prefix} x ${val}`;
-            case modes.OVERRIDE:
-                return `${prefix} = ${val}`;
-            case modes.UPGRADE:
-                return `${prefix} >= ${val}`;
-            case modes.DOWNGRADE:
-                return `${prefix} <= ${val}`;
-            default:
-                return `${prefix} custom`;
+
+        // Otherwise, value is a simple string — try to render numeric values sensibly,
+        // but fall back to showing the raw value for non-numeric cases (e.g. spell tags).
+        const raw = ch.value;
+        const numericVal = Number(raw);
+        prefix = HM3.activeEffectKey[key] || key;
+        if (Number.isFinite(numericVal)) {
+            switch (ch.mode) {
+                case modes.ADD:
+                    return `${prefix} ${numericVal < 0 ? '-' : '+'} ${Math.abs(numericVal)}`;
+                case modes.MULTIPLY:
+                    return `${prefix} x ${numericVal}`;
+                case modes.OVERRIDE:
+                    return `${prefix} = ${numericVal}`;
+                case modes.UPGRADE:
+                    return `${prefix} >= ${numericVal}`;
+                case modes.DOWNGRADE:
+                    return `${prefix} <= ${numericVal}`;
+                default:
+                    return `${prefix} custom`;
+            }
         }
+
+        // Non-numeric raw values (strings) — present as "prefix: value".
+        return `${prefix}: ${raw}`;
     }).join(', ');
 }
 
