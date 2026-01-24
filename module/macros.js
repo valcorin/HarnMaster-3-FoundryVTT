@@ -543,6 +543,8 @@ export async function weaponDamageRoll(itemName, aspect = null, myActor = null) 
       fatigue: actor.system.eph.fatigue,
       weaponName: item.name
     },
+    name: `${item.name} Damage Roll`,
+    label: `${item.name} Damage Roll`,
     weapon: item.name,
     data: actor,
     speaker: speaker,
@@ -1093,6 +1095,8 @@ export async function genericDamageRoll(myActor = null) {
 
   const rollData = {
     weapon: '',
+    name: `Damage Roll`,
+    label: `Damage Roll`,
     data: actorInfo.actor,
     speaker: actorInfo.speaker,
     notesData: {},

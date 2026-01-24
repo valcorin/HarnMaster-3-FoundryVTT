@@ -40,6 +40,8 @@ export async function onManageActiveEffect(event, owner) {
                     const startType = formdata.startType;
 
                     const aeData = {
+                        // Foundry v13+ requires `name` on ActiveEffects; keep `label` for compatibility
+                        name: "New Effect",
                         label: "New Effect",
                         icon: "icons/svg/aura.svg",
                         origin: owner.uuid
