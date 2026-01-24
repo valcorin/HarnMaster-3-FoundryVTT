@@ -1545,16 +1545,17 @@ export function callOnHooks(hook, actor, result, rollData, item = null) {
 
 export async function applyEffect(myActor, effectData) {
   console.log(JSON.stringify(myActor) + " applying effect: " + JSON.stringify(effectData))
-  let targetActor = myActor
+  let targetActor = null;
+  if ('actor_from_token_ID' in effectData) {
+    console.log("Changing actor from effectData.actor_from_token_ID", effectData.actor_from_token_ID);
+    let target_token = canvas.tokens.get(effectData.actor_from_token_ID);
+    targetActor = target_token.actor;
+  } else {
+    targetActor = myActor;
+  }
   if (!targetActor) {
-    if ('actor_from_token_ID' in effectData) {
-      console.log("Changing actor from effectData.actor_from_token_ID", effectData.actor_from_token_ID);
-      let target_token = canvas.tokens.get(effectData.actor_from_token_ID);
-      targetActor = target_token.actor;
-    } else {
-      ui.notifications.warn(`No actor for applyEffect could be determined.`);
-      return null
-    }
+    ui.notifications.warn(`No actor for applyEffect could be determined.`);
+    return null
   }
 
   const spellName = effectData.spellName;
