@@ -41,6 +41,7 @@ export class DiceHM3 {
         const dialogOptions = {
             type: rollData.type,
             target: rollData.target,
+            name: rollData.label,
             label: rollData.label,
             modifier: rollData.modifier || 0
         };
