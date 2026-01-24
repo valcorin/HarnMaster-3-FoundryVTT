@@ -245,6 +245,7 @@ export async function castSpellRoll(itemName, noDialog = false, myActor = null) 
 
   const stdRollData = {
     type: `spell-${item.name}`,
+    name: `Casting ${item.name}`,
     label: `Casting ${item.name}`,
     target: item.system.effectiveMasteryLevel,
     notesData: {
