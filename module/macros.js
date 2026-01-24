@@ -422,9 +422,10 @@ export async function testAbilityD6Roll(ability, noDialog = false, myActor = nul
     rolltype = "Reversed"
   }
 
+  const displayName = actorInfo.speaker?.token ? canvas.tokens.get(actorInfo.speaker.token)?.name : actorInfo.actor.name;
   const stdRollData = {
     type: `${ability}-d6`,
-    label: `${actorInfo.actor.name} ${ability[0].toUpperCase()}${ability.slice(1)} ${rolltype}`,
+    label: `${displayName} ${ability[0].toUpperCase()}${ability.slice(1)} ${rolltype}`,
     target: actorInfo.actor.system.abilities[ability].effective,
     numdice: 3,
     notesData: {},
@@ -491,7 +492,7 @@ export async function testAbilityD100Roll(ability, noDialog = false, myActor = n
 
   const stdRollData = {
     type: `${ability}-d100`,
-    label: `${actorInfo.actor.name} ${ability[0].toUpperCase()}${ability.slice(1)} ${rolltype}`,
+    label: `${actorInfo.speaker?.token ? canvas.tokens.get(actorInfo.speaker.token)?.name : actorInfo.actor.name} ${ability[0].toUpperCase()}${ability.slice(1)} ${rolltype}`,
     target: target_calc,
     notesData: {},
     speaker: actorInfo.speaker,
