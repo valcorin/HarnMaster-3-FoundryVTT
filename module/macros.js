@@ -396,7 +396,7 @@ export async function usePsionicRoll(itemName, noDialog = false, myActor = null)
   return null;
 }
 
-export async function testAbilityD6Roll(ability, noDialog = false, myActor = null) {
+export async function testAbilityD6Roll(ability, noDialog = false, myActor = null, multiplier = 1) {
   const actorInfo = getActor({ actor: myActor, item: null, speaker: ChatMessage.getSpeaker() });
   if (!actorInfo) {
     ui.notifications.warn(`No actor for this action could be determined.`);
@@ -431,7 +431,7 @@ export async function testAbilityD6Roll(ability, noDialog = false, myActor = nul
     type: `${ability}-d6`,
     name: `${displayName} ${ability[0].toUpperCase()}${ability.slice(1)} ${rolltype}`,
     label: `${displayName} ${ability[0].toUpperCase()}${ability.slice(1)} ${rolltype}`,
-    target: actorInfo.actor.system.abilities[ability].effective,
+    target: target_calc,
     numdice: 3,
     notesData: {},
     speaker: actorInfo.speaker,
