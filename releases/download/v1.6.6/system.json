@@ -19,7 +19,7 @@
   },
   "compatibility": {
     "minimum": "12",
-    "verified": "12.331"
+    "verified": "13.351"
   },
   "esmodules": [
     "module/hm3.js"
