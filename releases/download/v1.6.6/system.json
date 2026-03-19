@@ -99,7 +99,7 @@
   ],
   "socket": true,
   "manifest": "https://raw.githubusercontent.com/valcorin/HarnMaster-3-FoundryVTT/master/releases/download/v1.6.6/system.json",
-  "download": "https://raw.githubusercontent.com/valcorin/HarnMaster-3-FoundryVTT/master/releases/download/v1.6.6/system.zip",
+  "download": "https://raw.githubusercontent.com/valcorin/HarnMaster-3-FoundryVTT/master/releases/download/v1.6.6/hm3.zip",
   "grid": {
     "distance": 5,
     "units": "ft"
