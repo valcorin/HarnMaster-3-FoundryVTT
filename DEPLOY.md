@@ -6,4 +6,5 @@ DEPLOY.md
 4) As the account that owns FoundryVTT, run the package_harn.sh script
 5) cd /home/foundry/foundrydata/Data/systems/hm3/
 6) unzip hm3-1.6.6.zip (answer A to replace all)
-7) service foundryvtt start (as the appropriate account)
+7) chown -R foundry:foundry /home/foundry/foundrydata/Data/systems/hm3/packs/  (do this to prevent load db errors)
+8) service foundryvtt start (as the appropriate account)
