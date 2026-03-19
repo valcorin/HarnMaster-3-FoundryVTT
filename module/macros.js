@@ -448,15 +448,6 @@ export async function testAbilityD6Roll(ability, noDialog = false, myActor = nul
   if (hooksOk) {
     const result = await DiceHM3.d6Roll(stdRollData);
     if (result) {
-      if (!actorInfo.actor) {
-        result_act = getActor(result);
-        if (!result_act) {
-          ui.notifications.warn(`No actor for this action could be determined.`);
-          return null;
-        }
-        actor = result_act.actor
-        console.log("Actor set to " + myActor.name)
-      }
       actorInfo.actor.runCustomMacro(result);
       callOnHooks("hm3.onAbilityRollD6", actorInfo.actor, result, stdRollData);
     }
