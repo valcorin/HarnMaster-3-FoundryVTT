@@ -620,7 +620,7 @@ async function attackDialog(options) {
           result.rangeMod = -80;
         }
         result.impactMod = dialogOptions.ranges[formRange] || 0;
-
+      } else {
         // Grab impact mod (from selected aspect) for melee weapon
         result.impactMod = dialogOptions.aspects[result.aspect] || 0;
       }
@@ -812,12 +812,12 @@ export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName
   // We now know the results of the attack, roll applicable damage
   let atkImpactRoll = null;
   if (combatResult.outcome.atkDice) {
-    atkImpactRoll = await new Roll(`${combatResult.outcome.atkDice}d6`).evaluate({ async: true });
+    atkImpactRoll = await new Roll(`${combatResult.outcome.atkDice}d6`).evaluate();
   }
 
   let csImpactRoll = null;
   if (combatResult.outcome.defDice) {
-    csImpactRoll = await new Roll(`${combatResult.outcome.defDice}d6`).evaluate({ async: true });
+    csImpactRoll = await new Roll(`${combatResult.outcome.defDice}d6`).evaluate();
   }
 
   const atkChatData = {
@@ -1053,7 +1053,7 @@ export async function dodgeResume(atkToken, defToken, type, weaponName, effAML, 
 
   let atkImpactRoll = null;
   if (combatResult.outcome.atkDice) {
-    atkImpactRoll = await new Roll(`${combatResult.outcome.atkDice}d6`).evaluate({ async: true });
+    atkImpactRoll = await new Roll(`${combatResult.outcome.atkDice}d6`).evaluate();
   }
 
   const chatData = {
@@ -1308,7 +1308,7 @@ export async function blockResume(atkToken, defToken, type, weaponName, effAML, 
 
   let atkImpactRoll = null;
   if (combatResult.outcome.atkDice) {
-    atkImpactRoll = await new Roll(`${combatResult.outcome.atkDice}d6`).evaluate({ async: true });
+    atkImpactRoll = await new Roll(`${combatResult.outcome.atkDice}d6`).evaluate();
   }
 
   // If there was a block, check whether a weapon broke
@@ -1423,8 +1423,8 @@ export async function checkWeaponBreak(atkWeapon, defWeapon) {
   const atkWeaponQuality = atkWeapon.system.weaponQuality;
   const defWeaponQuality = defWeapon.system.weaponQuality;
 
-  const atkBreakRoll = await new Roll('3d6').evaluate({ async: true });
-  const defBreakRoll = await new Roll('3d6').evaluate({ async: true });
+  const atkBreakRoll = await new Roll('3d6').evaluate();
+  const defBreakRoll = await new Roll('3d6').evaluate();
 
   if (atkWeaponQuality <= defWeaponQuality) {
     // Check attacker first, then defender
@@ -1562,7 +1562,7 @@ export async function ignoreResume(atkToken, defToken, type, weaponName, effAML,
 
   let atkImpactRoll = null;
   if (combatResult.outcome.atkDice) {
-    atkImpactRoll = await new Roll(`${combatResult.outcome.atkDice}d6`).evaluate({ async: true });
+    atkImpactRoll = await new Roll(`${combatResult.outcome.atkDice}d6`).evaluate();
   }
 
   const chatData = {
@@ -1854,13 +1854,19 @@ export function rangeToTarget(sourceToken, targetToken, gridUnits = false) {
   const sToken = canvas.tokens.get(sourceToken.id);
   const tToken = canvas.tokens.get(targetToken.id);
 
-  const segments = [];
   const source = sToken.center;
   const dest = tToken.center;
-  const ray = new Ray(source, dest);
-  segments.push({ ray });
-  const distances = canvas.grid.measureDistances(segments, { gridSpaces: true });
-  const distance = distances[0];
+  let distance;
+
+  if (typeof canvas.grid.measurePath === 'function') {
+    const path = canvas.grid.measurePath([source, dest]);
+    distance = path.distance;
+  } else {
+    const ray = new Ray(source, dest);
+    const distances = canvas.grid.measureDistances([{ ray }], { gridSpaces: true });
+    distance = distances[0];
+  }
+
   console.log(`Distance = ${distance}, gridUnits=${gridUnits}`);
   if (gridUnits) return Math.round(distance / canvas.dimensions.distance);
   return distance;

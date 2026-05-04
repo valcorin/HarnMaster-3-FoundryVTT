@@ -294,7 +294,7 @@ export class DiceHM3 {
     static async sdrRoll(item) {
         const speaker = ChatMessage.getSpeaker();
 
-        let roll = await (new Roll(`1d100 + @sb`, {sb: item.system.skillBase.value})).evaluate({async: true});
+        let roll = await (new Roll(`1d100 + @sb`, {sb: item.system.skillBase.value})).evaluate();
 
         const isSuccess = roll.total > item.system.masteryLevel;
 
@@ -707,7 +707,7 @@ export class DiceHM3 {
             // roll to get a random number.
             let rollWeight = 0;
             if (totalWeight > 0) {
-                rollWeight = Math.floor(MersenneTwister.random()*totalWeight)+1;
+                rollWeight = Math.floor(foundry.dice.MersenneTwister.random()*totalWeight)+1;
             }
 
             // find the location that meets that number
