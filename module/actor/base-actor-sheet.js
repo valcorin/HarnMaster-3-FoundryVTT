@@ -292,6 +292,7 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
                     return await this._moveItems(item, formQtyToMove);
                 }
             },
+            rejectClose: false,
             options: { jQuery: false }
         });
     }
@@ -850,6 +851,7 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
 
                 return result;
             },
+            rejectClose: false,
             options: { jQuery: false }
         });
     }

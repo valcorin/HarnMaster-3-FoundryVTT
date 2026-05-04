@@ -462,7 +462,8 @@ async function selectWeaponDialog(options) {
       const formWeapon = form.weapon.value;
 
       return { weapon: formWeapon, addlModifier: formAddlModifier };
-    }
+    },
+    rejectClose: false
   });
 
 }
@@ -619,12 +620,13 @@ async function attackDialog(options) {
           result.rangeMod = -80;
         }
         result.impactMod = dialogOptions.ranges[formRange] || 0;
-      } else {
+
         // Grab impact mod (from selected aspect) for melee weapon
         result.impactMod = dialogOptions.aspects[result.aspect] || 0;
       }
       return result;
-    }
+    },
+    rejectClose: false
   });
 }
 
@@ -899,9 +901,9 @@ export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName
     content: html.trim()
   };
   if (combatResult.outcome.atkDice) {
-    messageData.style = CONST.CHAT_MESSAGE_STYLES.ROLL;
     messageData.sound = CONFIG.sounds.dice;
     messageData.roll = atkImpactRoll;
+    messageData.rolls = [atkImpactRoll];
   } else {
     messageData.style = CONST.CHAT_MESSAGE_STYLES.OTHER;
   }
@@ -921,9 +923,9 @@ export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName
     content: html.trim()
   };
   if (combatResult.outcome.defDice) {
-    messageData.style = CONST.CHAT_MESSAGE_STYLES.ROLL;
     messageData.sound = CONFIG.sounds.dice;
     messageData.roll = csImpactRoll;
+    messageData.rolls = [csImpactRoll];
   } else {
     messageData.style = CONST.CHAT_MESSAGE_STYLES.OTHER;
   }
@@ -1096,9 +1098,9 @@ export async function dodgeResume(atkToken, defToken, type, weaponName, effAML, 
     content: html.trim()
   };
   if (combatResult.outcome.atkDice) {
-    messageData.style = CONST.CHAT_MESSAGE_STYLES.ROLL;
     messageData.sound = CONFIG.sounds.dice;
     messageData.roll = atkImpactRoll;
+    messageData.rolls = [atkImpactRoll];
   } else {
     messageData.style = CONST.CHAT_MESSAGE_STYLES.OTHER;
   }
@@ -1382,9 +1384,9 @@ export async function blockResume(atkToken, defToken, type, weaponName, effAML, 
     content: html.trim()
   };
   if (combatResult.outcome.atkDice) {
-    messageData.style = CONST.CHAT_MESSAGE_STYLES.ROLL;
     messageData.sound = CONFIG.sounds.dice;
     messageData.roll = atkImpactRoll;
+    messageData.rolls = [atkImpactRoll];
   } else {
     messageData.style = CONST.CHAT_MESSAGE_STYLES.OTHER;
   }
@@ -1438,7 +1440,6 @@ export async function checkWeaponBreak(atkWeapon, defWeapon) {
 
   const messageData = {
     author: game.user.id,
-    style: CONST.CHAT_MESSAGE_STYLES.ROLL,
     sound: CONFIG.sounds.dice
   };
 
@@ -1459,6 +1460,7 @@ export async function checkWeaponBreak(atkWeapon, defWeapon) {
   messageData.content = html.trim();
   messageData.speaker = ChatMessage.getSpeaker({ token: defToken.document });
   messageData.roll = atkBreakRoll;
+  messageData.rolls = [atkBreakRoll];
 
   const messageOptions = {};
 
@@ -1479,6 +1481,7 @@ export async function checkWeaponBreak(atkWeapon, defWeapon) {
   messageData.content = html.trim();
   messageData.speaker = ChatMessage.getSpeaker({ token: defToken.document });
   messageData.roll = defBreakRoll;
+  messageData.rolls = [defBreakRoll];
 
   await ChatMessage.create(messageData, messageOptions);
 
@@ -1604,9 +1607,9 @@ export async function ignoreResume(atkToken, defToken, type, weaponName, effAML,
     content: html.trim()
   };
   if (combatResult.outcome.atkDice) {
-    messageData.style = CONST.CHAT_MESSAGE_STYLES.ROLL;
     messageData.sound = CONFIG.sounds.dice;
     messageData.roll = atkImpactRoll;
+    messageData.rolls = [atkImpactRoll];
   } else {
     messageData.style = CONST.CHAT_MESSAGE_STYLES.OTHER;
   }

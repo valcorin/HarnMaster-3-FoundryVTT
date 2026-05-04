@@ -58,6 +58,7 @@ export async function onManageActiveEffect(event, owner) {
                     }
                     return ActiveEffect.create(aeData, {parent: owner});
                 },
+                rejectClose: false,
                 options: { jQuery: false }
             });
         case "edit":

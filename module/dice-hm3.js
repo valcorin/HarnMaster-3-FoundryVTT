@@ -99,7 +99,6 @@ export class DiceHM3 {
             author: game.user.id,
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
-            style: CONST.CHAT_MESSAGE_STYLES.ROLL,
             sound: CONFIG.sounds.dice,
             roll: roll.rollObj,
             rolls: [roll.rollObj]
@@ -148,7 +147,8 @@ export class DiceHM3 {
                     diceNum: 1,
                     modifier: formModifier
                 });
-            }
+            },
+            rejectClose: false
         });
     }
     
@@ -234,7 +234,6 @@ export class DiceHM3 {
             author: game.user.id,
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
-            style: CONST.CHAT_MESSAGE_STYLES.ROLL,
             sound: CONFIG.sounds.dice,
             roll: roll.rollObj,
             rolls: [roll.rollObj]
@@ -283,7 +282,8 @@ export class DiceHM3 {
                     diceNum: dialogOptions.numdice,
                     modifier: formModifier
                 });
-            }
+            },
+            rejectClose: false
         });
     }
 
@@ -326,7 +326,6 @@ export class DiceHM3 {
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             author: game.user.id,
-            style: CONST.CHAT_MESSAGE_STYLES.ROLL,
             sound: CONFIG.sounds.dice,
             roll: roll,
             rolls: [roll]
@@ -523,7 +522,8 @@ export class DiceHM3 {
                     form.addToCharSheet.checked : recordInjury === 'enable';
                 return DiceHM3._calcInjury(formLocation, formImpact, formAspect, 
                     formAddToCharSheet, formAim, dialogOptions);
-            }
+            },
+            rejectClose: false
         });
     }
 
@@ -807,7 +807,6 @@ export class DiceHM3 {
             author: game.user.id,
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
-            style: CONST.CHAT_MESSAGE_STYLES.ROLL,
             sound: CONFIG.sounds.dice,
             roll: roll.rollObj,
             rolls: [roll.rollObj]
@@ -921,7 +920,8 @@ export class DiceHM3 {
                     rollObj: roll.rollObj
                 }
                 return result;
-            }
+            },
+            rejectClose: false
         });
     }
 
@@ -981,7 +981,6 @@ export class DiceHM3 {
             author: game.user.id,
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
-            style: CONST.CHAT_MESSAGE_STYLES.ROLL,
             sound: CONFIG.sounds.dice,
             roll: roll.rollObj,
             rolls: [roll.rollObj]
@@ -1070,7 +1069,8 @@ export class DiceHM3 {
                     rollObj: roll.rollObj
                 }
                 return result;
-            }
+            },
+            rejectClose: false
         });
     }
 
@@ -1150,7 +1150,6 @@ export class DiceHM3 {
             author: game.user.id,
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
-            style: CONST.CHAT_MESSAGE_STYLES.ROLL,
             sound: CONFIG.sounds.dice,
             roll: roll.rollObj,
             rolls: [roll.rollObj]
@@ -1208,7 +1207,8 @@ export class DiceHM3 {
                     rollObj: roll.rollObj
                 }
                 return result;
-            }
+            },
+            rejectClose: false
         });
     }
 
