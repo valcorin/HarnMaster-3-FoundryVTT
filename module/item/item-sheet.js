@@ -42,16 +42,17 @@ export class HarnMasterItemSheet extends CompatItemSheet {
     data.hasRitualSkills = false;
     data.hasMagicSkills = false;
 
-    data.macroTypes = foundry.utils.deepClone(game.system.documentTypes.Macro);
+    const macroTypesArr = foundry.utils.deepClone(game.system?.documentTypes?.Macro ?? []);
+    data.macroTypes = Object.fromEntries(macroTypesArr.map(v => [v, v]));
 
-    data.containers = { 'On Person': 'on-person' };
+    data.containers = { 'on-person': 'On Person' };
     // Containers are not allowed in other containers.  So if this item is a container,
     // don't show any other containers.
 
     if (this.actor && this.item.type !== 'containergear') {
       this.actor.items.forEach(it => {
         if (it.type === 'containergear') {
-          data.containers[it.name] = it.id;
+          data.containers[it.id] = it.name;
         }
       });
     }
@@ -59,42 +60,44 @@ export class HarnMasterItemSheet extends CompatItemSheet {
     // Fill appropriate lists for individual item sheets
     if (this.item.type === 'spell') {
       // Spells need a list of convocations
-      data.convocations = [];
+      const convocationsArr = [];
       if (this.actor) {
         this.actor.itemTypes.skill.forEach(it => {
           if (it.system.type === 'Magic') {
-            data.convocations.push(it.name);
+            convocationsArr.push(it.name);
             data.hasMagicSkills = true;
           }
         });
       }
+      data.convocations = Object.fromEntries(convocationsArr.map(v => [v, v]));
     } else if (this.item.type === 'invocation') {
       // Invocations need a list of dieties
-      data.dieties = [];
+      const dietiesArr = [];
       if (this.actor) {
         this.actor.itemTypes.skill.forEach(it => {
           if (it.system.type === 'Ritual') {
-            data.dieties.push(it.name);
+            dietiesArr.push(it.name);
             data.hasRitualSkills = true;
           }
         });
       }
+      data.dieties = Object.fromEntries(dietiesArr.map(v => [v, v]));
     } else if (this.item.type === 'weapongear' ||
       this.item.type === 'missilegear') {
 
       // Weapons need a list of combat skills
-      data.combatSkills = [];
+      const combatSkillsArr = [];
 
       if (this.actor) {
         if (this.item.type === 'weapongear') {
           // For weapons, we add a "None" item to the front of the list
           // as a default (in case no other combat skill applies)
-          data.combatSkills.push('None');
+          combatSkillsArr.push('None');
         } else {
           // For missiles, we add the "Throwing" skill to the front
           // of the list as a default (in case no other combat
           // skill applies)
-          data.combatSkills.push('Throwing');
+          combatSkillsArr.push('Throwing');
         }
 
         this.actor.itemTypes.skill.forEach(it => {
@@ -103,13 +106,25 @@ export class HarnMasterItemSheet extends CompatItemSheet {
             // Ignore the 'Dodge' and 'Initiative' skills,
             // since you never want a weapon based on those skills.
             if (!(lcName === 'initiative' || lcName === 'dodge')) {
-              data.combatSkills.push(it.name);
+              combatSkillsArr.push(it.name);
               data.hasCombatSkills = true;
             }
           }
         });
       }
+      data.combatSkills = Object.fromEntries(combatSkillsArr.map(v => [v, v]));
     }
+
+    data.skillTypeOptions = Object.fromEntries(CONFIG.HM3.skillTypes.map(v => [v, v]));
+    data.traitTypeOptions = Object.fromEntries(CONFIG.HM3.traitTypes.map(v => [v, v]));
+    data.injuryLevelOptions = Object.fromEntries(CONFIG.HM3.injuryLevels.map(v => [v, v]));
+    data.injuryImpactTypeOptions = Object.fromEntries(
+      Object.entries(CONFIG.HM3.injuryLocations).map(([name, loc]) => [loc.impactType, name])
+    );
+    data.injuryLocationsOptions = Object.fromEntries(
+      Object.keys(CONFIG.HM3.injuryLocations).filter(k => k !== 'Custom').map(k => [k, k])
+    );
+    data.weaponAspectOptions = { Piercing: 'Piercing', Blunt: 'Blunt', Edged: 'Edged' };
 
     data.effects = {};
     this.item.effects.forEach(effect => {

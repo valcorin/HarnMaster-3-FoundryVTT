@@ -44,7 +44,9 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
         data.labels = this.actor.labels || {};
         data.filters = this._filters;
 
-        data.macroTypes = foundry.utils.deepClone(game.system.documentTypes.Macro);
+        const macroTypesArr = foundry.utils.deepClone(game.system?.documentTypes?.Macro ?? []);
+        data.macroTypes = Object.fromEntries(macroTypesArr.map(v => [v, v]));
+        data.sunsignOptions = Object.fromEntries(CONFIG.HM3.sunsigns.map(v => [v, v]));
 
         data.dtypes = ["String", "Number", "Boolean"];
         let capacityMax = 0;
@@ -802,6 +804,7 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
             placeholder: name,
             extraList: extraList,
             extraLabel: extraLabel,
+            extraListMap: extraList ? Object.fromEntries(extraList.map(v => [v, v])) : null,
         };
 
         const dlghtml = await renderTemplateCompat(dlgTemplate, dialogData);

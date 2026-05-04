@@ -503,7 +503,7 @@ export class DiceHM3 {
             impact: 0,
             aspect: 'Blunt',
             askRecordInjury:  recordInjury === 'ask',
-            hitLocations: dialogOptions.hitLocations
+            hitLocations: Object.fromEntries(dialogOptions.hitLocations.map(v => [v, v]))
         };
 
         const html = await renderTemplateCompat(dlgTemplate, dialogData);
@@ -890,6 +890,9 @@ export class DiceHM3 {
             weaponAspects: dialogOptions.weaponAspects,
             addlWeaponImpact: 0
         };
+        dialogData.weaponAspectLabels = Object.fromEntries(
+            Object.entries(dialogOptions.weaponAspects).map(([k, v]) => [k, `${k} (${v})`])
+        );
         const html = await renderTemplateCompat(dlgTemplate, dialogData);
         
         // Create the dialog window
@@ -1172,6 +1175,9 @@ export class DiceHM3 {
             ranges: dialogOptions.ranges,
             defaultRange: dialogOptions.defaultRange
         };
+        dialogData.rangeLabels = Object.fromEntries(
+            Object.entries(dialogOptions.ranges).map(([k, v]) => [k, `${k} (${v})`])
+        );
         const html = await renderTemplateCompat(dlgTemplate, dialogData);
         
         const title = `${dialogOptions.name} Missile Damage`;

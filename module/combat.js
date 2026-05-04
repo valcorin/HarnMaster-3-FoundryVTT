@@ -440,7 +440,8 @@ async function selectWeaponDialog(options) {
   const dialogOptions = {
     title: `${options.name} Select Weapon`
   };
-  dialogOptions.weapons = options.weapons.map(w => w.name);
+  const weaponNames = options.weapons.map(w => w.name);
+  dialogOptions.weapons = Object.fromEntries(weaponNames.map(v => [v, v]));
   dialogOptions.defaultWeapon = options.defaultWeapon;
   dialogOptions.defaultModifier = options.defaultModifier || 0;
   if (options.modifierType) {

@@ -6,11 +6,7 @@
             <div class="flexrow">
                 <label>In Container:</label>
                 <select name="system.container">
-                    {{#select idata.container}}
-                        {{#each containers as |cid cname|}}
-                            <option value="{{cid}}">{{cname}}</option>
-                        {{/each}}
-                    {{/select}}
+                    {{selectOptions containers selected=idata.container}}
                 </select>
             </div>
         </div>
@@ -41,14 +37,20 @@
                     <label class="resource-label">Value</label>
                     <input type="number" name="system.value" value="{{idata.value}}" data-dtype="Number" />
                 </div>
-            </div>
-            <div class="resource">
-                <label class="resource-label">Source</label>
-                <input type="text" name="system.source" value="{{idata.source}}" data-dtype="String" />
-            </div>
-            <div class="resource">
-                <label class="resource-label">Note</label>
-                <input type="text" name="system.notes" value="{{idata.notes}}" data-dtype="String" />
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="resource" style="grid-column: span 3">
+                    <label class="resource-label">Source</label>
+                    <input type="text" name="system.source" value="{{idata.source}}" data-dtype="String" />
+                </div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="resource" style="grid-column: span 3">
+                    <label class="resource-label">Note</label>
+                    <input type="text" name="system.notes" value="{{idata.notes}}" data-dtype="String" />
+                </div>
             </div>
             <div class="resource artifact flexrow">
                 <input type="checkbox" name="system.arcane.isArtifact" value="{{idata.arcane.isArtifact}}"

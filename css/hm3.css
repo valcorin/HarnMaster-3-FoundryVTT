@@ -700,6 +700,10 @@ section.highlight {
   font-weight: bold;
   text-transform: uppercase;
 }
+.hm3 .resource > select,
+.hm3 .resource > .resource-value {
+  width: 100%;
+}
 .hm3 .artifact {
   padding-top: 5px;
   align-items: center;
@@ -1584,6 +1588,13 @@ section.highlight {
   flex: 0 0 85px;
   height: 85px;
   margin-right: 6px;
+}
+.hm3.item .skill-header .header-fields h1.charname {
+  height: 50px;
+}
+.hm3.item .skill-header .header-fields h1.charname input {
+  height: 40px;
+  font-size: 26px;
 }
 .hm3.item .skill-header .header-fields .skill-type {
   align-items: center;

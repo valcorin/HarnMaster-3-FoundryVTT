@@ -3,6 +3,13 @@
   text-transform: uppercase;
 }
 
+.resource > select,
+.resource > input[type='text'],
+.resource > input[type='number'],
+.resource > .resource-value {
+  width: 100%;
+}
+
 .artifact {
   padding-top: 5px;
   align-items: center;

@@ -78,6 +78,15 @@
     }
     
     .header-fields {
+      h1.charname {
+        height: 50px;
+
+        input {
+          height: 40px;
+          font-size: 26px;
+        }
+      }
+
       .skill-type {
         align-items: center;
 
