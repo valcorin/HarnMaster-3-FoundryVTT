@@ -125,7 +125,7 @@ export async function missileAttack(attackToken, defendToken, missileItem, curr_
   const html = await renderTemplateCompat(chatTemplate, chatTemplateData);
 
   const messageData = {
-    user: game.user.id,
+    author: game.user.id,
     speaker: speaker,
     content: html.trim(),
     style: CONST.CHAT_MESSAGE_STYLES.OTHER
@@ -244,7 +244,7 @@ export async function meleeAttack(attackToken, defendToken, weaponItem = null, c
                     spellMod = parseInt(ae.changes[j].value)
                     dialogResult.addlModifier = dialogResult.addlModifier + spellMod
                     ChatMessage.create({
-                      user: game.user.id,
+                      author: game.user.id,
                       speaker: speaker,
                       content: ae.name + " is active; applying " + spellMod + " to attack."
                     }, {});
@@ -276,7 +276,7 @@ export async function meleeAttack(attackToken, defendToken, weaponItem = null, c
                       spellMod = parseInt(ae.changes[j].value)
                       dialogResult.addlModifier = dialogResult.addlModifier + spellMod
                       ChatMessage.create({
-                        user: game.user.id,
+                        author: game.user.id,
                         speaker: speaker,
                         content: ae.name + " is active; applying " + spellMod + " to attack."
                       }, {});
@@ -296,7 +296,7 @@ export async function meleeAttack(attackToken, defendToken, weaponItem = null, c
                     }
                   }
                   ChatMessage.create({
-                    user: game.user.id,
+                    author: game.user.id,
                     speaker: speaker,
                     content: ae.name + " is active - rolling against " + miss_chance + "..."
                   }, {});
@@ -341,7 +341,7 @@ export async function meleeAttack(attackToken, defendToken, weaponItem = null, c
                   }
                   if (missRoll.isSuccess) {
                     ChatMessage.create({
-                      user: game.user.id,
+                      author: game.user.id,
                       speaker: speaker,
                       content: miss_addmsg
                     }, {});
@@ -406,7 +406,7 @@ export async function meleeAttack(attackToken, defendToken, weaponItem = null, c
   const html = await renderTemplateCompat(chatTemplate, chatTemplateData);
 
   const messageData = {
-    user: game.user.id,
+    author: game.user.id,
     speaker: speaker,
     content: html.trim(),
     style: CONST.CHAT_MESSAGE_STYLES.OTHER
@@ -894,7 +894,7 @@ export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName
   let html = await renderTemplateCompat(chatTemplate, atkChatData);
 
   let messageData = {
-    user: game.user.id,
+    author: game.user.id,
     speaker: speaker,
     content: html.trim()
   };
@@ -916,7 +916,7 @@ export async function meleeCounterstrikeResume(atkToken, defToken, atkWeaponName
   html = await renderTemplateCompat(chatTemplate, csChatData);
 
   messageData = {
-    user: game.user.id,
+    author: game.user.id,
     speaker: speaker,
     content: html.trim()
   };
@@ -1091,7 +1091,7 @@ export async function dodgeResume(atkToken, defToken, type, weaponName, effAML, 
   const html = await renderTemplateCompat(chatTemplate, chatData);
 
   let messageData = {
-    user: game.user.id,
+    author: game.user.id,
     speaker: speaker,
     content: html.trim()
   };
@@ -1377,7 +1377,7 @@ export async function blockResume(atkToken, defToken, type, weaponName, effAML, 
   const html = await renderTemplateCompat(chatTemplate, chatData);
 
   let messageData = {
-    user: game.user.id,
+    author: game.user.id,
     speaker: speaker,
     content: html.trim()
   };
@@ -1437,7 +1437,7 @@ export async function checkWeaponBreak(atkWeapon, defWeapon) {
   const chatData = {};
 
   const messageData = {
-    user: game.user.id,
+    author: game.user.id,
     style: CONST.CHAT_MESSAGE_STYLES.ROLL,
     sound: CONFIG.sounds.dice
   };
@@ -1599,7 +1599,7 @@ export async function ignoreResume(atkToken, defToken, type, weaponName, effAML,
   const html = await renderTemplateCompat(chatTemplate, chatData);
 
   let messageData = {
-    user: game.user.id,
+    author: game.user.id,
     speaker: speaker,
     content: html.trim()
   };

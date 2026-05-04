@@ -800,7 +800,7 @@ export async function injuryRoll(myActor = null, rollData = {}) {
                 }
                 if (die_num > 0) {
                   ChatMessage.create({
-                    user: game.user.id,
+                    author: game.user.id,
                     speaker: att_speaker,
                     content: ae.name + ": Rolling " + ae_dice + "d" + die_num + " damage against " + actor.name
                   }, {});
@@ -810,7 +810,7 @@ export async function injuryRoll(myActor = null, rollData = {}) {
                 } else {
                   console.log("Adding " + spellimpact + " to existing value of " + ae_impact)
                   ChatMessage.create({
-                    user: game.user.id,
+                    author: game.user.id,
                     speaker: att_speaker,
                     content: ae.name + ": Adding " + spellimpact + " damage against " + actor.name
                   }, {});
@@ -1581,7 +1581,7 @@ export async function applyEffect(myActor, effectData) {
     if (save_roll.isSuccess) {
       chatmsg = targetActor.name + ' succeeded at the ' + abilitycheck + ' check.';
       ChatMessage.create({
-        user: game.user.id,
+        author: game.user.id,
         speaker: shortName,
         content: chatmsg
       }, {});
@@ -1602,7 +1602,7 @@ export async function applyEffect(myActor, effectData) {
         }
       }
       ChatMessage.create({
-        user: game.user.id,
+        author: game.user.id,
         speaker: shortName,
         content: chatmsg
       }, {});
@@ -1656,7 +1656,7 @@ export async function deleteItem(myActor, item) {
   if (item) {
     const chatmsg = "Deleting " + item.name + " from " + myActor.name
     ChatMessage.create({
-      user: game.user.id,
+      author: game.user.id,
       speaker: myActor.name,
       content: chatmsg
     }, {});

@@ -96,7 +96,7 @@ export class DiceHM3 {
         const html = await renderTemplateCompat(chatTemplate, chatTemplateData);
 
         const messageData = {
-            user: game.user.id,
+            author: game.user.id,
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             style: CONST.CHAT_MESSAGE_STYLES.ROLL,
@@ -231,7 +231,7 @@ export class DiceHM3 {
         const html = await renderTemplateCompat(chatTemplate, chatTemplateData);
 
         const messageData = {
-            user: game.user.id,
+            author: game.user.id,
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             style: CONST.CHAT_MESSAGE_STYLES.ROLL,
@@ -325,7 +325,7 @@ export class DiceHM3 {
         const messageData = {
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
-            user: game.user.id,
+            author: game.user.id,
             style: CONST.CHAT_MESSAGE_STYLES.ROLL,
             sound: CONFIG.sounds.dice,
             roll: roll,
@@ -404,7 +404,7 @@ export class DiceHM3 {
         const messageData = {
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
-            user: game.user.id,
+            author: game.user.id,
             style: CONST.CHAT_MESSAGE_STYLES.OTHER,
             sound: CONFIG.sounds.notify
         };
@@ -804,7 +804,7 @@ export class DiceHM3 {
         const html = await renderTemplateCompat(chatTemplate, chatTemplateData);
 
         const messageData = {
-            user: game.user.id,
+            author: game.user.id,
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             style: CONST.CHAT_MESSAGE_STYLES.ROLL,
@@ -978,7 +978,7 @@ export class DiceHM3 {
         const html = await renderTemplateCompat(chatTemplate, chatTemplateData);
 
         const messageData = {
-            user: game.user.id,
+            author: game.user.id,
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             style: CONST.CHAT_MESSAGE_STYLES.ROLL,
@@ -1147,7 +1147,7 @@ export class DiceHM3 {
         const html = await renderTemplateCompat(chatTemplate, chatTemplateData);
 
         const messageData = {
-            user: game.user.id,
+            author: game.user.id,
             speaker: speakerWithGMOverride(speaker),
             content: html.trim(),
             style: CONST.CHAT_MESSAGE_STYLES.ROLL,

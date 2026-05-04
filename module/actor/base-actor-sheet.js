@@ -996,7 +996,7 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
                 const html = await renderTemplateCompat(chatTemplate, chatData);
 
                 const messageData = {
-                    user: game.user.id,
+                    author: game.user.id,
                     speaker: ChatMessage.getSpeaker(),
                     content: html.trim(),
                     style: CONST.CHAT_MESSAGE_TYPES.OTHER,
