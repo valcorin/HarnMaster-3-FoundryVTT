@@ -36,3 +36,4 @@ ln $RELEASEDIR/$HM3FILE.json $RELEASEDIR/system.json
 echo "Finished packaging HarnMaster 3 $VERSION into release directory $RELEASEDIR/hm3-$VERSION.zip"
 echo "Copy the zipfile into the data world system, e.g., /home/foundry/foundrydata/Data/systems/hm3/"
 cp $RELEASEDIR/hm3-$VERSION.zip /home/foundry/foundrydata/Data/systems/hm3/
+echo "Issue cd /home/foundry/foundrydata/Data/systems/hm3/"
