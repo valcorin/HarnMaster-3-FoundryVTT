@@ -3,7 +3,7 @@ DEPLOY.md
 From the FoundryVTT UI
 1) Go to Game Systems
 2) Click Install System
-3) In Manifest URL, paste https://raw.githubusercontent.com/valcorin/HarnMaster-3-FoundryVTT/master/releases/download/v1.6.7/system.json
+3) In Manifest URL, paste https://raw.githubusercontent.com/valcorin/HarnMaster-3-FoundryVTT/master/system.json
 
 
 If the UI install does not work, you can install directly on your server using these instructions
