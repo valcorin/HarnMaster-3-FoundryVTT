@@ -17,3 +17,4 @@ Install on the server directly
 6) unzip hm3-1.6.7.zip (answer A to replace all)
 7) chown -R foundry:foundry /home/foundry/foundrydata/Data/systems/hm3/packs/  (do this to prevent load db errors)
 8) service foundryvtt start (as the appropriate account)
+9) Run any script to tweak for your environment (like post_foundry.sh)
