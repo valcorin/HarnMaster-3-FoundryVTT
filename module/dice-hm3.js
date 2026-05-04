@@ -1000,7 +1000,7 @@ export class DiceHM3 {
         let dlgTemplate = dialogOptions.template || "systems/hm3/templates/dialog/attack-dialog.html";
 
         let dialogData = {
-            aimLocations: ['High', 'Mid', 'Low'],
+            aimLocations: {High: 'High', Mid: 'Mid', Low: 'Low'},
             defaultAim: 'Mid',
             target: dialogOptions.target
         };
@@ -1016,6 +1016,7 @@ export class DiceHM3 {
         dialogData.ranges[extremeDesc] = 'Extreme';
         dialogData.rangeExceedsExtreme = false;
         dialogData.defaultRange = extremeDesc;
+        dialogData.rangeLabels = Object.fromEntries(Object.keys(dialogData.ranges).map(k => [k, k]));
 
         const html = await renderTemplateCompat(dlgTemplate, dialogData);
         const title = `${dialogOptions.name} Attack`;

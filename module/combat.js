@@ -509,7 +509,7 @@ async function attackDialog(options) {
 
   const dialogOptions = {
     weapon: options.weapon.name,
-    aimLocations: ['Low', 'Mid', 'High'],
+    aimLocations: {Low: 'Low', Mid: 'Mid', High: 'High'},
     defaultAim: 'Mid',
     defaultModifier: options.defaultModifier || 0
   };
@@ -565,6 +565,18 @@ async function attackDialog(options) {
   }
 
   dialogOptions.title = `${options.attackerName} vs. ${options.defenderName} ${options.type} with ${options.weapon.name}`;
+
+  // Prepare {{selectOptions}}-compatible label maps (replaces deprecated {{#select}} helper)
+  if (dialogOptions.aspects) {
+    dialogOptions.aspectLabels = Object.fromEntries(
+      Object.entries(dialogOptions.aspects).map(([k, v]) => [k, v >= 0 ? `${k} (${v})` : k])
+    );
+  }
+  if (dialogOptions.ranges) {
+    dialogOptions.rangeLabels = Object.fromEntries(
+      Object.keys(dialogOptions.ranges).map(k => [k, k])
+    );
+  }
 
   const attackDialogTemplate = "systems/hm3/templates/dialog/attack-dialog.html";
   const dlghtml = await renderTemplateCompat(attackDialogTemplate, dialogOptions);
