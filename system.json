@@ -2,7 +2,7 @@
   "id": "hm3",
   "title": "HarnMaster 3",
   "description": "The HarnMaster system for FoundryVTT!",
-  "version": "1.6.7",
+  "version": "1.6.8",
   "authors": [
     {
       "name": "Valcorin",
@@ -99,7 +99,7 @@
   ],
   "socket": true,
   "manifest": "https://raw.githubusercontent.com/valcorin/HarnMaster-3-FoundryVTT/master/system.json",
-  "download": "https://raw.githubusercontent.com/valcorin/HarnMaster-3-FoundryVTT/master/releases/download/v1.6.7/system.zip",
+  "download": "https://raw.githubusercontent.com/valcorin/HarnMaster-3-FoundryVTT/master/releases/download/v1.6.8/system.zip",
   "grid": {
     "distance": 5,
     "units": "ft"
