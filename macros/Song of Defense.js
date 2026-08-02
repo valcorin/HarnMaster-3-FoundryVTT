@@ -1,4 +1,4 @@
-const spellName = item.name;
+const spellName = String(item?.name ?? 'Unknown Spell');
 let lastSpaceIndex = spellName.lastIndexOf(' (');
 if (lastSpaceIndex < 1) {
   lastSpaceIndex = spellName.length
@@ -99,14 +99,23 @@ for (let targetToken of canvas.tokens.placeables) {
   
     const sToken = canvas.tokens.get(sourceToken.id);
     const tToken = canvas.tokens.get(targetToken.id);
-  
-    const segments = [];
+    if (!sToken || !tToken) return 9999;
+
     const source = sToken.center;
     const dest = tToken.center;
-    const ray = new Ray(source, dest);
-    segments.push({ ray });
-    const distances = canvas.grid.measureDistances(segments, { gridSpaces: true });
-    const distance = distances[0];
+    let distance;
+
+    if (typeof canvas.grid.measurePath === 'function') {
+      const path = canvas.grid.measurePath([source, dest]);
+      distance = path?.distance ?? 9999;
+    } else if (typeof canvas.grid.measureDistances === 'function') {
+      const ray = new Ray(source, dest);
+      const distances = canvas.grid.measureDistances([{ ray }], { gridSpaces: true });
+      distance = distances?.[0] ?? 9999;
+    } else {
+      distance = 9999;
+    }
+
     console.log(`Distance = ${distance}, gridUnits=${gridUnits}`);
     if (gridUnits) return Math.round(distance / canvas.dimensions.distance);
     return distance;

@@ -1,0 +1,39 @@
+// Delete One Effect for Token
+const selectedTokens = canvas.tokens.controlled;
+if (selectedTokens.length === 0) {
+    ui.notifications.warn("No tokens selected!");
+    return;
+}
+var myContent = `
+        <div class="form-group">
+          <label for="effectsSelect">Effects</label>
+          <select name="effectsSelect">`
+
+effects = []
+
+actor.effects.find(m => {
+    console.log("Adding " + m.name)
+    effects.push(m)
+})
+
+for (let i = 0; i < effects.length; i++) {
+    myContent += `
+                    <option value="${effects[i].name}">${effects[i].name}</option>`
+};
+
+myContent += `
+          </select><br /><br />
+        </div>`
+
+await Dialog.prompt({
+    title: 'Remove Effect',
+    content: myContent,
+    callback: async (html) => {
+        let effectName = html.find('[name="effectsSelect"]').val();
+        const ae = actor.effects.find(m => m.name === effectName);
+        if (ae) {
+            const result = await ae.delete();
+            if (result) console.log(result);
+        }
+    }
+})

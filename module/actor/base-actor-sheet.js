@@ -397,6 +397,10 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
         html.find('.item-edit').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.items.get(li.data("itemId"));
+            if (!item) {
+                console.warn(`HM3 | Item edit requested but item was not found on actor '${this.actor?.name || "Unknown"}'.`);
+                return;
+            }
             item.sheet.render(true);
         });
 
