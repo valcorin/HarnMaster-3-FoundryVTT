@@ -86,12 +86,16 @@ Hooks.once('init', async function () {
         trait: "Trait"    
     };
     CONFIG.Combat.documentClass = HarnMasterCombat;
-    CONFIG.TinyMCE.style_formats[0].items.push({
-        title: 'Highlight',
-        block: 'section',
-        classes: 'highlight',
-        wrapper: true
-    })
+
+    // TinyMCE may be unavailable in newer Foundry versions (e.g. ProseMirror-only flows).
+    if (CONFIG.TinyMCE?.style_formats?.[0]?.items) {
+        CONFIG.TinyMCE.style_formats[0].items.push({
+            title: 'Highlight',
+            block: 'section',
+            classes: 'highlight',
+            wrapper: true
+        });
+    }
 
     // Register sheet application classes
     ActorsCompat.unregisterSheet("core", ActorSheetCompat);
@@ -144,15 +148,19 @@ Hooks.once('init', async function () {
     // These are the fonts we add
     let extraFonts = "Martel=Martel;Roboto=Roboto;Lakise=Lakise;Runic=Runic;Lankorian Blackhand=Lankorian Blackhand";
     // Configure the TinyMCE font drop-down (note: Monk's Enhanced Journal will overwrite this)
-    CONFIG.TinyMCE.font_formats = (CONFIG.TinyMCE.font_formats?CONFIG.TinyMCE.font_formats:defaultFonts) + ";"+extraFonts;
+    if (CONFIG.TinyMCE) {
+        CONFIG.TinyMCE.font_formats = (CONFIG.TinyMCE.font_formats ? CONFIG.TinyMCE.font_formats : defaultFonts) + ";" + extraFonts;
+    }
     // Register the extra fonts within Foundry itsel (e.g. Text drawing tool)
 //    let fontFamilies = extraFonts.split(";").map(f => f.split("=")[0]).filter(f => f.length);
 //    fontFamilies.forEach(f => CONFIG.fontFamilies.push(f));
-    Object.assign(CONFIG.fontDefinitions, {
-        "Lakise": {editor: true, fonts: [{urls: ['./systems/hm3/fonts/Harn-Lakise-Normal.otf']}]},
-        "Runic": {editor: true, fonts: [{urls: ['./systems/hm3/fonts/Harn-Runic-Normal.otf']}]},
-        "Lankorian Blackhand": {editor: true, fonts: [{urls: ['./systems/hm3/fonts/Lankorian-Blackhand.otf']}]}
-    });
+    if (CONFIG.fontDefinitions) {
+        Object.assign(CONFIG.fontDefinitions, {
+            "Lakise": {editor: true, fonts: [{urls: ['./systems/hm3/fonts/Harn-Lakise-Normal.otf']}]},
+            "Runic": {editor: true, fonts: [{urls: ['./systems/hm3/fonts/Harn-Runic-Normal.otf']}]},
+            "Lankorian Blackhand": {editor: true, fonts: [{urls: ['./systems/hm3/fonts/Lankorian-Blackhand.otf']}]}
+        });
+    }
 
 });
 
