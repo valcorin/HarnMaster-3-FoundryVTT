@@ -34,11 +34,10 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
         }
 
         data.customSunSign = game.settings.get('hm3', 'customSunSign');
-        data.actor = foundry.utils.deepClone(this.actor);
-        data.items = this.actor.items.map(i => {
-            //i.data.labels = i.labels;
-            return i;
-        });
+        // Use plain objects in sheet render context to avoid mutating read-only
+        // properties (like _id) on live Document instances during render merges.
+        data.actor = this.actor.toObject();
+        data.items = this.actor.items.map(i => i.toObject());
         data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
         data.adata = data.actor.system;
         data.labels = this.actor.labels || {};
@@ -83,7 +82,7 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
 
         this.actor.items.forEach(it => {
             if (it.type === 'containergear') {
-                data.containers[it.id] = it;
+                data.containers[it.id] = it.toObject();
             }
         });
 
@@ -102,13 +101,19 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
             // Prefer an explicit label, but fall back to `name` to ensure the
             // sheet displays the ActiveEffect title.
             const displayLabel = effect.label || effect.name || "";
+            let effectChanges;
+            try {
+                effectChanges = utility.aeChanges(effect);
+            } catch (err) {
+                console.warn(`HM3 | Failed to format Active Effect changes for '${displayLabel}' on actor '${this.actor?.name || "Unknown"}'.`, err);
+                effectChanges = 'Invalid Effect Data';
+            }
             data.effects[effect.id] = {
                 'id': effect.id,
                 'label': displayLabel,
                 'sourceName': effect.sourceName,
                 'duration': utility.aeDuration(effect),
-                'source': effect,
-                'changes': utility.aeChanges(effect)
+                'changes': effectChanges
             };
             data.effects[effect.id].disabled = effect.disabled;
         });

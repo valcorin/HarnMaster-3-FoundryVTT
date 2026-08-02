@@ -129,11 +129,18 @@ export class HarnMasterItemSheet extends CompatItemSheet {
     data.effects = {};
     this.item.effects.forEach(effect => {
       //effect._getSourceName().then(()=> {
+      let effectChanges;
+      try {
+        effectChanges = utility.aeChanges(effect);
+      } catch (err) {
+        console.warn(`HM3 | Failed to format Item Active Effect changes for '${this.item?.name || "Unknown Item"}'.`, err);
+        effectChanges = 'Invalid Effect Data';
+      }
       data.effects[effect.id] = {
         'source': effect.sourceName,
         'duration': utility.aeDuration(effect),
         'data': effect,
-        'changes': utility.aeChanges(effect)
+        'changes': effectChanges
       }
       //})
     });

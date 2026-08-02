@@ -562,10 +562,12 @@ export function executeMacroScript(macro, { actor, token, rollResult, rollData, 
     return result;
 }
 
-export function parseAEValue(string) {
-    const lastColon = string.lastIndexOf(':');
-    if (lastColon === -1) return [string];
-    const preString = string.slice(0,lastColon).trim();
-    const postString = string.slice(lastColon+1).trim();
+export function parseAEValue(value) {
+    if (value === null || value === undefined) return [''];
+    const stringValue = String(value);
+    const lastColon = stringValue.lastIndexOf(':');
+    if (lastColon === -1) return [stringValue];
+    const preString = stringValue.slice(0, lastColon).trim();
+    const postString = stringValue.slice(lastColon + 1).trim();
     return [preString, postString];
 }

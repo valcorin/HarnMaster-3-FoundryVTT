@@ -308,5 +308,6 @@ Handlebars.registerHelper("multiply", function (op1, op2) {
 });
 
 Handlebars.registerHelper("endswith", function (op1, op2) {
-    return op1.endsWith(op2);
+    if (op1 === null || op1 === undefined || op2 === null || op2 === undefined) return false;
+    return String(op1).endsWith(String(op2));
 });
