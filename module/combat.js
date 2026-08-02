@@ -1853,6 +1853,7 @@ export function rangeToTarget(sourceToken, targetToken, gridUnits = false) {
 
   const sToken = canvas.tokens.get(sourceToken.id);
   const tToken = canvas.tokens.get(targetToken.id);
+  if (!sToken || !tToken) return 9999;
 
   const source = sToken.center;
   const dest = tToken.center;
@@ -1860,11 +1861,15 @@ export function rangeToTarget(sourceToken, targetToken, gridUnits = false) {
 
   if (typeof canvas.grid.measurePath === 'function') {
     const path = canvas.grid.measurePath([source, dest]);
-    distance = path.distance;
-  } else {
+    distance = path?.distance ?? 9999;
+  } else if (typeof canvas.grid.measureDistances === 'function') {
     const ray = new Ray(source, dest);
     const distances = canvas.grid.measureDistances([{ ray }], { gridSpaces: true });
-    distance = distances[0];
+    distance = distances?.[0] ?? 9999;
+  } else {
+    const pixelDistance = Math.hypot(dest.x - source.x, dest.y - source.y);
+    const sceneUnitsPerPixel = (canvas?.dimensions?.distance || 1) / (canvas?.dimensions?.size || 1);
+    distance = pixelDistance * sceneUnitsPerPixel;
   }
 
   console.log(`Distance = ${distance}, gridUnits=${gridUnits}`);
