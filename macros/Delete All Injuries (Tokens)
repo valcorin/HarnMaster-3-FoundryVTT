@@ -1,0 +1,20 @@
+// Delete All Injuries (Tokens)
+const selectedTokens = canvas.tokens.controlled;
+if (selectedTokens.length === 0) {
+  ui.notifications.warn("No tokens selected!");
+  return;
+}
+selectedTokens.forEach(async (token) => {
+  const targetActor = token.actor
+  let chatmsg = "Clearing injuries from " + token.name
+      ChatMessage.create({
+        user: game.user.id,
+        speaker: speaker,
+        content: chatmsg
+      }, {});
+  targetActor.items.find(item => {
+    if (item.type === "injury") {
+      game.hm3.macros.deleteItem(targetActor, item)
+    }
+  })
+})

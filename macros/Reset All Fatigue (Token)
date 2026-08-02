@@ -1,0 +1,16 @@
+//Reset All Fatigue (Token)
+const selectedTokens = canvas.tokens.controlled;
+if (selectedTokens.length === 0) {
+  ui.notifications.warn("No tokens selected!");
+  return;
+}
+selectedTokens.forEach(async (token) => {
+  const targetActor = token.actor
+  game.hm3.macros.changeFatigue("0", targetActor)
+  let chatmsg = "Cleared fatigue for " + targetActor.name
+  ChatMessage.create({
+    user: game.user._id,
+    speaker: speaker,
+    content: chatmsg
+  }, {});
+})
