@@ -37,7 +37,12 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
         // Use plain objects in sheet render context to avoid mutating read-only
         // properties (like _id) on live Document instances during render merges.
         data.actor = this.actor.toObject();
-        data.items = this.actor.items.map(i => i.toObject());
+        data.actor.id = this.actor.id;
+        data.items = this.actor.items.map(i => {
+            const item = i.toObject();
+            item.id = i.id;
+            return item;
+        });
         data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
         data.adata = data.actor.system;
         data.labels = this.actor.labels || {};
@@ -82,7 +87,9 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
 
         this.actor.items.forEach(it => {
             if (it.type === 'containergear') {
-                data.containers[it.id] = it.toObject();
+                const container = it.toObject();
+                container.id = it.id;
+                data.containers[it.id] = container;
             }
         });
 
