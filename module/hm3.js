@@ -191,6 +191,35 @@ Hooks.on("renderChatMessageHTML", bindHm3ChatButtons);
 // Legacy hook removed to avoid double-binding in v13+
 // Removed renderChatLog/Popout binding (v13 passes HTMLElement and we bind per-message instead).
 
+function ensureGridMeasureDistancesCompat() {
+    const grid = canvas?.grid;
+    if (!grid) return;
+    if (typeof grid.measureDistances === 'function') return;
+
+    grid.measureDistances = function (segments = [], options = {}) {
+        return segments.map((segment) => {
+            const ray = segment?.ray;
+            const source = ray?.A || ray?.from || ray?.origin;
+            const dest = ray?.B || ray?.to || ray?.destination;
+            if (!source || !dest) return 0;
+
+            if (typeof this.measurePath === 'function') {
+                const path = this.measurePath([source, dest], options);
+                return path?.distance ?? 0;
+            }
+
+            // Last-resort geometric conversion from px to scene distance units.
+            const pixelDistance = Math.hypot(dest.x - source.x, dest.y - source.y);
+            const sceneUnitsPerPixel = (canvas?.dimensions?.distance || 1) / (canvas?.dimensions?.size || 1);
+            return pixelDistance * sceneUnitsPerPixel;
+        });
+    };
+
+    console.log('HM3 | Installed grid.measureDistances compatibility shim.');
+}
+
+Hooks.on('canvasReady', ensureGridMeasureDistancesCompat);
+
 /**
  * Active Effects need to expire at certain times, so keep track of that here
  */
