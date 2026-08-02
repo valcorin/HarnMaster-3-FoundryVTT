@@ -104,26 +104,5 @@
     "distance": 5,
     "units": "ft"
   },
-  "primaryTokenAttribute": "shockIndex",
-  "documentTypes": {
-    "Actor": {
-      "character": {},
-      "creature": {},
-      "container": {}
-    },
-    "Item": {
-      "skill": {},
-      "spell": {},
-      "invocation": {},
-      "psionic": {},
-      "weapongear": {},
-      "containergear": {},
-      "missilegear": {},
-      "armorgear": {},
-      "miscgear": {},
-      "injury": {},
-      "armorlocation": {},
-      "trait": {}
-    }
-  }
+  "primaryTokenAttribute": "shockIndex"
 }
