@@ -44,7 +44,9 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
             return item;
         });
         data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-        data.adata = data.actor.system;
+        // Use prepared document data for sheet rendering so derived/system-
+        // computed values (for example abilities.*.effective) are available.
+        data.adata = this.actor.system;
         data.labels = this.actor.labels || {};
         data.filters = this._filters;
 
