@@ -9,6 +9,7 @@ import { HarnMasterItemSheet } from "./item/item-sheet.js";
 import { HM3ActiveEffectConfig } from "./hm3-active-effect-config.js";
 import { HM3 } from "./config.js";
 import { registerSystemSettings } from "./settings.js";
+import { registerHM3DataModels } from "./data-models.js";
 import * as migrations from "./migrations.js";
 import * as macros from "./macros.js";
 import * as combat from "./combat.js";
@@ -54,6 +55,9 @@ Hooks.once('init', async function () {
 
     // Set System Globals
     CONFIG.HM3 = HM3;
+
+    // Register type-specific system data models for Actor and Item documents.
+    registerHM3DataModels();
 
     // Register system settings
     registerSystemSettings();

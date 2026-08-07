@@ -309,8 +309,10 @@ export const migrateActorData = function (actor) {
 function cleanActorData(actorData) {
 
   // Scrub system data
-  const model = game.model.Actor[actorData.type];
-  actorData.system = filterObject(actorData.system, model);
+  const model = game.model?.Actor?.[actorData.type];
+  if (model) {
+    actorData.system = filterObject(actorData.system, model);
+  }
 
   // Scrub system flags
   const allowedFlags = CONFIG.HM3.allowedActorFlags.reduce((obj, f) => {
@@ -492,7 +494,6 @@ export const migrateItemData = function (item) {
  * @private
  */
 //   function _migrateActorBonuses(actor, updateData) {
-//     const b = game.model.Actor.character.bonuses;
 //     for ( let k of Object.keys(actor.system.bonuses || {}) ) {
 //       if ( k in b ) updateData[`data.bonuses.${k}`] = b[k];
 //       else updateData[`data.bonuses.-=${k}`] = null;

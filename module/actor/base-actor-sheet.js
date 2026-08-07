@@ -61,7 +61,8 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
                 capacityVal = data.adata.eph.totalGearWeight;
             }
         } else if (this.actor.type === 'creature') {
-            capacityMax = data.adata.loadRating + (data.adata.endurance * 10);
+            const loadRating = Number(data.adata.loadRating) || 0;
+            capacityMax = loadRating + (data.adata.endurance * 10);
             if (data.adata.eph) {
                 capacityVal = data.adata.eph.totalGearWeight;
             }
