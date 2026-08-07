@@ -51,11 +51,17 @@ export class HarnMasterItem extends Item {
         if (this.type === 'skill') {
             if (!itemData.masteryLevel || itemData.masteryLevel < 0) itemData.masteryLevel = 0; 
 
-            utility.calcSkillBase(this);
+            try {
+                utility.calcSkillBase(this);
+            } catch (err) {
+                console.warn(`HM3 | Failed to calculate Skill Base for '${this.name}' on actor '${this.actor?.name || "Unknown"}'.`, err);
+                if (!itemData.skillBase) itemData.skillBase = { value: 0, formula: "", isFormulaValid: false };
+                itemData.skillBase.isFormulaValid = false;
+                itemData.skillBase.delta = 0;
+            }
 
             // Handle using Condition Skill for Endurance if it is present
             if (this.name.toLowerCase() === 'condition' && this.actor) {
-                this.actor.system.hasCondition = true;
                 this.actor.system.endurance = Math.floor(itemData.masteryLevel / 5) || 1;
             }
 

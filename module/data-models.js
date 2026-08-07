@@ -65,23 +65,79 @@ const ACTOR_BASE_DEFAULTS = {
     fatigue: 0,
     sunsign: "",
     abilities: {
-        strength: { base: 0 },
-        stamina: { base: 0 },
-        dexterity: { base: 0 },
-        agility: { base: 0 },
-        speed: { base: 0 },
-        intelligence: { base: 0 },
-        aura: { base: 0 },
-        will: { base: 0 },
-        eyesight: { base: 0 },
-        hearing: { base: 0 },
-        smell: { base: 0 },
-        touch: { base: 0 },
-        voice: { base: 0 },
-        comeliness: { base: 0 },
-        morality: { base: 0 }
+        strength: { base: 0, modified: 0, effective: 0 },
+        stamina: { base: 0, modified: 0, effective: 0 },
+        dexterity: { base: 0, modified: 0, effective: 0 },
+        agility: { base: 0, modified: 0, effective: 0 },
+        speed: { base: 0, modified: 0, effective: 0 },
+        intelligence: { base: 0, modified: 0, effective: 0 },
+        aura: { base: 0, modified: 0, effective: 0 },
+        will: { base: 0, modified: 0, effective: 0 },
+        eyesight: { base: 0, modified: 0, effective: 0 },
+        hearing: { base: 0, modified: 0, effective: 0 },
+        smell: { base: 0, modified: 0, effective: 0 },
+        touch: { base: 0, modified: 0, effective: 0 },
+        voice: { base: 0, modified: 0, effective: 0 },
+        comeliness: { base: 0, modified: 0, effective: 0 },
+        morality: { base: 0, modified: 0, effective: 0 }
     },
-    move: { base: 0 },
+    move: { base: 0, effective: 0 },
+    dodge: 0,
+    initiative: 0,
+    endurance: 0,
+    universalPenalty: 0,
+    physicalPenalty: 0,
+    totalInjuryLevels: 0,
+    encumbrance: 0,
+    totalWeight: 0,
+    condition: 0,
+    eph: {
+        fatigue: 0,
+        move: 0,
+        endurance: 0,
+        effectiveWeight: 0,
+        totalInjuryLevels: 0,
+        stumbleTarget: 0,
+        fumbleTarget: 0,
+        strength: 0,
+        stamina: 0,
+        dexterity: 0,
+        agility: 0,
+        speed: 0,
+        intelligence: 0,
+        aura: 0,
+        will: 0,
+        eyesight: 0,
+        hearing: 0,
+        touch: 0,
+        smell: 0,
+        voice: 0,
+        comeliness: 0,
+        morality: 0,
+        meleeAMLMod: 0,
+        meleeDMLMod: 0,
+        missileAMLMod: 0,
+        outnumbered: 0,
+        commSkillsMod: 0,
+        physicalSkillsMod: 0,
+        combatSkillsMod: 0,
+        craftSkillsMod: 0,
+        ritualSkillsMod: 0,
+        magicSkillsMod: 0,
+        psionicTalentsMod: 0,
+        itemAMLMod: 0,
+        itemDMLMod: 0,
+        itemEMLMod: 0,
+        itemCustomMod: 0,
+        spellcat: "",
+        spellmodifier: 0,
+        spellmissed: false,
+        totalWeaponWeight: 0,
+        totalMissileWeight: 0,
+        totalArmorWeight: 0,
+        totalMiscGearWeight: 0,
+        totalGearWeight: 0
+    },
     shockIndex: { max: 100, value: 100 },
     description: "***INIT***",
     biography: "",
@@ -105,7 +161,17 @@ const ACTOR_CONTAINER_DEFAULTS = {
     description: "",
     macros: {},
     capacity: {
-        max: 0
+        max: 0,
+        value: 0,
+        pct: 0
+    },
+    totalWeight: 0,
+    eph: {
+        totalWeaponWeight: 0,
+        totalMissileWeight: 0,
+        totalArmorWeight: 0,
+        totalMiscGearWeight: 0,
+        totalGearWeight: 0
     }
 };
 
@@ -146,7 +212,8 @@ const ITEM_TYPE_DEFAULTS = {
         skillBase: {
             value: 0,
             formula: "",
-            isFormulaValid: true
+            isFormulaValid: true,
+            delta: 0
         },
         masteryLevel: 0,
         effectiveMasteryLevel: 0,
@@ -158,18 +225,25 @@ const ITEM_TYPE_DEFAULTS = {
     spell: mergeDefaults(ITEM_BASE_DEFAULTS, {
         convocation: "",
         level: 1,
-        effectiveMasteryLevel: 0
+        effectiveMasteryLevel: 0,
+        skillBase: 0,
+        skillIndex: 0,
+        masteryLevel: 0
     }),
     invocation: mergeDefaults(ITEM_BASE_DEFAULTS, {
         deity: "",
         circle: 1,
-        effectiveMasteryLevel: 0
+        effectiveMasteryLevel: 0,
+        skillBase: 0,
+        skillIndex: 0,
+        masteryLevel: 0
     }),
     psionic: mergeDefaults(ITEM_BASE_DEFAULTS, {
         skillBase: {
             value: 0,
             formula: "",
-            isFormulaValid: true
+            isFormulaValid: true,
+            delta: 0
         },
         masteryLevel: 0,
         effectiveMasteryLevel: 0,
@@ -209,7 +283,9 @@ const ITEM_TYPE_DEFAULTS = {
             blunt: 0,
             edged: 0,
             piercing: 0,
-            fire: 0
+            fire: 0,
+            squeeze: 0,
+            tear: 0
         },
         size: 6
     }),
@@ -225,7 +301,7 @@ const ITEM_TYPE_DEFAULTS = {
         injuryLevel: 0,
         severity: ""
     }),
-    armorlocation: {
+    armorlocation: mergeDefaults(ITEM_BASE_DEFAULTS, {
         layers: "",
         armorQuality: 0,
         blunt: 0,
@@ -248,7 +324,7 @@ const ITEM_TYPE_DEFAULTS = {
             mid: 1,
             low: 1
         }
-    },
+    }),
     trait: mergeDefaults(ITEM_BASE_DEFAULTS, {
         type: "Physical"
     })

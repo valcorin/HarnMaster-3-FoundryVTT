@@ -37,6 +37,23 @@ export function calcSkillBase(item) {
         actorData = item.actor.system;
     }
 
+    // Resolve ability references safely so malformed or migrated actor data
+    // cannot crash SB/EML calculation for the entire sheet.
+    const getAbilityPair = (abilityKey) => {
+        const ability = actorData?.abilities?.[abilityKey];
+        const base = Number(ability?.base ?? 0) || 0;
+        const modified = Number(ability?.modified ?? base) || 0;
+        return { base, modified };
+    };
+
+    const getEndurancePair = () => {
+        const enduranceAbility = actorData?.abilities?.endurance;
+        const fallback = Number(actorData?.endurance ?? 0) || 0;
+        const base = Number(enduranceAbility?.base ?? fallback) || 0;
+        const modified = Number(enduranceAbility?.modified ?? fallback) || 0;
+        return { base, modified };
+    };
+
     let numAbilities = 0;
     let sumBaseAbilities = 0;
     let sumModifiedAbilities = 0;
@@ -77,90 +94,117 @@ export function calcSkillBase(item) {
                     if (actorData) {
                         const paramName = param.slice(1);
                         switch (paramName) {
-                            case 'str':
-                                sumBaseAbilities += actorData.abilities.strength.base;
-                                sumModifiedAbilities += actorData.abilities.strength.modified;
+                            case 'str': {
+                                const ability = getAbilityPair('strength');
+                                sumBaseAbilities += ability.base;
+                                sumModifiedAbilities += ability.modified;
                                 break;
+                            }
     
-                            case 'sta':
-                                sumBaseAbilities += actorData.abilities.stamina.base;
-                                sumModifiedAbilities += actorData.abilities.stamina.modified;
+                            case 'sta': {
+                                const ability = getAbilityPair('stamina');
+                                sumBaseAbilities += ability.base;
+                                sumModifiedAbilities += ability.modified;
                                 break;
+                            }
     
-                            case 'dex':
-                                sumBaseAbilities += actorData.abilities.dexterity.base;
-                                sumModifiedAbilities += actorData.abilities.dexterity.modified;
+                            case 'dex': {
+                                const ability = getAbilityPair('dexterity');
+                                sumBaseAbilities += ability.base;
+                                sumModifiedAbilities += ability.modified;
                                 break;
+                            }
     
-                            case 'agl':
-                                sumBaseAbilities += actorData.abilities.agility.base;
-                                sumModifiedAbilities += actorData.abilities.agility.modified;
+                            case 'agl': {
+                                const ability = getAbilityPair('agility');
+                                sumBaseAbilities += ability.base;
+                                sumModifiedAbilities += ability.modified;
                                 break;
+                            }
 
-                            case 'spd':
-                                sumBaseAbilities += actorData.abilities.speed.base;
-                                sumModifiedAbilities += actorData.abilities.speed.modified;
+                            case 'spd': {
+                                const ability = getAbilityPair('speed');
+                                sumBaseAbilities += ability.base;
+                                sumModifiedAbilities += ability.modified;
                                 break;
+                            }
     
-                            case 'int':
-                                sumBaseAbilities += actorData.abilities.intelligence.base;
-                                sumModifiedAbilities += actorData.abilities.intelligence.modified;
+                            case 'int': {
+                                const ability = getAbilityPair('intelligence');
+                                sumBaseAbilities += ability.base;
+                                sumModifiedAbilities += ability.modified;
                                 break;
+                            }
     
-                            case 'aur':
-                                sumBaseAbilities += actorData.abilities.aura.base;
-                                sumModifiedAbilities += actorData.abilities.aura.modified;
+                            case 'aur': {
+                                const ability = getAbilityPair('aura');
+                                sumBaseAbilities += ability.base;
+                                sumModifiedAbilities += ability.modified;
                                 break;
+                            }
     
-                            case 'wil':
-                                sumBaseAbilities += actorData.abilities.will.base;
-                                sumModifiedAbilities += actorData.abilities.will.modified;
+                            case 'wil': {
+                                const ability = getAbilityPair('will');
+                                sumBaseAbilities += ability.base;
+                                sumModifiedAbilities += ability.modified;
                                 break;
+                            }
     
-                            case 'eye':
-                                sumBaseAbilities += actorData.abilities.eyesight.base;
-                                sumModifiedAbilities += actorData.abilities.eyesight.modified;
+                            case 'eye': {
+                                const ability = getAbilityPair('eyesight');
+                                sumBaseAbilities += ability.base;
+                                sumModifiedAbilities += ability.modified;
                                 break;
+                            }
     
-                            case 'hrg':
-                                sumBaseAbilities += actorData.abilities.hearing.base;
-                                sumModifiedAbilities += actorData.abilities.hearing.modified;
+                            case 'hrg': {
+                                const ability = getAbilityPair('hearing');
+                                sumBaseAbilities += ability.base;
+                                sumModifiedAbilities += ability.modified;
                                 break;
+                            }
 
-                            case 'tch':
-                                sumBaseAbilities += actorData.abilities.touch.base;
-                                sumModifiedAbilities += actorData.abilities.touch.modified;
+                            case 'tch': {
+                                const ability = getAbilityPair('touch');
+                                sumBaseAbilities += ability.base;
+                                sumModifiedAbilities += ability.modified;
                                 break;
+                            }
     
-                            case 'sml':
-                                sumBaseAbilities += actorData.abilities.smell.base;
-                                sumModifiedAbilities += actorData.abilities.smell.modified;
+                            case 'sml': {
+                                const ability = getAbilityPair('smell');
+                                sumBaseAbilities += ability.base;
+                                sumModifiedAbilities += ability.modified;
                                 break;
+                            }
     
-                            case 'voi':
-                                sumBaseAbilities += actorData.abilities.voice.base;
-                                sumModifiedAbilities += actorData.abilities.voice.modified;
+                            case 'voi': {
+                                const ability = getAbilityPair('voice');
+                                sumBaseAbilities += ability.base;
+                                sumModifiedAbilities += ability.modified;
                                 break;
+                            }
     
-                            case 'cml':
-                                sumBaseAbilities += actorData.abilities.comeliness.base;
-                                sumModifiedAbilities += actorData.abilities.comeliness.modified;
+                            case 'cml': {
+                                const ability = getAbilityPair('comeliness');
+                                sumBaseAbilities += ability.base;
+                                sumModifiedAbilities += ability.modified;
                                 break;
+                            }
     
-                            case 'mor':
-                                sumBaseAbilities += actorData.abilities.morality.base;
-                                sumModifiedAbilities += actorData.abilities.morality.modified;
+                            case 'mor': {
+                                const ability = getAbilityPair('morality');
+                                sumBaseAbilities += ability.base;
+                                sumModifiedAbilities += ability.modified;
                                 break;
+                            }
     
-                            case 'end':
-                                sumBaseAbilities += actorData.abilities.endurance.base;
-                                sumModifiedAbilities += actorData.abilities.endurance.modified;
+                            case 'end': {
+                                const endurance = getEndurancePair();
+                                sumBaseAbilities += endurance.base;
+                                sumModifiedAbilities += endurance.modified;
                                 break;
-    
-                            case 'spd':
-                                sumBaseAbilities += actorData.abilities.speed.base;
-                                sumModifiedAbilities += actorData.abilities.speed.modified;
-                                break;
+                            }
     
                             default:
                                 sb.isFormulaValid = false;
@@ -193,7 +237,7 @@ export function calcSkillBase(item) {
                         // we must get the actor's sunsign to see if it matches. Actors may
                         // specify the sunsign as a dual sunsign, in which case the two parts
                         // must be separated either by a dash or a forward slash
-                        let actorSS = actorData.sunsign.trim().toLowerCase().split(/[-\/]/);
+                        let actorSS = (actorData.sunsign || '').trim().toLowerCase().split(/[-\/]/);
     
                         // Call 'trim' function on all strings in actorSS
                         actorSS.map(Function.prototype.call, String.prototype.trim);
