@@ -41,6 +41,10 @@ export class HarnMasterBaseActorSheet extends CompatActorSheet {
         data.items = this.actor.items.map(i => {
             const item = i.toObject();
             item.id = i.id;
+            // Keep the document clone for safety, but swap in prepared system
+            // data so derived item values (for example effectiveMasteryLevel)
+            // are available to templates.
+            item.system = i.system;
             return item;
         });
         data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
