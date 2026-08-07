@@ -181,7 +181,36 @@ export class HarnMasterActor extends Actor {
      * @returns an armorlocation ItemData
      */
     static _setupLocation(locName, templateName) {
-        const armorLocationData = foundry.utils.deepClone(game.model.Item.armorlocation);
+        const armorLocationData = {
+            layers: "",
+            armorQuality: 0,
+            blunt: 0,
+            edged: 0,
+            piercing: 0,
+            fire: 0,
+            isFumble: false,
+            isStumble: false,
+            isAmputate: false,
+            impactType: "custom",
+            effectiveImpact: {
+                ei1: "M1",
+                ei5: "S2",
+                ei9: "S3",
+                ei13: "G4",
+                ei17: "G5"
+            },
+            probWeight: {
+                high: 1,
+                mid: 1,
+                low: 1
+            }
+        };
+
+        const legacyModel = game.model?.Item?.armorlocation;
+        if (legacyModel) {
+            foundry.utils.mergeObject(armorLocationData, foundry.utils.deepClone(legacyModel), { inplace: true, overwrite: true });
+        }
+
         foundry.utils.mergeObject(armorLocationData, HM3.injuryLocations[templateName])
         return { name: locName, type: 'armorlocation', system: armorLocationData };
     }
@@ -313,7 +342,8 @@ export class HarnMasterActor extends Actor {
         // Safety net: We divide things by endurance, so ensure it is > 0
         actorData.endurance = Math.max(actorData.endurance, 1);
 
-        eph.effectiveWeight = actorData.loadRating ? Math.max(actorData.totalWeight - actorData.loadRating, 0) : actorData.totalWeight;
+        const loadRating = Number(actorData.loadRating) || 0;
+        eph.effectiveWeight = loadRating ? Math.max(actorData.totalWeight - loadRating, 0) : actorData.totalWeight;
         actorData.encumbrance = Math.floor(eph.effectiveWeight / actorData.endurance);
 
         // Setup temporary work values masking the base values

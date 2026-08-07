@@ -2,7 +2,7 @@
   "id": "hm3",
   "title": "HarnMaster 3",
   "description": "The HarnMaster system for FoundryVTT!",
-  "version": "1.6.12",
+  "version": "1.6.13",
   "authors": [
     {
       "name": "Valcorin",
@@ -35,6 +35,89 @@
       "flags": {}
     }
   ],
+  "documentTypes": {
+    "Actor": {
+      "character": {
+        "htmlFields": [
+          "description",
+          "biography"
+        ]
+      },
+      "creature": {
+        "htmlFields": [
+          "description",
+          "biography"
+        ]
+      },
+      "container": {
+        "htmlFields": [
+          "description"
+        ]
+      }
+    },
+    "Item": {
+      "skill": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "spell": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "invocation": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "psionic": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "weapongear": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "containergear": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "missilegear": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "armorgear": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "miscgear": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "injury": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "armorlocation": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "trait": {
+        "htmlFields": [
+          "description"
+        ]
+      }
+    }
+  },
   "packFolders": [
     {
       "name": "HârnMaster 3 System",
@@ -99,7 +182,7 @@
   ],
   "socket": true,
   "manifest": "https://raw.githubusercontent.com/valcorin/HarnMaster-3-FoundryVTT/master/system.json",
-  "download": "https://raw.githubusercontent.com/valcorin/HarnMaster-3-FoundryVTT/master/releases/download/v1.6.12/system.zip",
+  "download": "https://raw.githubusercontent.com/valcorin/HarnMaster-3-FoundryVTT/master/releases/download/v1.6.13/system.zip",
   "grid": {
     "distance": 5,
     "units": "ft"
